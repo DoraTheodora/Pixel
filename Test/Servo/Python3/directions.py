@@ -50,11 +50,11 @@ class Directions(object):
 
     def vertical_range_test(self):
         """ Testing the Y axis range """
-        for angle in range(70,170,1):
+        for angle in range(10,170,1):
             print(("Moving Vetically..." + str(angle)))
             self.move_vertical(vertical_angle=angle)
             time.sleep(0.1)
-        for angle in range(170,70,-1):
+        for angle in range(170,10,-1):
             print(("Moving Vetically..." + str(angle)))
             self.move_vertical(vertical_angle=angle)
             time.sleep(0.1)
