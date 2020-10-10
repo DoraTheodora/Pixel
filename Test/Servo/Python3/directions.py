@@ -130,11 +130,11 @@ def input_test():
 
 
 if __name__ == "__main__":
-    horizontal_test()
+    #horizontal_test()
     #vertical_test()
     #input_horizontal_test()
     #input_vertical_test()
-    #input_test()
+    input_test()
 
 
     
