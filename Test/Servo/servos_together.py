@@ -4,7 +4,7 @@
 
 import pantilthat
 from time import sleep
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 def setServoAngle(servo, angle):
     ## vertical
