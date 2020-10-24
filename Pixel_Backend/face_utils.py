@@ -2,6 +2,8 @@
 ## Final Year Project - Pixel, echo dot with face recognition
 ## 24 October 2020
 
+## Face recognition and face center calculations
+
 import imutils
 import cv2
 
