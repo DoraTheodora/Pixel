@@ -4,30 +4,50 @@
 ## 21 November 2020
 
 import skills
+import display
+
+questionAnswer = ''
 
 def start(): 
     skills.speak(skills.greeting())
     while True:
         request = skills.inputVoiceCommand().lower()
         if "time" in request:
-            skills.speak(skills.time())
+            answer = skills.time()
+            skills.speak(answer)
+            questionAnswer = answer
+
         if "date" in request:
-            skills.speak(skills.date())
+            answer = skills.date()
+            skills.speak(answer)
+            questionAnswer = answer
+
         if "thank you" in request:
-            skills.speak(skills.responseThankYou())
-        if "what is" in request:
-            skills.speak(skills.speak(skills.wiki(request)))
+            answer = skills.responseThankYou()
+            skills.speak(answer)
+            questionAnswer = answer
+
         if "define" in request:
-            skills.speak(skills.wiki(request))
+            answer = skills.wiki(request)
+            skills.speak(answer)
+            questionAnswer = answer
+
         if "definition" in request:
-            skills.speak(skills.wiki(request))
+            answer = skills.wiki(request)
+            skills.speak(answer)
+            questionAnswer = answer
+
         if "see you" in request:
-            skills.speak(skills.responseBye())
-            break
-        if "bye" in request:
-            skills.speak(skills.responseBye())
+            answer = skills.responseBye()
+            skills.speak(answer)
+            questionAnswer = answer
             break
 
-if __name__ == "__main__":
-    start()
+        if "bye" in request:
+            answer = skills.responseBye()
+            skills.speak(answer)
+            questionAnswer = answer
+            break
+
+
         

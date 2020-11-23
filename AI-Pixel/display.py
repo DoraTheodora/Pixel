@@ -10,10 +10,11 @@ from tkinter import *
 import datetime
 from newsapi import NewsApiClient
 import os
+import threading
 
 root = Tk()
 
-class ClockShow:
+class GUI:
     def __init__(self):
         ## Time Displayed
         self.time1 = ''
@@ -24,28 +25,33 @@ class ClockShow:
         self.clock = Label(self.clock_frame, text=self.time2, font=('Helvica', 40), fg='white')
         self.clock.pack(anchor=NW, fill=X, padx=45)
         self.clock.configure(background='black')
-        self.changeLabel()
+        self.changeTime()
 
+        ## Greeting Displayed
+        greeting_frame = tk.Label(root, font=('Helvica', 20), bg='black', fg='white')
+        greeting_frame.pack(anchor=W, side=LEFT)
 
-    def changeLabel(self):
+        greetingText = skills.greeting()
+        greeting = Label(greeting_frame, text=greetingText, font=('Helvica', 20), bg='black', fg='white')
+        greeting.pack(anchor=W, fill=X, padx=45)
+        
+    def changeTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S")
         self.clock.configure(text=self.time2)
-        self.clock_frame.after(200, self.changeLabel)
+        self.clock_frame.after(200, self.changeTime)
 
- 
-   
-obj = ClockShow()
+    def changeLog(self, textFromAi):
+        self.greeting.configure(text=textFromAi)
+        self.greeting_frame.after(200, self.changeLog)
 
-## greeting displayed
-greeting_frame = tk.Label(root, font=('Helvica', 20), bg='black', fg='white')
-greeting_frame.pack(anchor=W, side=LEFT)
+    def getRoot(self):
+        return root
 
-greetingText = skills.greeting()
-greeting = Label(greeting_frame, text=greetingText, font=('Helvica', 20), bg='black', fg='white')
-greeting.pack(anchor=W, fill=X, padx=45)
+    def getGreeting(self):
+        return greeting
 
 
-root.attributes("-fullscreen", True)
-root.configure(background='black')
+def startGUI():
+    gui = GUI()
+    return gui
 
-root.mainloop()
