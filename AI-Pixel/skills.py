@@ -4,7 +4,6 @@
 ## 21 November 2020
 
 ## python text to speech 
-import pyttsx3
 import datetime
 from gtts import gTTS
 import os
@@ -12,17 +11,10 @@ import speech_recognition as speech
 import random
 import wikipedia
 
-#engine = pyttsx3.init() 
-#voices = engine.getProperty('voices')
-#engine.setProperty('rate', 150) 
-#engine.setProperty('voices', voices[0].id)
-
 def playAudiofile():
     os.system('cvlc text.mp3 --play-and-exit')
 
 def speak(text):
-    #engine.say(text)
-    #engine.runAndWait()
     speakText = gTTS(text)
     speakText.save("text.mp3")
     playAudiofile()
@@ -35,7 +27,8 @@ def wiki(request):
     request = request.replace("definition", "")
     answer = wikipedia.summary(request, sentences=2)
     print(answer)
-    speak(answer)
+    return answer
+
 
 def responseThankYou():
     thankYouAnswers = []
@@ -45,7 +38,7 @@ def responseThankYou():
     thankYouAnswers.append("No problem, was the least I could do")
     thankYouAnswers.append("Glad to help")
     thankYouAnswers.append("Thank, YOU!")
-    speak(random.choice(thankYouAnswers))    
+    return random.choice(thankYouAnswers)
 
 def responseBye():
     byeAnswers = []
@@ -55,32 +48,33 @@ def responseBye():
     byeAnswers.append("See you later, aligator")
     byeAnswers.append("Bye bye")
     byeAnswers.append("Can't wait to meet again")
-    speak(random.choice(byeAnswers))
-
+    return random.choice(byeAnswers)
 
 def time():
     timeNow = "The time is "
     timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M%p")
-    speak(timeNow)
+    return timeNow
 
 def date():
     dateNow = "Today's date is "
     dateNow = dateNow + datetime.datetime.now().strftime("%A%d%B%Y")
-    speak(dateNow)
+    return dateNow
 
 def greeting():
     hour = int(datetime.datetime.now().strftime("%H"))
+    timeOfDay = ""
     if hour < 2:
-        speak("Good night")
+        timeOfDay = timeOfDay + "Good night"
     elif hour < 12:
-        speak("Good morning")
+        timeOfDay = timeOfDay + "Good morning"
     elif hour < 17:
-        speak("Good afternoon")
+        timeOfDay = timeOfDay + "Good afternoon"
     elif hour < 22:
-        speak("Good evening")
+        timeOfDay = timeOfDay + "Good evening"
     else:
-        speak("Good night")
-    speak("How Pixel can assist you?")
+        timeOfDay = timeOfDay + "Good night"
+    timeOfDay = timeOfDay + ". How Pixel can assist you?"
+    return timeOfDay
 
 def inputVoiceCommand():
     req = speech.Recognizer()
