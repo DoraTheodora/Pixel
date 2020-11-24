@@ -52,12 +52,12 @@ def responseBye():
 
 def time():
     timeNow = "The time is "
-    timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M%p")
+    timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M %p")
     return timeNow
 
 def date():
     dateNow = "Today's date is "
-    dateNow = dateNow + datetime.datetime.now().strftime("%A%d%B%Y")
+    dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
     return dateNow
 
 def greeting():

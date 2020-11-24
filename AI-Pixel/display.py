@@ -10,16 +10,18 @@ from tkinter import *
 import datetime
 from newsapi import NewsApiClient
 import os
-import threading
-
-root = Tk()
+import multiprocessing
+from multiprocessing import Process
+from multiprocessing import Manager
 
 class GUI:
-    def __init__(self):
+    root = Tk() ## static variables
+    def __init__(self,response):
+        self.response = response
         ## Time Displayed
         self.time1 = ''
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S")
-        self.clock_frame = tk.Label(root, font=('Helvica', 75), bg='black', fg='white')
+        self.clock_frame = tk.Label(GUI.root, font=('Helvica', 75), bg='black', fg='white')
         self.clock_frame.pack(anchor=NW, side=LEFT, padx=20, pady=30)
 
         self.clock = Label(self.clock_frame, text=self.time2, font=('Helvica', 40), fg='white')
@@ -28,30 +30,36 @@ class GUI:
         self.changeTime()
 
         ## Greeting Displayed
-        greeting_frame = tk.Label(root, font=('Helvica', 20), bg='black', fg='white')
-        greeting_frame.pack(anchor=W, side=LEFT)
+        self.greeting_frame = tk.Label(GUI.root, font=('Helvica', 20), bg='black', fg='white')
+        self.greeting_frame.pack(anchor=W, side=LEFT)
 
-        greetingText = skills.greeting()
-        greeting = Label(greeting_frame, text=greetingText, font=('Helvica', 20), bg='black', fg='white')
-        greeting.pack(anchor=W, fill=X, padx=45)
+        self.greetingText = skills.greeting()
+        self.greeting = Label(self.greeting_frame, text=self.greetingText, font=('Helvica', 20), bg='black', fg='white')
+        self.greeting.pack(anchor=W, fill=X, padx=45)
+        self.changeLog()
         
     def changeTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S")
         self.clock.configure(text=self.time2)
         self.clock_frame.after(200, self.changeTime)
 
-    def changeLog(self, textFromAi):
-        self.greeting.configure(text=textFromAi)
+    def changeLog(self):
+        self.answer = self.response.value
+        self.greeting.configure(text=self.answer)
         self.greeting_frame.after(200, self.changeLog)
 
-    def getRoot(self):
-        return root
 
-    def getGreeting(self):
-        return greeting
+def startAIandGUI():
+    with Manager() as manager:
+        answer = manager.Value('s','Hello Pixel')
+        gui = GUI(answer)
+        root = gui.root
 
+        assistant = Process(target=start_AI.startAI, args=(answer,))
+        assistant.start()
 
-def startGUI():
-    gui = GUI()
-    return gui
+        root.attributes("-fullscreen", True)
+        root.configure(background='black')
+
+        root.mainloop()
 

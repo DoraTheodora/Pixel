@@ -5,49 +5,48 @@
 
 import skills
 import display
+from multiprocessing import Process
+import time
 
-questionAnswer = ''
-
-def start(): 
-    skills.speak(skills.greeting())
+def startAI(response): 
+    response.value = skills.greeting()
+    skills.speak(response.value)
     while True:
         request = skills.inputVoiceCommand().lower()
         if "time" in request:
-            answer = skills.time()
-            skills.speak(answer)
-            questionAnswer = answer
-
+            response.value = skills.time()
+            print(response.value)
+            skills.speak(response.value)
+            
         if "date" in request:
-            answer = skills.date()
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.date()
+            print(response.value)
+            skills.speak(response.value)
 
         if "thank you" in request:
-            answer = skills.responseThankYou()
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.responseThankYou()
+            print(response.value)
+            skills.speak(response.value)
 
         if "define" in request:
-            answer = skills.wiki(request)
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.wiki(request)
+            skills.speak(response.value)
 
         if "definition" in request:
-            answer = skills.wiki(request)
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.wiki(request)
+            skills.speak(response.value)
 
         if "see you" in request:
-            answer = skills.responseBye()
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.responseBye()
+            skills.speak(response.value)
             break
 
         if "bye" in request:
-            answer = skills.responseBye()
-            skills.speak(answer)
-            questionAnswer = answer
+            response.value = skills.responseBye()
+            skills.speak(response.value)
             break
 
 
+
+        
         
