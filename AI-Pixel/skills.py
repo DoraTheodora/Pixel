@@ -29,7 +29,6 @@ def wiki(request):
     print(answer)
     return answer
 
-
 def responseThankYou():
     thankYouAnswers = []
     thankYouAnswers.append("Always a pleasure to help you")
@@ -78,17 +77,29 @@ def greeting():
 
 def inputVoiceCommand():
     req = speech.Recognizer()
+    status = ""
+    actions = []
     with speech.Microphone() as microphoneSource:
-        print("Pixel is listening...")
+        status = "Pixel is listening..."
+        actions.append(status)
+        print(status)
         req.pause_threshold = 1
         audio = req.listen(microphoneSource)
     try:
-        print("Pixel heard you...")
+        status = "Pixel heard you..."
+        actions.append(status)
+        print(status)
         request = req.recognize_google(audio)
+        actions.append(request)
         print(request)
     except:
-        print("Pixel cannot hear you...")
+        status = "Pixel cannot hear you..."
+        actions.append(status)
+        print(status)
         speak("Say that again please")
-        return "None"
-    return request
+        actions.append("None")
+        return actions
+    for i in actions:
+        print("-------", i)
+    return actions
 

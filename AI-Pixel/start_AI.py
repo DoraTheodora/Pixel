@@ -8,11 +8,16 @@ import display
 from multiprocessing import Process
 import time
 
-def startAI(response): 
+def startAI(response, AIstatus): 
     response.value = skills.greeting()
+    AIstatus.value = "Pixel is listening..."
     skills.speak(response.value)
+
     while True:
-        request = skills.inputVoiceCommand().lower()
+        statusAndResquest = skills.inputVoiceCommand()
+        request = statusAndResquest[2].lower()
+        AIstatus.value = statusAndResquest[1]
+        
         if "time" in request:
             response.value = skills.time()
             print(response.value)
@@ -45,7 +50,8 @@ def startAI(response):
             response.value = skills.responseBye()
             skills.speak(response.value)
             break
-
+        
+        AIstatus.value = statusAndResquest[0]
 
 
         
