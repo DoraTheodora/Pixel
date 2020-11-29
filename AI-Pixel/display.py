@@ -13,6 +13,8 @@ import os
 import multiprocessing
 from multiprocessing import Process
 from multiprocessing import Manager
+import camera
+from PIL import Image, ImageTk
 
 class GUI:
     root = Tk() ## static variables
@@ -22,6 +24,7 @@ class GUI:
     def __init__(self, response, AIstatus):
         self.response = response
         self.AIstatus = AIstatus
+        self.video_source = 0
         ## Time Displayed
         self.time1 = ''
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
@@ -42,6 +45,12 @@ class GUI:
         self.AI_Message.grid(row=1, column=0, padx=45, pady=30, sticky=W)
         self.changeAIMessage()
 
+        ## Camera
+        self.video = camera.StartCamera(self.video_source)
+        self.video_frame = Canvas(self.root, width=self.video.width, height=self.video.height)
+        self.video_frame.grid(row=2, column=0, padx=45, pady=30, sticky=W)
+        self.updatedCameraFrame()
+
     def changeTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
         self.clock.configure(text=self.time2)
@@ -57,6 +66,13 @@ class GUI:
         self.AI_processing.configure(text=self.AIstatus_message)
         self.AI_processing.after(200, self.changeAIProcessing)
 
+    def updatedCameraFrame(self):
+        ret, frame = self.video.get_frame()
+        if ret:
+            self.photo = ImageTk.PhotoImage(image = Image.fromarray(frame))
+            self.video_frame.create_image(0,0, image = self.photo)
+        self.video_frame.after(15, self.updatedCameraFrame)
+
 def startAIandGUI():
     with Manager() as manager:
         answer = manager.Value('s','Hello Pixel')
@@ -66,6 +82,7 @@ def startAIandGUI():
 
         assistant = Process(target=start_AI.startAI, args=(answer,AIstatus))
         assistant.start()
+
 
         root.attributes("-fullscreen", True)
         root.configure(background='black')
