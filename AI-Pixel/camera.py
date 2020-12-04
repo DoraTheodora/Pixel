@@ -17,7 +17,7 @@ class StartCamera:
         if self.video.isOpened():
             self.video.release()
 
-    def get_frame(self):
+    def getFrame(self):
         if self.video.isOpened():
             ret, frame = self.video.read()
             if ret:

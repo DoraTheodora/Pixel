@@ -5,20 +5,9 @@
 
 ## python text to speech 
 import datetime
-from gtts import gTTS
-import os
-import speech_recognition as speech
 import random
 import wikipedia
 
-def playAudiofile():
-    os.system('cvlc text.mp3 --play-and-exit')
-
-def speak(text):
-    speakText = gTTS(text)
-    speakText.save("text.mp3")
-    playAudiofile()
-    os.remove("text.mp3")
 
 def wiki(request):
     request = request.replace("wikipedia", "")
@@ -75,31 +64,5 @@ def greeting():
     timeOfDay = timeOfDay + ". How Pixel can assist you?"
     return timeOfDay
 
-def inputVoiceCommand():
-    req = speech.Recognizer()
-    status = ""
-    actions = []
-    with speech.Microphone() as microphoneSource:
-        status = "Pixel is listening..."
-        actions.append(status)
-        print(status)
-        req.pause_threshold = 1
-        audio = req.listen(microphoneSource)
-    try:
-        status = "Pixel heard you..."
-        actions.append(status)
-        print(status)
-        request = req.recognize_google(audio)
-        actions.append(request)
-        print(request)
-    except:
-        status = "Pixel cannot hear you..."
-        actions.append(status)
-        print(status)
-        speak("Say that again please")
-        actions.append("None")
-        return actions
-    for i in actions:
-        print("-------", i)
-    return actions
+
 

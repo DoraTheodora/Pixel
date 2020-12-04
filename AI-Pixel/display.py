@@ -3,7 +3,7 @@
 ## Pixel Virtual Assistant
 ## 21 November 2020
 
-import start_AI
+import virtual_assistant
 import skills
 import tkinter as tk
 from tkinter import *
@@ -21,9 +21,9 @@ class GUI:
     root.grid_rowconfigure(5, weight=1)
     root.grid_columnconfigure(1, weight=1)
     
-    def __init__(self, response, AIstatus):
+    def __init__(self, response, virtualAssistantStatus):
         self.response = response
-        self.AIstatus = AIstatus
+        self.virtualAssistantStatus = virtualAssistantStatus
         self.video_source = 0
         ## Time Displayed
         self.time1 = ''
@@ -31,19 +31,19 @@ class GUI:
         self.clock = Label(self.root, text=self.time2, font=('Helvica', 40), fg='white')
         self.clock.configure(background='black')
         self.clock.grid(row=0, column=0, padx=45, pady=30, sticky=W)
-        self.changeTime()
+        self.updateTime()
 
         ## AI Processing Message
         self.AI_processing_message = "Pixel started"
         self.AI_processing = Label(self.root, text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
         self.AI_processing.grid(row=0, column=3, padx=10, sticky=E)
-        self.changeAIProcessing()
+        self.updateVirtualAssistantProcessingMessage()
         
         ## Greeting Displayed
         self.greetingText = skills.greeting()
         self.AI_Message = Label(self.root, text=self.greetingText, font=('Helvica', 30), bg='black', fg='white')
         self.AI_Message.grid(row=1, column=0, padx=45, pady=30, sticky=W)
-        self.changeAIMessage()
+        self.updateResponse()
 
         ## Camera
         self.video = camera.StartCamera(self.video_source)
@@ -51,23 +51,23 @@ class GUI:
         self.video_frame.grid(row=2, column=0, padx=45, pady=30, sticky=W)
         self.updatedCameraFrame()
 
-    def changeTime(self):
+    def updateTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
         self.clock.configure(text=self.time2)
-        self.clock.after(200, self.changeTime)
+        self.clock.after(200, self.updateTime)
 
-    def changeAIMessage(self):
+    def updateResponse(self):
         self.answer = self.response.value
         self.AI_Message.configure(text=self.answer)
-        self.AI_Message.after(200, self.changeAIMessage)
+        self.AI_Message.after(200, self.updateResponse)
 
-    def changeAIProcessing(self):
-        self.AIstatus_message = self.AIstatus.value
-        self.AI_processing.configure(text=self.AIstatus_message)
-        self.AI_processing.after(200, self.changeAIProcessing)
+    def updateVirtualAssistantProcessingMessage(self):
+        self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
+        self.AI_processing.configure(text=self.virtualAssistantStatus_message)
+        self.AI_processing.after(200, self.updateVirtualAssistantProcessingMessage)
 
     def updatedCameraFrame(self):
-        ret, frame = self.video.get_frame()
+        ret, frame = self.video.getFrame()
         if ret:
             self.photo = ImageTk.PhotoImage(image = Image.fromarray(frame))
             self.video_frame.create_image(0,0, image = self.photo)
@@ -76,11 +76,11 @@ class GUI:
 def startAIandGUI():
     with Manager() as manager:
         answer = manager.Value('s','Hello Pixel')
-        AIstatus = manager.Value('s', 'Pixel started')
-        gui = GUI(answer, AIstatus)
+        virtualAssistantStatus = manager.Value('s', 'Pixel started')
+        gui = GUI(answer, virtualAssistantStatus)
         root = gui.root
 
-        assistant = Process(target=start_AI.startAI, args=(answer,AIstatus))
+        assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
         assistant.start()
 
 
