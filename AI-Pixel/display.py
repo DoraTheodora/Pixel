@@ -16,7 +16,7 @@ from multiprocessing import Manager
 import camera
 from PIL import Image, ImageTk
 
-class GUI:
+class Display:
     root = Tk() ## static variables
     root.grid_rowconfigure(5, weight=1)
     root.grid_columnconfigure(1, weight=1)
@@ -37,48 +37,48 @@ class GUI:
         self.AI_processing_message = "Pixel started"
         self.AI_processing = Label(self.root, text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
         self.AI_processing.grid(row=0, column=3, padx=10, sticky=E)
-        self.updateVirtualAssistantProcessingMessage()
+        self.displayVirtualAssistantStatus()
         
         ## Greeting Displayed
         self.greetingText = skills.greeting()
         self.AI_Message = Label(self.root, text=self.greetingText, font=('Helvica', 30), bg='black', fg='white')
-        self.AI_Message.grid(row=1, column=0, padx=45, pady=30, sticky=W)
-        self.updateResponse()
+        self.AI_Message.grid(row=4, column=0, padx=45, pady=30, sticky=W)
+        self.displayResponse()
 
         ## Camera
-        self.video = camera.StartCamera(self.video_source)
-        self.video_frame = Canvas(self.root, width=self.video.width, height=self.video.height)
-        self.video_frame.grid(row=2, column=0, padx=45, pady=30, sticky=W)
-        self.updatedCameraFrame()
+        #self.video = camera.Camera(self.video_source)
+        #self.video_frame = Canvas(self.root, width=self.video.width, height=self.video.height)
+        #self.video_frame.grid(row=2, column=0, padx=45, pady=30, sticky=W)
+        #self.updatedCameraFrame()
 
     def updateTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
         self.clock.configure(text=self.time2)
         self.clock.after(200, self.updateTime)
 
-    def updateResponse(self):
+    def displayResponse(self):
         self.answer = self.response.value
         self.AI_Message.configure(text=self.answer)
-        self.AI_Message.after(200, self.updateResponse)
+        self.AI_Message.after(200, self.displayResponse)
 
-    def updateVirtualAssistantProcessingMessage(self):
+    def displayVirtualAssistantStatus(self):
         self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
         self.AI_processing.configure(text=self.virtualAssistantStatus_message)
-        self.AI_processing.after(200, self.updateVirtualAssistantProcessingMessage)
-
+        self.AI_processing.after(200, self.displayVirtualAssistantStatus)
+    '''
     def updatedCameraFrame(self):
         ret, frame = self.video.getFrame()
         if ret:
             self.photo = ImageTk.PhotoImage(image = Image.fromarray(frame))
             self.video_frame.create_image(0,0, image = self.photo)
-        self.video_frame.after(15, self.updatedCameraFrame)
+        self.video_frame.after(15, self.updatedCameraFrame) '''
 
-def startAIandGUI():
+def start():
     with Manager() as manager:
         answer = manager.Value('s','Hello Pixel')
         virtualAssistantStatus = manager.Value('s', 'Pixel started')
-        gui = GUI(answer, virtualAssistantStatus)
-        root = gui.root
+        display = Display(answer, virtualAssistantStatus)
+        root = display.root
 
         assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
         assistant.start()

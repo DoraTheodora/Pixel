@@ -4,7 +4,7 @@
 ## 29 November 2020
 import cv2
 
-class StartCamera:
+class Camera:
     def __init__(self, video_source=0):
         ## open video frame
         self.video = cv2.VideoCapture(video_source)

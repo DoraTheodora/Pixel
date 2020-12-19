@@ -7,9 +7,34 @@
 import datetime
 import random
 import wikipedia
+import webbrowser
+import os
+import pickle
+import requests, json
 
 
-def wiki(request):
+def weather():
+    with open('api_keys.json') as API:
+        API = json.load(API)
+        key = API['weather']
+    base_url = "http://api.openweathermap.org/data/2.5/weather?q="
+    city = "Kilkenny"
+    complete_url = base_url + city + "&appid=" + key + "&units=metric"
+    response = requests.get(complete_url)
+    response = response.json()
+    desc = str(response['weather'][0]['description'])
+    temp = str(response['main']['temp'])
+    #print(response)
+    answer = "The weather in {} is\n {} and with the tempeature of {} C".format(city, desc, temp)
+    return answer
+
+
+def restartDevice():
+    os.system("shutdown -l")
+    ## more work here, to make the device restart
+
+
+def wiki(request:str):
     request = request.replace("wikipedia", "")
     request = request.replace("what is", "")
     request = request.replace("define", "")

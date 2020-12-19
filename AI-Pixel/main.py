@@ -5,4 +5,4 @@
 
 import display
 
-display.startAIandGUI()
+display.start()

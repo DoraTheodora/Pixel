@@ -21,40 +21,50 @@ def start(response, AIstatus):
         request = statusAndResquest[2].lower()
         AIstatus.value = statusAndResquest[1]
         
-        if "time" in request:
-            response.value = skills.time()
-            print(response.value)
-            speak(response.value)
+        if "pixel" in request:
+            if "time" in request:
+                response.value = skills.time()
+                print(response.value)
+                speak(response.value)
+                
+            if "date" in request:
+                response.value = skills.date()
+                print(response.value)
+                speak(response.value)
             
-        if "date" in request:
-            response.value = skills.date()
-            print(response.value)
-            speak(response.value)
+            if "weather" in request:
+                response.value = skills.weather()
+                print(response.value)
+                speak(response.value)
+            
+            if "thank you" in request:
+                response.value = skills.responseThankYou()
+                print(response.value)
+                speak(response.value)
 
-        if "thank you" in request:
-            response.value = skills.responseThankYou()
-            print(response.value)
-            speak(response.value)
+            if "define" in request:
+                response.value = skills.wiki(request)
+                speak(response.value)
 
-        if "define" in request:
-            response.value = skills.wiki(request)
-            speak(response.value)
+            if "definition" in request:
+                response.value = skills.wiki(request)
+                speak(response.value)
 
-        if "definition" in request:
-            response.value = skills.wiki(request)
-            speak(response.value)
+            if "see you" in request:
+                response.value = skills.responseBye()
+                speak(response.value)
+                break
 
-        if "see you" in request:
-            response.value = skills.responseBye()
-            speak(response.value)
-            break
+            if "bye" in request:
+                response.value = skills.responseBye()
+                speak(response.value)
+                break
 
-        if "bye" in request:
-            response.value = skills.responseBye()
-            speak(response.value)
-            break
-        
-        AIstatus.value = statusAndResquest[0]
+
+
+
+            
+            AIstatus.value = statusAndResquest[0]
 
 def listen():
     req = speech.Recognizer()
