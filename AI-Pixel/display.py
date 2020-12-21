@@ -17,7 +17,9 @@ import camera
 from PIL import Image, ImageTk
 
 class Display:
-    root = Tk() ## static variables
+    """The  Display class defines the virtual assistant's graphical interface"""
+    root = Tk() 
+    ## Dividing the screen in 1 column and 5 rows
     root.grid_rowconfigure(5, weight=1)
     root.grid_columnconfigure(1, weight=1)
     
@@ -25,6 +27,7 @@ class Display:
         self.response = response
         self.virtualAssistantStatus = virtualAssistantStatus
         self.video_source = 0
+
         ## Time Displayed
         self.time1 = ''
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
@@ -35,13 +38,13 @@ class Display:
 
         ## AI Processing Message
         self.AI_processing_message = "Pixel started"
-        self.AI_processing = Label(self.root, text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
+        self.AI_processing = Label(self.root, justify=LEFT ,text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
         self.AI_processing.grid(row=0, column=3, padx=10, sticky=E)
         self.displayVirtualAssistantStatus()
         
-        ## Greeting Displayed
+        ## Virtual Assistant Response Displayed
         self.greetingText = skills.greeting()
-        self.AI_Message = Label(self.root, text=self.greetingText, font=('Helvica', 30), bg='black', fg='white')
+        self.AI_Message = Label(self.root, justify=LEFT, text=self.greetingText, font=('System', 25), bg='black', fg='white')
         self.AI_Message.grid(row=4, column=0, padx=45, pady=30, sticky=W)
         self.displayResponse()
 
@@ -51,16 +54,19 @@ class Display:
         #self.video_frame.grid(row=2, column=0, padx=45, pady=30, sticky=W)
         #self.updatedCameraFrame()
 
+    ## update time on GUI
     def updateTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
         self.clock.configure(text=self.time2)
         self.clock.after(200, self.updateTime)
 
+    ## update virtual assistant's reponse on GUI
     def displayResponse(self):
         self.answer = self.response.value
         self.AI_Message.configure(text=self.answer)
         self.AI_Message.after(200, self.displayResponse)
 
+    ## update virtual assistant's status on GUI
     def displayVirtualAssistantStatus(self):
         self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
         self.AI_processing.configure(text=self.virtualAssistantStatus_message)
@@ -74,6 +80,7 @@ class Display:
         self.video_frame.after(15, self.updatedCameraFrame) '''
 
 def start():
+    """ Provisional main of the program """
     with Manager() as manager:
         answer = manager.Value('s','Hello Pixel')
         virtualAssistantStatus = manager.Value('s', 'Pixel started')

@@ -2,8 +2,9 @@
 ## C00231174
 ## Pixel Virtual Assistant
 ## 21 November 2020
+import helper
 
-## python text to speech 
+
 import datetime
 import random
 import wikipedia
@@ -12,20 +13,27 @@ import os
 import pickle
 import requests, json
 
+def errorUnderstanding():
+    """ If the virtual assistant is not able to handle the request """
+    answer = "Sorry I did not get that, please try again!"
+    return answer
 
-def weather():
+def weather(city:str):
     with open('api_keys.json') as API:
         API = json.load(API)
         key = API['weather']
     base_url = "http://api.openweathermap.org/data/2.5/weather?q="
-    city = "Kilkenny"
+    city = city.capitalize()
     complete_url = base_url + city + "&appid=" + key + "&units=metric"
     response = requests.get(complete_url)
     response = response.json()
     desc = str(response['weather'][0]['description'])
     temp = str(response['main']['temp'])
     #print(response)
-    answer = "The weather in {} is\n {} and with the tempeature of {} C".format(city, desc, temp)
+    answer = {"answer" : "The weather in {} is\n {} and with the temperature of {} C".format(city, desc, temp)}
+    answer["location"] = "Location: " + city + "\n"
+    answer["descrition"] = "Weather: " + desc + "\n"
+    answer["temperature"] =  "Temperature: " + temp + "\n"
     return answer
 
 
@@ -35,12 +43,15 @@ def restartDevice():
 
 
 def wiki(request:str):
+    request = request.replace("pixel", "")
     request = request.replace("wikipedia", "")
     request = request.replace("what is", "")
     request = request.replace("define", "")
     request = request.replace("definition", "")
-    answer = wikipedia.summary(request, sentences=2)
-    print(answer)
+    answer = []
+    answer.append(wikipedia.summary(request, sentences=2))
+    answer.append(helper.niceFormattedLongText(answer[0]))
+    print(answer[0])
     return answer
 
 def responseThankYou():
