@@ -1,9 +1,9 @@
-## get weather for any city
+from geolocation.main import GoogleMaps
+import j
 
-import requests, json
-key = ''
-
-
+with open('AI-Pixel/api_keys.json') as API:
+    API = json.load(API)
+    key = API['geocode']
 
 ### When registering
 ## ask user for: 
