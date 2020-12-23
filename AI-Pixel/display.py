@@ -4,14 +4,16 @@
 ## 21 November 2020
 
 import virtual_assistant
-import skills
-import tkinter as tk
-from tkinter import *
-import datetime
-from newsapi import NewsApiClient
-import os
 import camera
+
+import skills
+import datetime
+import tkinter as tk
+import os
 import multiprocessing
+
+from tkinter import *
+from newsapi import NewsApiClient
 from multiprocessing import Process
 from multiprocessing import Manager
 from PIL import Image, ImageTk
@@ -86,20 +88,21 @@ def start():
         capture = Process(target=camera.start,args=(faceFound,))
         capture.start()
 
-        answer = manager.Value('s','Hello Pixel')
-        virtualAssistantStatus = manager.Value('s', 'Pixel started')
+        answer = manager.Value('s','')
+        virtualAssistantStatus = manager.Value('s', '')
         display = Display(answer, virtualAssistantStatus)
         root = display.root
-
 
         while True:
             if faceFound.value:
                 assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
                 assistant.start()
                 break
-    
+
         root.attributes("-fullscreen", True)
         root.configure(background='black')
-
         root.mainloop()
+
+
+        
 

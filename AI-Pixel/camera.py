@@ -32,14 +32,17 @@ def start(faceFound):
             minSize=(20, 20)
         ))
         if len(faces) > 0:
-            faceFound.value=True
+            faceFound.value = True
+        else:
+            faceFound.value = False
 
         print(faces)
         for(x,y,w,h) in faces:
+            time.sleep(5)
             cv2.rectangle(image,(x,y), (x+w,y+h), (255,0,0),2)
             roi_gray = gray[y:y+h, x:x+w]
-            roi_color=image[y:y+h, x:x+w]
-            cv2.imshow('video',image)
+            roi_color = image[y:y+h, x:x+w]
+            #cv2.imshow('video',image)
             k = cv2.waitKey(30) 
             if k == 25:
                 break
