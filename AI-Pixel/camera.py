@@ -2,28 +2,49 @@
 ## C00231174
 ## Pixel Virtual Assistant
 ## 29 November 2020
+import numpy as np
 import cv2
+import time
+import os
+import multiprocessing
 
-class Camera:
-    def __init__(self, video_source=0):
-        ## open video frame
-        self.video = cv2.VideoCapture(video_source)
-        if not self.video.isOpened():
-            raise ValueError("Unable to open video source", video_source)
-        self.width = self.video.get(cv2.CAP_PROP_FRAME_WIDTH)
-        self.height = self.video.get(cv2.CAP_PROP_FRAME_HEIGHT)
+from multiprocessing import Process
+from multiprocessing import Manager
 
-    def __del__(self):
-        if self.video.isOpened():
-            self.video.release()
+import display
+import virtual_assistant
 
-    def getFrame(self):
-        if self.video.isOpened():
-            ret, frame = self.video.read()
-            if ret:
-                return (ret, cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            else:
-                return (ret, None)
-        else:
-            return(ret, None)
+faceCascade = cv2.CascadeClassifier('Cascades/haarcascade_frontalface_default.xml')
+capture = cv2.VideoCapture(0)
+capture.set(3,300)
+capture.set(3,300)
 
+def start(faceFound):
+    while True:
+        ret, image = capture.read()
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        #faces.remove()
+        #print(dir(faces))
+        faces = (faceCascade.detectMultiScale(
+            gray,     
+            scaleFactor=1.2,
+            minNeighbors=5,     
+            minSize=(20, 20)
+        ))
+        if len(faces) > 0:
+            faceFound.value=True
+
+        print(faces)
+        for(x,y,w,h) in faces:
+            cv2.rectangle(image,(x,y), (x+w,y+h), (255,0,0),2)
+            roi_gray = gray[y:y+h, x:x+w]
+            roi_color=image[y:y+h, x:x+w]
+            cv2.imshow('video',image)
+            k = cv2.waitKey(30) 
+            if k == 25:
+                break
+
+    capture.release()
+    cv2.destroyAllWindows()
+
+#start(False)

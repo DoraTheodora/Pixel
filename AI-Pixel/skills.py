@@ -30,10 +30,10 @@ def weather(city:str):
     desc = str(response['weather'][0]['description'])
     temp = str(response['main']['temp'])
     #print(response)
-    answer = {"answer" : "The weather in {} is\n {} and with the temperature of {} C".format(city, desc, temp)}
+    answer = {"answer" : "The weather in {} is\n {} and with the temperature of {} Celsius".format(city, desc, temp)}
     answer["location"] = "Location: " + city + "\n"
     answer["descrition"] = "Weather: " + desc + "\n"
-    answer["temperature"] =  "Temperature: " + temp + "\n"
+    answer["temperature"] =  "Temperature: " + temp + "C \n"
     return answer
 
 

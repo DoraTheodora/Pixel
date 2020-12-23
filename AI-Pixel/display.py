@@ -10,10 +10,10 @@ from tkinter import *
 import datetime
 from newsapi import NewsApiClient
 import os
+import camera
 import multiprocessing
 from multiprocessing import Process
 from multiprocessing import Manager
-import camera
 from PIL import Image, ImageTk
 
 class Display:
@@ -26,7 +26,7 @@ class Display:
     def __init__(self, response, virtualAssistantStatus):
         self.response = response
         self.virtualAssistantStatus = virtualAssistantStatus
-        self.video_source = 0
+        #self.video_source = 0
 
         ## Time Displayed
         self.time1 = ''
@@ -82,15 +82,22 @@ class Display:
 def start():
     """ Provisional main of the program """
     with Manager() as manager:
+        faceFound = manager.Value('b', False)
+        capture = Process(target=camera.start,args=(faceFound,))
+        capture.start()
+
         answer = manager.Value('s','Hello Pixel')
         virtualAssistantStatus = manager.Value('s', 'Pixel started')
         display = Display(answer, virtualAssistantStatus)
         root = display.root
 
-        assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
-        assistant.start()
 
-
+        while True:
+            if faceFound.value:
+                assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
+                assistant.start()
+                break
+    
         root.attributes("-fullscreen", True)
         root.configure(background='black')
 

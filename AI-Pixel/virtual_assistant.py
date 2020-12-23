@@ -59,6 +59,7 @@ def start(response, AIstatus):
             if "weather" in request:
                 AIstatus.value = status["process"]
                 try:
+                    request = helper.remove_polite_words(request)
                     city = helper.substring_after(request, "in")
                     weatherDetails = skills.weather(city)
                     response.value = weatherDetails["location"]+ weatherDetails["descrition"]+ weatherDetails["temperature"]
@@ -107,7 +108,21 @@ def start(response, AIstatus):
                     AIstatus.value = status["answer"]
                     print(response.value)
                     speak(response.value)
-                
+            
+            if "tell me about" in request:
+                AIstatus.value = status["process"]
+                request = helper.remove_polite_words(request)
+                word = helper.substring_after(request, "tell me about")
+                try:
+                    answer = skills.wiki(word)
+                    response.value = answer[1]
+                    AIstatus.value = status["answer"]
+                    speak(answer[0])
+                except:
+                    response.value = skills.errorUnderstanding()
+                    AIstatus.value = status["answer"]
+                    print(response.value)
+                    speak(response.value)
 
             if "see you" in request:
                 AIstatus.value = status["process"]
