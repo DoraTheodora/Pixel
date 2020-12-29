@@ -34,6 +34,7 @@ def weather(city:str):
     answer["location"] = "Location: " + city + "\n"
     answer["descrition"] = "Weather: " + desc + "\n"
     answer["temperature"] =  "Temperature: " + temp + "C \n"
+    print(answer)
     return answer
 
 

@@ -19,7 +19,9 @@ from multiprocessing import Manager
 from PIL import Image, ImageTk
 
 class Display:
-    """The  Display class defines the virtual assistant's graphical interface"""
+    """ The  Display class defines the virtual assistant's graphical interface
+        Mirror - Display
+    """
     root = Tk() 
     ## Dividing the screen in 1 column and 5 rows
     root.grid_rowconfigure(5, weight=1)
@@ -73,6 +75,10 @@ class Display:
         self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
         self.AI_processing.configure(text=self.virtualAssistantStatus_message)
         self.AI_processing.after(200, self.displayVirtualAssistantStatus)
+
+    def close(self):
+        self.root.destroy()
+
     '''
     def updatedCameraFrame(self):
         ret, frame = self.video.getFrame()
@@ -92,16 +98,20 @@ def start():
         virtualAssistantStatus = manager.Value('s', '')
         display = Display(answer, virtualAssistantStatus)
         root = display.root
+        AIStarted = False
 
         while True:
-            if faceFound.value:
+            if faceFound.value and not AIStarted:
+                root.attributes("-fullscreen", True)
+                root.configure(background='black')
                 assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
                 assistant.start()
-                break
+                AIStarted = True
+            if faceFound.value and AIStarted:
+                root.update()
+                
 
-        root.attributes("-fullscreen", True)
-        root.configure(background='black')
-        root.mainloop()
+        #root.mainloop()
 
 
         

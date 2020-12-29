@@ -138,6 +138,7 @@ def start(response, AIstatus):
                 speak(response.value)
                 break
 
+
 def listen():
     """The listen() function uses the speech_recognition to translate what the user's request is
     from voice to text

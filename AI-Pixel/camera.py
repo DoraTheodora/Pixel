@@ -1,7 +1,8 @@
 ## Theodora Tataru
 ## C00231174
 ## Pixel Virtual Assistant
-## 29 November 2020
+## 23 December 2020
+
 import numpy as np
 import cv2
 import time
@@ -36,9 +37,9 @@ def start(faceFound):
         else:
             faceFound.value = False
 
-        print(faces)
+        #print(faces)
         for(x,y,w,h) in faces:
-            time.sleep(5)
+            #lastFaceFound = time.clock()
             cv2.rectangle(image,(x,y), (x+w,y+h), (255,0,0),2)
             roi_gray = gray[y:y+h, x:x+w]
             roi_color = image[y:y+h, x:x+w]
@@ -50,4 +51,3 @@ def start(faceFound):
     capture.release()
     cv2.destroyAllWindows()
 
-#start(False)
