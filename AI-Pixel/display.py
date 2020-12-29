@@ -11,6 +11,7 @@ import datetime
 import tkinter as tk
 import os
 import multiprocessing
+import time
 
 from tkinter import *
 from newsapi import NewsApiClient
@@ -91,7 +92,8 @@ def start():
     """ Provisional main of the program """
     with Manager() as manager:
         faceFound = manager.Value('b', False)
-        capture = Process(target=camera.start,args=(faceFound,))
+        timeFaceFound = manager.Value('f', time.time())
+        capture = Process(target=camera.start,args=(faceFound,timeFaceFound))
         capture.start()
 
         answer = manager.Value('s','')

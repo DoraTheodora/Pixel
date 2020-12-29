@@ -20,7 +20,7 @@ capture = cv2.VideoCapture(0)
 capture.set(3,300)
 capture.set(3,300)
 
-def start(faceFound):
+def start(faceFound, timeFaceFound):
     while True:
         ret, image = capture.read()
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -36,10 +36,11 @@ def start(faceFound):
             faceFound.value = True
         else:
             faceFound.value = False
+            idle(timeFaceFound.value)
 
         #print(faces)
         for(x,y,w,h) in faces:
-            #lastFaceFound = time.clock()
+            timeFaceFound.value = time.time()
             cv2.rectangle(image,(x,y), (x+w,y+h), (255,0,0),2)
             roi_gray = gray[y:y+h, x:x+w]
             roi_color = image[y:y+h, x:x+w]
@@ -51,3 +52,7 @@ def start(faceFound):
     capture.release()
     cv2.destroyAllWindows()
 
+
+def idle(timeFaceFound):
+    idleTime = time.time() - timeFaceFound
+    print("Idle time: ", idleTime)
