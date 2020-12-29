@@ -56,3 +56,4 @@ def start(faceFound, timeFaceFound):
 def idle(timeFaceFound):
     idleTime = time.time() - timeFaceFound
     print("Idle time: ", idleTime)
+    
