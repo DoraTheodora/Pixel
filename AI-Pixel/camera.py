@@ -20,7 +20,7 @@ capture = cv2.VideoCapture(0)
 capture.set(3,300)
 capture.set(3,300)
 
-def start(faceFound, timeFaceFound):
+def start(faceFound:bool, timeFaceFound:float, delay:float):
     while True:
         ret, image = capture.read()
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -28,7 +28,7 @@ def start(faceFound, timeFaceFound):
         #print(dir(faces))
         faces = (faceCascade.detectMultiScale(
             gray,     
-            scaleFactor=1.2,
+            scaleFactor=1.2,               
             minNeighbors=5,     
             minSize=(20, 20)
         ))
@@ -36,7 +36,7 @@ def start(faceFound, timeFaceFound):
             faceFound.value = True
         else:
             faceFound.value = False
-            idle(timeFaceFound.value)
+            delay.value =  idle(timeFaceFound.value)
 
         #print(faces)
         for(x,y,w,h) in faces:
@@ -55,5 +55,6 @@ def start(faceFound, timeFaceFound):
 
 def idle(timeFaceFound):
     idleTime = time.time() - timeFaceFound
-    print("Idle time: ", idleTime)
+    return idleTime
+    #print("Idle time: ", idleTime)
     

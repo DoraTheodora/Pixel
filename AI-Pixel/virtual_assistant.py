@@ -24,11 +24,11 @@ status = {
 }
 
 def start(response, AIstatus): 
-    """ This method starts the virtual assisstant, that will process the users request
-    and deliver a meaningful answer
-    :param response.value: is the text from the virtual's assistant response that is displayed to the screen
-    :param AIstatus.value: is the virtual assistant's status that is displated to the screen
-    :param request: is the user's request in text
+    """ This method starts the virtual assisstant, that will process the user's request
+        and deliver a meaningful answer
+        :param response.value: is the text from the virtual's assistant response that is displayed to the screen
+        :param AIstatus.value: is the virtual assistant's status that is displated to the screen
+        :param request: is the user's request in text format
     """
 
     response.value = skills.greeting()
