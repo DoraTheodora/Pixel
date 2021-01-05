@@ -5,4 +5,4 @@
 
 import display
 
-display.start()
+#display.start()

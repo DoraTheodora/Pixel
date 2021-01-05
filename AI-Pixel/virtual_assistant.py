@@ -171,6 +171,7 @@ def listen():
         return actions
     for i in actions:
         print("-------", i)
+        print(actions)
     return actions
 
 def playAudiofile():

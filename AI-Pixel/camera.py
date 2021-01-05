@@ -37,7 +37,7 @@ def start(faceFound:bool, timeFaceFound:float, delay:float):
         else:
             faceFound.value = False
             delay.value =  idle(timeFaceFound.value)
-            print("------",faceFound.value, delay.value)
+            #print("------",faceFound.value, delay.value)
 
         #print(faces)
         for(x,y,w,h) in faces:
