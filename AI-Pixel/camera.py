@@ -4,15 +4,12 @@
 ## 23 December 2020
 
 import numpy as np
-import cv2
 import time
 import os
 import multiprocessing
 
 from multiprocessing import Process
 from multiprocessing import Manager
-from imutils.video import VideoStream
-from imutils.video import FPS
 
 import face_recognition
 import display
@@ -32,17 +29,15 @@ data = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
 # initialize the video stream and allow the camera sensor to warm up
 print("[INFO] starting video stream...")
-capture = VideoStream(src=0).start()
-# start the FPS counter
-fps = FPS().start()
+capture = cv2.VideoCapture(0)
 
 
-def start(faceFound:bool, timeFaceFound:float, delay:float):
+def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
     while True:
         # grab the frame from the threaded video stream and resize it
 	    # to 500px (to speedup processing)
-        frame = capture.read()
-        frame = imutils.resize(frame, width=300)
+        ret, frame = capture.read()
+        #frame = imutils.resize(frame, width=300)
         # convert the input frame from (1) BGR to grayscale (for face
 	    # detection) and (2) from BGR to RGB (for face recognition)
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -58,14 +53,23 @@ def start(faceFound:bool, timeFaceFound:float, delay:float):
 
         # compute the facial embeddings for each face bounding box
         encodings = face_recognition.face_encodings(rgb, boxes)
+        #print("[INFO] encodings: ", encodings)
+        if len(encodings) > 0:
+            faceFound.value = True
+            timeFaceFound.value = time.time()
+        else:
+            faceFound.value = False
+            delay.value = idle(timeFaceFound.value)
+            print("[INFO] Idle time: ", delay.value)
         names = []
+
         # loop over the facial embeddings
         for encoding in encodings:
             # attempt to match each face in the input image to our known
             # encodings
             matches = face_recognition.compare_faces(data["encodings"],
                 encoding)
-            name = "Unknown"
+            name = "stranger"
 
             # check to see if we have found a match
             if True in matches:
@@ -85,11 +89,15 @@ def start(faceFound:bool, timeFaceFound:float, delay:float):
                 # of votes (note: in the event of an unlikely tie Python
                 # will select first entry in the dictionary)
                 name = max(counts, key=counts.get)
+                # print("[INFO] Counts: ", counts)
+
             
             # update the list of names
             names.append(name)
-
+            user.value = name
+            print("[INFO] Name: ", name)
         # loop over the recognized faces
+        # print("[INFO] faceFound: ", faceFound.value)
         for ((top, right, bottom, left), name) in zip(boxes, names):
             # draw the predicted face name on the image
             cv2.rectangle(frame, (left, top), (right, bottom),
@@ -100,37 +108,14 @@ def start(faceFound:bool, timeFaceFound:float, delay:float):
 
         # display the image to our screen
         cv2.imshow("Frame", frame)
-        key = cv2.waitKey(1) & 0xFF
-
-        # if the `q` key was pressed, break from the loop
-        if key == ord("q"):
-            break
-
-        # update the FPS counter
-        fps.update()
-
-    # stop the timer and display FPS information
-    fps.stop()
-    print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
-    print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
 
     # do a bit of cleanup
+    capture.release()
     cv2.destroyAllWindows()
-    vs.stop()
-
-    # stop the timer and display FPS information
-    fps.stop()
-    print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
-    print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
-
-    # do a bit of cleanup
-    cv2.destroyAllWindows()
-    vs.stop()
-
 
 def idle(timeFaceFound):
     idleTime = time.time() - timeFaceFound
     return idleTime
-    #print("Idle time: ", idleTime)
+
+#start(True, time.time(), 0)
     
-start(True,  0,  0)

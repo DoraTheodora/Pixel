@@ -12,6 +12,7 @@ import webbrowser
 import os
 import pickle
 import requests, json
+import multiprocessing
 
 def errorUnderstanding():
     """ If the virtual assistant is not able to handle the request """
@@ -85,7 +86,7 @@ def date():
     dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
     return dateNow
 
-def greeting():
+def greeting(user):
     hour = int(datetime.datetime.now().strftime("%H"))
     timeOfDay = ""
     if hour < 2:
@@ -98,7 +99,7 @@ def greeting():
         timeOfDay = timeOfDay + "Good evening"
     else:
         timeOfDay = timeOfDay + "Good night"
-    timeOfDay = timeOfDay + ". How Pixel can assist you?"
+    timeOfDay = timeOfDay + " " + user +  "! How Pixel can assist you?"
     return timeOfDay
 
 

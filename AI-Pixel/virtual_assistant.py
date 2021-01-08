@@ -23,7 +23,7 @@ status = {
     "noSound" : "Pixel cannot hear you..."
 }
 
-def start(response:str, AIstatus:str): 
+def start(user:str, response:str, AIstatus:str): 
     """ 
         This method starts the virtual assisstant, that will process the user's request and deliver a meaningful answer
 
@@ -32,7 +32,7 @@ def start(response:str, AIstatus:str):
         :param request: is the user's request in text format
     """
 
-    response.value = skills.greeting()
+    response.value = skills.greeting(user.value)
     AIstatus.value = status["start"]
     speak(response.value)
 

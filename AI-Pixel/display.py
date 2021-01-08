@@ -28,7 +28,7 @@ class Display:
     root.grid_rowconfigure(5, weight=1)
     root.grid_columnconfigure(1, weight=1)
     
-    def __init__(self, response, virtualAssistantStatus):
+    def __init__(self, user, response, virtualAssistantStatus):
         self.response = response
         self.virtualAssistantStatus = virtualAssistantStatus
         #self.video_source = 0
@@ -48,7 +48,7 @@ class Display:
         self.displayVirtualAssistantStatus()
         
         ## Virtual Assistant Response Displayed
-        self.greetingText = skills.greeting()
+        self.greetingText = skills.greeting(user.value)
         self.AI_Message = Label(self.root, justify=LEFT, text=self.greetingText, font=('System', 25), bg='black', fg='white')
         self.AI_Message.grid(row=4, column=0, padx=45, pady=30, sticky=W)
         self.displayResponse()
@@ -90,7 +90,7 @@ class Display:
 def start():
     """ 
         The provisional main of the program
-         
+
         :param delay: is a shared variable between the camera process and interface 
             - this variable describes the amount of time since the camera did not detect a face
         :param timeFaceFound: is a shared variable between the camera process and the interface
@@ -110,22 +110,23 @@ def start():
     """
     with Manager() as manager:
         ## variables shared between the camera and the display  
+        user = manager.Value('s', "stranger")
         delay = manager.Value('f', 0)
         timeFaceFound = manager.Value('f', time.time())
         faceFound = manager.Value('b', False)
-        capture = Process(target=camera.start,args=(faceFound,timeFaceFound, delay))
+        capture = Process(target=camera.start,args=(user, faceFound,timeFaceFound, delay))
         capture.start()
 
         ## variables shares between the display and the virtual_assistance
         answer = manager.Value('s','')
         virtualAssistantStatus = manager.Value('s', '')
-        display = Display(answer, virtualAssistantStatus)
+        display = Display(user, answer, virtualAssistantStatus)
         root = display.root
 
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus))
         root.attributes("-fullscreen", True)
         root.configure(background='black')
         while True:
