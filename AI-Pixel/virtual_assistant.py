@@ -23,11 +23,12 @@ status = {
     "noSound" : "Pixel cannot hear you..."
 }
 
-def start(response, AIstatus): 
-    """ This method starts the virtual assisstant, that will process the user's request
-        and deliver a meaningful answer
-        :param response.value: is the text from the virtual's assistant response that is displayed to the screen
-        :param AIstatus.value: is the virtual assistant's status that is displated to the screen
+def start(response:str, AIstatus:str): 
+    """ 
+        This method starts the virtual assisstant, that will process the user's request and deliver a meaningful answer
+
+        :param response: is the text from the virtual's assistant response that is displayed to the screen
+        :param AIstatus: is the virtual assistant's status that is displated to the screen
         :param request: is the user's request in text format
     """
 
@@ -178,7 +179,7 @@ def playAudiofile():
     ## playing the audio file using vlc
     os.system('cvlc text.mp3 --play-and-exit')
 
-def speak(text):
+def speak(text:str):
     """ This function transforms the virtual asistant's response from test to speach"""
     speakText = gTTS(text)
     ## saving the audio file

@@ -89,7 +89,8 @@ class Display:
 
 def start():
     """ 
-        The provisional main of the program 
+        The provisional main of the program
+         
         :param delay: is a shared variable between the camera process and interface 
             - this variable describes the amount of time since the camera did not detect a face
         :param timeFaceFound: is a shared variable between the camera process and the interface

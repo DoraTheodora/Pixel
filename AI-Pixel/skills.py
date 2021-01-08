@@ -50,7 +50,7 @@ def wiki(request:str):
     request = request.replace("define", "")
     request = request.replace("definition", "")
     answer = []
-    answer.append(wikipedia.summary(request, sentences=2))
+    answer.append(wikipedia.summary(request, sentences=1))
     answer.append(helper.niceFormattedLongText(answer[0]))
     print(answer[0])
     return answer
