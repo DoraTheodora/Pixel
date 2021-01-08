@@ -141,7 +141,7 @@ def start(response:str, AIstatus:str):
 
 
 def listen():
-    """The listen() function uses the speech_recognition to translate what the user's request is
+    """The listen() function uses the speech_recognition to translate what the user's request 
     from voice to text
     """
     req = speech.Recognizer()
