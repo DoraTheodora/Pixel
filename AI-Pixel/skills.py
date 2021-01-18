@@ -4,7 +4,6 @@
 ## 21 November 2020
 import helper
 
-
 import datetime
 import random
 import wikipedia
@@ -14,12 +13,49 @@ import pickle
 import requests, json
 import multiprocessing
 
+from covid import Covid
+
+def covidStatus(city:str):
+    """[summary]
+
+    :param city: [description]
+    :type city: str
+    :return: [description]
+    :rtype: [type]
+    """
+    covid19 = Covid(source="worldometers")
+    covidResults = covid19.get_status_by_country_name(city)
+    country = covidResults["country"]
+    activeCases = covidResults["active"]
+    totalDeaths = covidResults["deaths"]
+    newDeaths = covidResults["new_deaths"]
+    newCases = covidResults["new_cases"]
+    recovered = covidResults["recovered"]
+    answer = {"answer" : "In {} there are {} new cases and {} new deaths".format(country, newCases, newDeaths)}
+    answer["country"] = "Country: " + country + "\n"
+    answer["newCases"] = "New Cases: " + str(newCases) + "\n"
+    answer["newDeaths"] = "New deaths: " + str(newDeaths) + "\n"
+    answer["activeCases"] = "Total active cases: " + str(activeCases) + "\n"
+    answer["recovered"] = "Total recovered cases: " + str(recovered) + "\n"
+    answer["totalDeaths"] = "Total deaths: " + str(totalDeaths) + "\n"
+
+    return answer
+
+
 def errorUnderstanding():
-    """ If the virtual assistant is not able to handle the request """
+    
+    """ [summary] If the virtual assistant is not able to handle the request """
     answer = "Sorry I did not get that, please try again!"
     return answer
 
 def weather(city:str):
+    """[summary]
+
+    :param city: [description]
+    :type city: str
+    :return: [description]
+    :rtype: [type]
+    """
     with open('api_keys.json') as API:
         API = json.load(API)
         key = API['weather']
@@ -45,6 +81,13 @@ def restartDevice():
 
 
 def wiki(request:str):
+    """[summary]
+
+    :param request: [description]
+    :type request: str
+    :return: [description]
+    :rtype: [type]
+    """
     request = request.replace("pixel", "")
     request = request.replace("wikipedia", "")
     request = request.replace("what is", "")
@@ -57,6 +100,11 @@ def wiki(request:str):
     return answer
 
 def responseThankYou():
+    """[summary]
+
+    :return: [description]
+    :rtype: [type]
+    """
     thankYouAnswers = []
     thankYouAnswers.append("Always a pleasure to help you")
     thankYouAnswers.append("No problem, any time")
@@ -67,6 +115,11 @@ def responseThankYou():
     return random.choice(thankYouAnswers)
 
 def responseBye():
+    """[summary]
+
+    :return: [description]
+    :rtype: [type]
+    """
     byeAnswers = []
     byeAnswers.append("Good bye!")
     byeAnswers.append("See you soon")
@@ -77,16 +130,33 @@ def responseBye():
     return random.choice(byeAnswers)
 
 def time():
+    """[summary]
+
+    :return: [description]
+    :rtype: [type]
+    """
     timeNow = "The time is "
     timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M %p")
     return timeNow
 
 def date():
+    """[summary]
+
+    :return: [description]
+    :rtype: [type]
+    """
     dateNow = "Today's date is "
     dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
     return dateNow
 
 def greeting(user):
+    """[summary]
+
+    :param user: [description]
+    :type user: [type]
+    :return: [description]
+    :rtype: [type]
+    """
     hour = int(datetime.datetime.now().strftime("%H"))
     timeOfDay = ""
     if hour < 2:
@@ -101,6 +171,7 @@ def greeting(user):
         timeOfDay = timeOfDay + "Good night"
     timeOfDay = timeOfDay + " " + user +  "! How Pixel can assist you?"
     return timeOfDay
+
 
 
 

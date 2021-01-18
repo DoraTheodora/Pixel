@@ -8,8 +8,6 @@ import display
 import helper
 
 
-from multiprocessing import Process
-import time
 from gtts import gTTS
 import os
 import speech_recognition as speech
@@ -67,6 +65,23 @@ def start(user:str, response:str, AIstatus:str):
                     AIstatus.value = status["answer"]
                     print(weatherDetails["answer"])
                     speak(weatherDetails["answer"])
+                except:
+                    response.value = skills.errorUnderstanding()
+                    AIstatus.value = status["answer"]
+                    print(response.value)
+                    speak(response.value)
+
+            if "covid" in request:
+                AIstatus.value = status["process"]
+                try:
+                    request = helper.remove_polite_words(request)
+                    city = helper.substring_after(request, "in")
+                    print("[info city] ", city)
+                    covidStats = skills.covidStatus(city)
+                    response.value = covidStats["country"] + covidStats["newCases"] + covidStats["newDeaths"] + covidStats["activeCases"] + covidStats["recovered"] + covidStats["totalDeaths"]
+                    AIstatus.value = status["answer"]
+                    print(covidStats["answer"])
+                    speak(covidStats["answer"])
                 except:
                     response.value = skills.errorUnderstanding()
                     AIstatus.value = status["answer"]
@@ -170,9 +185,9 @@ def listen():
         speak("Say that again please")
         actions.append("None")
         return actions
-    for i in actions:
-        print("-------", i)
-        print(actions)
+    #for i in actions:
+        #print("-------", i)
+        #print(actions)
     return actions
 
 def playAudiofile():

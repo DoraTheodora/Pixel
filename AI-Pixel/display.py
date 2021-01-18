@@ -135,7 +135,7 @@ def start():
                 AIStarted = True  
                 initiatedOnce = False     
             if faceFound.value and not AIStarted and not initiatedOnce:
-                assistant = Process(target=virtual_assistant.start, args=(answer,virtualAssistantStatus))
+                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus))
                 assistant.start()
                 AIStarted = True 
             if delay.value > 5 and AIStarted:

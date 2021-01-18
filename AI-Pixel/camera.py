@@ -33,6 +33,16 @@ capture = cv2.VideoCapture(0)
 
 
 def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
+    """[summary]
+    :param user: [description]
+    :type user: str
+    :param faceFound: [description]
+    :type faceFound: bool
+    :param timeFaceFound: [description]
+    :type timeFaceFound: float
+    :param delay: [description]
+    :type delay: float
+    """
     while True:
         # grab the frame from the threaded video stream and resize it
 	    # to 500px (to speedup processing)
@@ -76,12 +86,12 @@ def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
                 # find the indexes of all matched faces then initialize a
                 # dictionary to count the total number of times each face
                 # was matched
-                matchedIdxs = [i for (i, b) in enumerate(matches) if b]
+                matchedFaceVectors = [i for (i, b) in enumerate(matches) if b]
                 counts = {}
 
                 # loop over the matched indexes and maintain a count for
                 # each recognized face face
-                for i in matchedIdxs:
+                for i in matchedFaceVectors:
                     name = data["names"][i]
                     counts[name] = counts.get(name, 0) + 1
 
@@ -91,11 +101,10 @@ def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
                 name = max(counts, key=counts.get)
                 # print("[INFO] Counts: ", counts)
 
-            
             # update the list of names
             names.append(name)
             user.value = name
-            print("[INFO] Name: ", name)
+            #*print("[INFO] Name: ", name)
         # loop over the recognized faces
         # print("[INFO] faceFound: ", faceFound.value)
         for ((top, right, bottom, left), name) in zip(boxes, names):
