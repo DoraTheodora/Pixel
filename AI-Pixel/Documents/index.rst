@@ -22,7 +22,7 @@ Info
 ----
 .. toctree::
    :maxdepth: 5
-   :caption: Contents:
+   :caption: About the software:
 
    license
    developer
@@ -31,7 +31,7 @@ Modules
 --------
 .. toctree::
    :maxdepth: 5
-   :caption: Contents:
+   :caption: Software:
 
    modules
 

@@ -20,7 +20,7 @@ def covidStatus(country:str):
 
     :param country: [the country that the user requests info]
     :type country: str
-    :return: [a dictionary with all the information regarding the contry in question]
+    :return: [a dictionary with all the information regarding the country in question]
 
         ["country"] = country
 
@@ -54,14 +54,14 @@ def covidStatus(country:str):
     return answer
 
 def help(subject:str, user:str):
-    """[summary]
-
-    :param subject: [description]
+    """[This skill provides the user the necessary information about how to interract with the device]
+    
+    :param subject: [particular skill that the user needs help with]
     :type subject: str
-    :param user: [description]
+    :param user: [the user that asks for help]
     :type user: str
-    :return: [description]
-    :rtype: [type]
+    :return: [a string formatted minimalistic that will be showed on the screen]
+    :rtype: [str]
     """
     help = ""
     if subject == "":
@@ -88,21 +88,33 @@ def help(subject:str, user:str):
         help = help + "\n\n! Remember that every command needs to start with PIXEL !"
     return help
 
-def errorUnderstanding(user):
-    
-    """ [summary] If the virtual assistant is not able to handle the request """
+def errorUnderstanding(user:str):
+    """[If the virtual assistant is not able to handle the request]
+
+    :param user: [the user interracting with the device]
+    :type user: str
+    :return: [string formatted simplistic with information]
+    :rtype: [str]
+    """
     answer = "Sorry I did not get that, please try again!"
     answer = answer + "\n\n{} you can always ask me for help if you need".format(user.value)
     answer = answer + "\nTry 'Pixel I need help'"
     return answer
 
 def weather(city:str):
-    """[summary]
+    """[This skills provides the user weather forecast for a specific location]
 
-    :param city: [description]
+    :param city: [location]
     :type city: str
-    :return: [description]
-    :rtype: [type]
+    :return: dictionary containing weather information
+
+        ["location"] = location for the weather forecasts
+
+        ["descrition"] = description of the weather forecast
+
+        ["temperature"] = temperature in the specified location
+        
+    :rtype: [dictionary]
     """
     with open('api_keys.json') as API:
         API = json.load(API)
@@ -132,10 +144,10 @@ def restartDevice():
 def wiki(request:str):
     """[summary]
 
-    :param request: [description]
+    :param request: [user's request]
     :type request: str
-    :return: [description]
-    :rtype: [type]
+    :return: [returns the definition of a specific word]
+    :rtype: [str]
     """
     request = request.replace("pixel", "")
     request = request.replace("wikipedia", "")
@@ -149,10 +161,10 @@ def wiki(request:str):
     return answer
 
 def responseThankYou():
-    """[summary]
+    """[Virtual assistant's response if the user says 'Thank you']
 
-    :return: [description]
-    :rtype: [type]
+    :return: [Thank you message]
+    :rtype: [str]
     """
     thankYouAnswers = []
     thankYouAnswers.append("Always a pleasure to help you")
@@ -166,8 +178,8 @@ def responseThankYou():
 def responseBye():
     """[summary]
 
-    :return: [description]
-    :rtype: [type]
+    :return: [Virtual assistant's response for 'Good bye']
+    :rtype: [str]
     """
     byeAnswers = []
     byeAnswers.append("Good bye!")
@@ -179,32 +191,32 @@ def responseBye():
     return random.choice(byeAnswers)
 
 def time():
-    """[summary]
+    """[Virtual Assistant's response when the user request's the time]
 
-    :return: [description]
-    :rtype: [type]
+    :return: [A string containing the time]
+    :rtype: [str]
     """
     timeNow = "The time is "
     timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M %p")
     return timeNow
 
 def date():
-    """[summary]
+    """[Virtual Assistant's response when the user request's the date]
 
-    :return: [description]
-    :rtype: [type]
+    :return: [A string containing the date]
+    :rtype: [str]
     """
     dateNow = "Today's date is "
     dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
     return dateNow
 
 def greeting(user):
-    """[summary]
+    """[The greeting message of the Virtual Assistant]
 
-    :param user: [description]
-    :type user: [type]
-    :return: [description]
-    :rtype: [type]
+    :param user: [The user that is in front of the device]
+    :type user: str
+    :return: [A string, greeting the user]
+    :rtype: [str]
     """
     hour = int(datetime.datetime.now().strftime("%H"))
     timeOfDay = ""

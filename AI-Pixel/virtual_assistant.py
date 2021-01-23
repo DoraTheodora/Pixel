@@ -22,14 +22,17 @@ status = {
 }
 
 def start(user:str, response:str, AIstatus:str, understanding:str): 
-    """ 
-        This method starts the virtual assistant, that will process the user's request and deliver a meaningful answer
+    """[This method starts the virtual assistant, that will process the user's request and deliver a meaningful answer]
 
-        :param response: is the text from the virtual's assistant response that is displayed to the screen
-        :param AIstatus: is the virtual assistant's status that is displated to the screen
-        :param request: is the user's request in text format
+    :param user: [The user using the device]
+    :type user: str
+    :param response: [is the text from the virtual's assistant response that is displayed to the screen]
+    :type response: str
+    :param AIstatus: [is the virtual assistant's status that is displated to the screen]
+    :type AIstatus: str
+    :param understanding: [the user's voice input]
+    :type understanding: str
     """
-
     response.value = skills.greeting(user.value)
     AIstatus.value = status["start"]
     speak(response.value)
@@ -167,8 +170,12 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
 
 
 def listen(AIStatus:str):
-    """The listen() function uses the speech_recognition to translate what the user's request 
-    from voice to text
+    """[The method listents to the user's voice input (using voice recognition) and transforms it into text]
+
+    :param AIStatus: [The virtual assistant's status: e.g.: processing, listening, etc]
+    :type AIStatus: str
+    :return: [The virtual assistant's response to the user's request]
+    :rtype: [str]
     """
     req = speech.Recognizer()
     request =""
@@ -194,11 +201,17 @@ def listen(AIStatus:str):
     return request
 
 def playAudiofile():
+    """[Playing the virtual assistant's response back to the user by voice]
+    """
     ## playing the audio file using vlc
     os.system('cvlc text.mp3 --play-and-exit')
 
 def speak(text:str):
-    """ This function transforms the virtual asistant's response from test to speach"""
+    """[This method transforms the virtual assistant's response from text to voice, using gTTS (Google's voice)]
+
+    :param text: [string that needs to be transformed into an audio output]
+    :type text: str
+    """
     speakText = gTTS(text)
     ## saving the audio file
     speakText.save("text.mp3")
