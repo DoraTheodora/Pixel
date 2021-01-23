@@ -33,7 +33,6 @@ def substring_after(string:str, delimiter:str):
         :param delimiter: is the key word searched in the string
     """
     answer = string.partition(delimiter)[2]
-    answer.strip()
     return answer
 
 def remove_polite_words(string:str):

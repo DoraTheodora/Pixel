@@ -38,9 +38,17 @@ def covidStatus(city:str):
     answer["activeCases"] = "Total active cases: " + str(activeCases) + "\n"
     answer["recovered"] = "Total recovered cases: " + str(recovered) + "\n"
     answer["totalDeaths"] = "Total deaths: " + str(totalDeaths) + "\n"
-
     return answer
 
+def help(subject:str, user:str):
+    if subject == "":
+        help = "Hello {}, I see you need some help! \nHere is how to interract with me:".format(user)
+        help = help + "\n\n 1. Pixel what is the time/date"
+        help = help + "\n 2. Pixel covid-19 stats in Ireland"
+        help = help + "\n 3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
+        help = help + "\n 4. Pixel tell me the weather in Dublin"
+        help = help + "\n 5. To stop the conversation, step away from the mirror"
+        return help
 
 def errorUnderstanding():
     
