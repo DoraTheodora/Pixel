@@ -15,16 +15,29 @@ import multiprocessing
 
 from covid import Covid
 
-def covidStatus(city:str):
-    """[summary]
+def covidStatus(country:str):
+    """[This skill provides the user, with covid-19 statistics from www.worldometers.info]
 
-    :param city: [description]
-    :type city: str
-    :return: [description]
-    :rtype: [type]
+    :param country: [the country that the user requests info]
+    :type country: str
+    :return: [a dictionary with all the information regarding the contry in question]
+
+        ["country"] = country
+
+        ["newCases"] = new cases reported in the country
+
+        ["newDeaths"] = new deaths reported in the country
+
+        ["activeCases"] = current active cases in the country
+
+        ["recovered"] = total number of cases recovered in the country
+
+        ["totalDeaths"] = total number of deaths from Covid-19 in the country
+
+    :rtype: dictionary
     """
     covid19 = Covid(source="worldometers")
-    covidResults = covid19.get_status_by_country_name(city)
+    covidResults = covid19.get_status_by_country_name(country)
     country = covidResults["country"]
     activeCases = covidResults["active"]
     totalDeaths = covidResults["deaths"]
@@ -41,6 +54,15 @@ def covidStatus(city:str):
     return answer
 
 def help(subject:str, user:str):
+    """[summary]
+
+    :param subject: [description]
+    :type subject: str
+    :param user: [description]
+    :type user: str
+    :return: [description]
+    :rtype: [type]
+    """
     help = ""
     if subject == "":
         help = "{}, I see you need some help! \nHere is how to interract with me:".format(user)
@@ -49,21 +71,21 @@ def help(subject:str, user:str):
         help = help + "\n   3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
         help = help + "\n   4. Pixel tell me the weather in Dublin"
         help = help + "\n   5. To stop the conversation, step away from the mirror"
-        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
     if "weather" in subject:
         help = "{}, I see you need some help! \nHere is how to ask for weather forecast:".format(user.value)
         help = help + "\n\n    1. Pixel tell me the weather in Dublin"
         help = help + "\n    2. Pixel how is the weather in Dublin?"
         help = help + "\n    3. Pixel weather in Dublin"
         help = help + "\n    4. Keep in mind you can use any city"
-        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
     if "covid" in subject:
         help = "{}, I see you need some help! \nHere is how to ask for Covid-19 statistics:".format(user.value)
         help = help + "\n\n    1. Pixel tell me covid stats in Ireland"
         help = help + "\n    2. Pixel how is covid situation in Ireland?"
         help = help + "\n    3. Pixel how is the covid situation in Ireland?"
         help = help + "\n    4. Keep in mind you can use any country"
-        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
     return help
 
 def errorUnderstanding(user):

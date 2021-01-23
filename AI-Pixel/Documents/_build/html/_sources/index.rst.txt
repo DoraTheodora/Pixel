@@ -5,9 +5,21 @@
 
 Welcome to Pixel's documentation!
 =================================
+.. code-block:: python
+   :emphasize-lines: 3,8
+
+   def about_me():
+      """ About the team """
+      name = "Theodora Litean-Tataru"
+      email = "tataru.theodora@yahoo.com"
+      date = 2021
+      institute = "Institute of Technology Carlow"
+      course = "Software Development"
+      tutor = "Joseph Kehoe"
+   
 
 Info
-^^^^^
+----
 .. toctree::
    :maxdepth: 5
    :caption: Contents:
@@ -16,7 +28,7 @@ Info
    developer
 
 Modules
-^^^^^^^
+--------
 .. toctree::
    :maxdepth: 5
    :caption: Contents:
