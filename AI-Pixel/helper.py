@@ -44,4 +44,5 @@ def remove_polite_words(string:str):
     string = string.replace("please", "")
     string = string.replace("thank you", "")
     string = string.replace("hello", "")
+    string = string.replace("the ", "")
     return string

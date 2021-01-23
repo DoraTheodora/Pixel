@@ -41,19 +41,37 @@ def covidStatus(city:str):
     return answer
 
 def help(subject:str, user:str):
+    help = ""
     if subject == "":
-        help = "Hello {}, I see you need some help! \nHere is how to interract with me:".format(user)
-        help = help + "\n\n 1. Pixel what is the time/date"
-        help = help + "\n 2. Pixel covid-19 stats in Ireland"
-        help = help + "\n 3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
-        help = help + "\n 4. Pixel tell me the weather in Dublin"
-        help = help + "\n 5. To stop the conversation, step away from the mirror"
-        return help
+        help = "{}, I see you need some help! \nHere is how to interract with me:".format(user)
+        help = help + "\n\n   1. Pixel what is the time/date"
+        help = help + "\n   2. Pixel covid-19 stats in Ireland"
+        help = help + "\n   3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
+        help = help + "\n   4. Pixel tell me the weather in Dublin"
+        help = help + "\n   5. To stop the conversation, step away from the mirror"
+        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+    if "weather" in subject:
+        help = "{}, I see you need some help! \nHere is how to ask for weather forecast:".format(user.value)
+        help = help + "\n\n    1. Pixel tell me the weather in Dublin"
+        help = help + "\n    2. Pixel how is the weather in Dublin?"
+        help = help + "\n    3. Pixel weather in Dublin"
+        help = help + "\n    4. Keep in mind you can use any city"
+        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+    if "covid" in subject:
+        help = "{}, I see you need some help! \nHere is how to ask for Covid-19 statistics:".format(user.value)
+        help = help + "\n\n    1. Pixel tell me covid stats in Ireland"
+        help = help + "\n    2. Pixel how is covid situation in Ireland?"
+        help = help + "\n    3. Pixel how is the covid situation in Ireland?"
+        help = help + "\n    4. Keep in mind you can use any country"
+        help = help + "\n\n ! Remember that every command needs to start with PIXEL !"
+    return help
 
-def errorUnderstanding():
+def errorUnderstanding(user):
     
     """ [summary] If the virtual assistant is not able to handle the request """
     answer = "Sorry I did not get that, please try again!"
+    answer = answer + "\n\n{} you can always ask me for help if you need".format(user.value)
+    answer = answer + "\nTry 'Pixel I need help'"
     return answer
 
 def weather(city:str):
@@ -68,7 +86,6 @@ def weather(city:str):
         API = json.load(API)
         key = API['weather']
     base_url = "http://api.openweathermap.org/data/2.5/weather?q="
-    city = city.capitalize()
     complete_url = base_url + city + "&appid=" + key + "&units=metric"
     response = requests.get(complete_url)
     response = response.json()
@@ -76,8 +93,10 @@ def weather(city:str):
     temp = str(response['main']['temp'])
     #print(response)
     answer = {"answer" : "The weather in {} is\n {} and with the temperature of {} Celsius".format(city, desc, temp)}
-    answer["location"] = "Location: " + city + "\n"
-    answer["descrition"] = "Weather: " + desc + "\n"
+    city = city.strip()
+    city = city.capitalize()
+    answer["location"] = "Location:\t" + city + "\n"
+    answer["descrition"] = "Weather:\t" + desc + "\n"
     answer["temperature"] =  "Temperature: " + temp + "C \n"
     print(answer)
     return answer

@@ -20,37 +20,43 @@ from multiprocessing import Manager
 from PIL import Image, ImageTk
 
 class Display:
-    """ The  Display class defines the virtual assistant's graphical interface
-        Mirror - Display
+    """[summary]
     """
     root = Tk() 
     ## Dividing the screen in 1 column and 5 rows
     root.grid_rowconfigure(5, weight=1)
     root.grid_columnconfigure(1, weight=1)
     
-    def __init__(self, user, response, virtualAssistantStatus):
+    def __init__(self, user:str, response:str, virtualAssistantStatus:str, understanding:str):
         self.response = response
         self.virtualAssistantStatus = virtualAssistantStatus
+        self.understanding = understanding
         #self.video_source = 0
 
         ## Time Displayed
         self.time1 = ''
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
-        self.clock = Label(self.root, text=self.time2, font=('Helvica', 40), fg='white')
-        self.clock.configure(background='black')
-        self.clock.grid(row=0, column=0, padx=45, pady=30, sticky=W)
+        self.clock_label = Label(self.root, text=self.time2, font=('Helvica', 45), fg='white')
+        self.clock_label.configure(background='black')
+        self.clock_label.grid(row=0, column=0, padx=1, pady=30, sticky=W)
         self.updateTime()
 
         ## AI Processing Message
         self.AI_processing_message = "Pixel started"
-        self.AI_processing = Label(self.root, justify=LEFT ,text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
-        self.AI_processing.grid(row=0, column=3, padx=10, sticky=E)
+        self.AI_processing_label = Label(self.root, justify=LEFT ,text = self.AI_processing_message, font=("Helvica", 20), bg="black", fg="white")
+        self.AI_processing_label.grid(row=0, column=3, padx=1, sticky=E)
         self.displayVirtualAssistantStatus()
         
+        ## Virtual assistant understanding
+        self.understanding_text = " "
+        self.understanding_label = Label(self.root, justify=LEFT, text = self.understanding_text, font=("Helvica", 15), bg="black", fg="white" )
+        self.understanding_label.grid(row=1, column=0, padx=1,pady=10, sticky=W)
+        self.displayVirtualAssistantUnderstanding()    
+
         ## Virtual Assistant Response Displayed
-        self.greetingText = skills.greeting(user.value)
-        self.AI_Message = Label(self.root, justify=LEFT, text=self.greetingText, font=('System', 25), bg='black', fg='white')
-        self.AI_Message.grid(row=4, column=0, padx=45, pady=30, sticky=W)
+        self.greeting_text = skills.greeting(user.value)
+        self.AI_Message_label = Label(self.root, justify=LEFT, text=self.greeting_text, font=('System', 20), bg='black', fg='white')
+        self.AI_Message_label.grid(row=4, column=0, padx=1, pady=30, sticky=W)
         self.displayResponse()
 
         ## Camera
@@ -62,20 +68,27 @@ class Display:
     ## update time on GUI
     def updateTime(self):
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
-        self.clock.configure(text=self.time2)
-        self.clock.after(200, self.updateTime)
+        self.clock_label.configure(text=self.time2)
+        self.clock_label.after(200, self.updateTime)
 
     ## update virtual assistant's reponse on GUI
     def displayResponse(self):
         self.answer = self.response.value
-        self.AI_Message.configure(text=self.answer)
-        self.AI_Message.after(200, self.displayResponse)
+        self.AI_Message_label.configure(text=self.answer)
+        self.AI_Message_label.after(200, self.displayResponse)
 
     ## update virtual assistant's status on GUI
     def displayVirtualAssistantStatus(self):
         self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
-        self.AI_processing.configure(text=self.virtualAssistantStatus_message)
-        self.AI_processing.after(200, self.displayVirtualAssistantStatus)
+        self.AI_processing_label.configure(text=self.virtualAssistantStatus_message)
+        self.AI_processing_label.after(200, self.displayVirtualAssistantStatus)
+
+    ## update virtual assistant's understanding
+    def displayVirtualAssistantUnderstanding(self):
+        self.understanding_text = self.understanding.value
+        self.understanding_label.configure(text=self.understanding_text)
+        self.understanding_label.after(200, self.displayVirtualAssistantUnderstanding)
+        
 
     def close(self):
         self.root.destroy()
@@ -114,19 +127,20 @@ def start():
         delay = manager.Value('f', 0)
         timeFaceFound = manager.Value('f', time.time())
         faceFound = manager.Value('b', False)
-        capture = Process(target=camera.start,args=(user, faceFound,timeFaceFound, delay))
+        capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
         capture.start()
 
         ## variables shares between the display and the virtual_assistance
         answer = manager.Value('s','')
-        virtualAssistantStatus = manager.Value('s', '')
-        display = Display(user, answer, virtualAssistantStatus)
+        virtualAssistantStatus = manager.Value('s','')
+        understanding = manager.Value('s',' ')
+        display = Display(user, answer, virtualAssistantStatus, understanding)
         root = display.root
 
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus))
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding))
         root.attributes("-fullscreen", True)
         root.configure(background='black')
         while True:
@@ -135,7 +149,7 @@ def start():
                 AIStarted = True  
                 initiatedOnce = False     
             if faceFound.value and not AIStarted and not initiatedOnce:
-                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus))
+                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding))
                 assistant.start()
                 AIStarted = True 
             if delay.value > 5 and AIStarted:
@@ -143,6 +157,7 @@ def start():
                 assistant.join()
                 answer.value = ""
                 virtualAssistantStatus.value = ""
+                understanding.value = ""
                 AIStarted = False
                 #print("Idle time: ", delay.value)
             root.update()

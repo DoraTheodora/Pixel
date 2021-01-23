@@ -21,7 +21,7 @@ status = {
     "noSound" : "Pixel cannot hear you..."
 }
 
-def start(user:str, response:str, AIstatus:str): 
+def start(user:str, response:str, AIstatus:str, understanding:str): 
     """ 
         This method starts the virtual assistant, that will process the user's request and deliver a meaningful answer
 
@@ -37,13 +37,28 @@ def start(user:str, response:str, AIstatus:str):
     while True:
         request = listen(AIstatus)
         request = request.lower()
+        understanding.value = "Responding to: " + request
         
         if "pixel" in request:
             if "help" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.help("", user.value)
-                print(response.value)
-                speak(response.value)
+                try:
+                    AIstatus.value = status["process"]
+                    if "with" in request:
+                        request = helper.remove_polite_words(request)
+                        help_for = helper.substring_after(request, "with")
+                        print("[info help_for] ", help_for)
+                        response.value = skills.help(help_for, user)
+                    else:
+                        response.value = skills.help("", user.value)
+                    print(response.value)
+                    AIstatus.value = status["answer"]
+                    speak(response.value)
+                except:
+                    response.value = skills.errorUnderstanding(user)
+                    print(response.value)
+                    AIstatus.value = status["answer"]
+                    speak(response.value)
+
             if "time" in request:
                 AIstatus.value = status["process"]
                 response.value = skills.time()
@@ -56,7 +71,7 @@ def start(user:str, response:str, AIstatus:str):
                 print(response.value)
                 speak(response.value)
             
-            if "weather" in request:
+            if "weather" in request and "help" not in request:
                 AIstatus.value = status["process"]
                 try:
                     request = helper.remove_polite_words(request)
@@ -64,13 +79,14 @@ def start(user:str, response:str, AIstatus:str):
                     weatherDetails = skills.weather(city)
                     response.value = weatherDetails["location"]+ weatherDetails["descrition"]+ weatherDetails["temperature"]
                     print(weatherDetails["answer"])
+                    AIstatus.value = status["answer"]
                     speak(weatherDetails["answer"])
                 except:
-                    response.value = skills.errorUnderstanding()
+                    response.value = skills.errorUnderstanding(user)
                     print(response.value)
                     speak(response.value)
 
-            if "covid" in request:
+            if "covid" in request and "help" not in request:
                 AIstatus.value = status["process"]
                 try:
                     request = helper.remove_polite_words(request)
@@ -80,10 +96,12 @@ def start(user:str, response:str, AIstatus:str):
                     covidStats = skills.covidStatus(city)
                     response.value = covidStats["country"] + covidStats["newCases"] + covidStats["newDeaths"] + covidStats["activeCases"] + covidStats["recovered"] + covidStats["totalDeaths"]
                     print(covidStats["answer"])
+                    AIstatus.value = status["answer"]
                     speak(covidStats["answer"])
                 except:
-                    response.value = skills.errorUnderstanding()
+                    response.value = skills.errorUnderstanding(user)
                     print(response.value)
+                    AIstatus.value = status["answer"]
                     speak(response.value)
 
             if "thank you" in request:
@@ -99,10 +117,12 @@ def start(user:str, response:str, AIstatus:str):
                 try:
                     answer = skills.wiki(word)
                     response.value = answer[1]
+                    AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding()
+                    response.value = skills.errorUnderstanding(user)
                     print(response.value)
+                    AIstatus.value = status["answer"]
                     speak(response.value)
 
             if "definition" in request:
@@ -112,10 +132,12 @@ def start(user:str, response:str, AIstatus:str):
                 try:
                     answer = skills.wiki(word)
                     response.value = answer[1]
+                    AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding()
+                    response.value = skills.errorUnderstanding(user)
                     print(response.value)
+                    AIstatus.value = status["answer"]
                     speak(response.value)
             
             if "tell me about" in request:
@@ -125,10 +147,12 @@ def start(user:str, response:str, AIstatus:str):
                 try:
                     answer = skills.wiki(word)
                     response.value = answer[1]
+                    AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding()
+                    response.value = skills.errorUnderstanding(user)
                     print(response.value)
+                    AIstatus.value = status["answer"]
                     speak(response.value)
 
             if "see you" in request:
