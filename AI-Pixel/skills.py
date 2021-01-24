@@ -97,8 +97,8 @@ def errorUnderstanding(user:str):
     :rtype: [str]
     """
     answer = "Sorry I did not get that, please try again!"
-    answer = answer + "\n\n{} you can always ask me for help if you need".format(user.value)
-    answer = answer + "\nTry 'Pixel I need help'"
+    answer = answer + "\n\n{} you can always ask me for help if you need.".format(user.value)
+    answer = answer + "\nTry 'Pixel I need help!'"
     return answer
 
 def weather(city:str):
