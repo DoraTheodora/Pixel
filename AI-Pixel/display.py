@@ -49,7 +49,7 @@ class Display:
         
         ## Virtual assistant understanding
         self.understanding_text = " "
-        self.understanding_label = Label(self.root, justify=LEFT, text = self.understanding_text, font=("Helvica", 15), bg="black", fg="white" )
+        self.understanding_label = Label(self.root, justify=LEFT, text = self.understanding_text, font=("Helvica", 17), bg="black", fg="yellow" )
         self.understanding_label.grid(row=1, column=0, padx=1,pady=10, sticky=W)
         self.displayVirtualAssistantUnderstanding()    
 
@@ -152,7 +152,7 @@ def start():
                 assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding))
                 assistant.start()
                 AIStarted = True 
-            if delay.value > 5 and AIStarted:
+            if delay.value > 20 and AIStarted:
                 assistant.terminate()
                 assistant.join()
                 answer.value = ""

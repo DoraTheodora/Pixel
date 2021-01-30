@@ -15,11 +15,7 @@ import speech_recognition as speech
 status = {
     "process" : "Pixel is processing...",
     "start" : "Pixel is starting...",
-    "heard" : "Pixel heard you...",
-    "listen" : "Pixel is listening...",
-    "answer" : "Pixel has an answer...",
-    "noSound" : "Pixel cannot hear you..."
-}
+    "answer" : "Pixel has an answer...",}
 
 def start(user:str, response:str, AIstatus:str, understanding:str): 
     """[This method starts the virtual assistant, that will process the user's request and deliver a meaningful answer]
@@ -65,12 +61,14 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
             if "time" in request:
                 AIstatus.value = status["process"]
                 response.value = skills.time()
+                AIstatus.value = status["answer"]
                 print(response.value)
                 speak(response.value)
                 
             if "date" in request:
                 AIstatus.value = status["process"]
                 response.value = skills.date()
+                AIstatus.value = status["answer"]
                 print(response.value)
                 speak(response.value)
             
@@ -87,6 +85,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                 except:
                     response.value = skills.errorUnderstanding(user)
                     print(response.value)
+                    AIstatus.value = status["answer"]
                     speak(response.value)
 
             if "covid" in request and "help" not in request:
@@ -111,6 +110,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                 AIstatus.value = status["process"]
                 response.value = skills.responseThankYou()
                 print(response.value)
+                AIstatus.value = status["answer"]
                 speak(response.value)
 
             if "define" in request:
@@ -161,11 +161,13 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
             if "see you" in request:
                 AIstatus.value = status["process"]
                 response.value = skills.responseBye()
+                AIstatus.value = status["answer"]
                 speak(response.value)
 
             if "bye" in request:
                 AIstatus.value = status["process"]
                 response.value = skills.responseBye()
+                AIstatus.value = status["answer"]
                 speak(response.value)
 
 
@@ -193,7 +195,7 @@ def listen(AIStatus:str):
         ## if there was no voice input
         AIStatus.value = "Pixel cannot hear you..."
         speak("Say that again please")
-        request = "None"
+        request = ""
         return request
     #for i in actions:
         #print("-------", i)
