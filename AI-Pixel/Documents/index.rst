@@ -8,9 +8,9 @@ Welcome to Pixel's documentation!
 .. code-block:: python
    :emphasize-lines: 3,8
 
-   def about_me():
+   def about_the_project():
       """ About the team """
-      name = "Theodora Litean-Tataru"
+      developer = "Theodora Litean-Tataru"
       email = "tataru.theodora@yahoo.com"
       date = 2021
       institute = "Institute of Technology Carlow"

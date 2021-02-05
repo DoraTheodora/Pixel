@@ -106,17 +106,17 @@ def start():
 
         :param delay: is a shared variable between the camera process and interface 
             - this variable describes the amount of time since the camera did not detect a face
-        :param timeFaceFound: is a shared variable between the camera process and the interface
+        :param timeFaceFound: shared variable between the camera process and the interface
             - this variable marks the time when a face was detected the last time
-        :param faceFound: is a shared boolean variable between the camera process and the interface
+        :param faceFound: shared boolean variable between the camera process and the interface
             - the variable is true when a face is detected by the camera, and is false if there is no face detected by the camera
-        :param camera: is the camera class instantiated as a process
-        :param answer: is a shared variable between the virtual assistant and the interface
+        :param camera: camera class instantiated as a process
+        :param answer: shared variable between the virtual assistant and the interface
             - contains the response provided by the virtual assistant to the user's request
-        :param virtualAssistantStatus: is a variable shared between the virtual assistant and the interface
+        :param virtualAssistantStatus: variable shared between the virtual assistant and the interface
             - contains the virtual assistant status: processing, listening or having an answer
-        :param root: is the GUI class instantiated as the main process
-        :param AIStarted: is a boolean variable that reflects the virtual_assistant status
+        :param root: GUI class instantiated as the main process
+        :param AIStarted: boolean variable that reflects the virtual_assistant status
             - true if the virtual assistant status is running
             - false if the virtual assistant is not running
             - used like a semaphore, not allowing the instantiation of the virtual_assistant multiple times if the virtual assistant runs already

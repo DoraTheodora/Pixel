@@ -56,11 +56,11 @@ def covidStatus(country:str):
 def help(subject:str, user:str):
     """[This skill provides the user the necessary information about how to interract with the device]
     
-    :param subject: [particular skill that the user needs help with]
+    :param subject: [Particular skill that the user needs help with]
     :type subject: str
-    :param user: [the user that asks for help]
+    :param user: [The user that asks for help]
     :type user: str
-    :return: [a string formatted minimalistic that will be showed on the screen]
+    :return: [String formatted minimalistic that will be showed on the screen]
     :rtype: [str]
     """
     help = ""
@@ -91,9 +91,9 @@ def help(subject:str, user:str):
 def errorUnderstanding(user:str):
     """[If the virtual assistant is not able to handle the request]
 
-    :param user: [the user interracting with the device]
+    :param user: [The user interracting with the device]
     :type user: str
-    :return: [string formatted simplistic with information]
+    :return: [String formatted simplistic with information]
     :rtype: [str]
     """
     answer = "Sorry I did not get that, please try again!"
@@ -104,9 +104,9 @@ def errorUnderstanding(user:str):
 def weather(city:str):
     """[This skills provides the user weather forecast for a specific location]
 
-    :param city: [location]
+    :param city: [Location]
     :type city: str
-    :return: dictionary containing weather information
+    :return: Dictionary containing weather information
 
         ["location"] = location for the weather forecasts
 
@@ -144,9 +144,9 @@ def restartDevice():
 def wiki(request:str):
     """[summary]
 
-    :param request: [user's request]
+    :param request: [User's request]
     :type request: str
-    :return: [returns the definition of a specific word]
+    :return: [Returns the definition of a specific word]
     :rtype: [str]
     """
     request = request.replace("pixel", "")

@@ -18,15 +18,15 @@ status = {
     "answer" : "Pixel has an answer...",}
 
 def start(user:str, response:str, AIstatus:str, understanding:str): 
-    """[This method starts the virtual assistant, that will process the user's request and deliver a meaningful answer]
+    """[This method starts the virtual assistant, that will processes the user's request and delivers a meaningful answer]
 
     :param user: [The user using the device]
     :type user: str
-    :param response: [is the text from the virtual's assistant response that is displayed to the screen]
+    :param response: [The text from the virtual's assistant response that is displayed to the screen]
     :type response: str
-    :param AIstatus: [is the virtual assistant's status that is displated to the screen]
+    :param AIstatus: [The virtual assistant's status that is displated to the screen]
     :type AIstatus: str
-    :param understanding: [the user's voice input]
+    :param understanding: [The user's voice input]
     :type understanding: str
     """
     response.value = skills.greeting(user.value)
@@ -208,7 +208,7 @@ def playAudiofile():
 def speak(text:str):
     """[This method transforms the virtual assistant's response from text to voice, using gTTS (Google's voice)]
 
-    :param text: [string that needs to be transformed into an audio output]
+    :param text: [String that needs to be transformed into an audio output]
     :type text: str
     """
     speakText = gTTS(text)
