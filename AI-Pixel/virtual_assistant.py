@@ -180,8 +180,8 @@ def listen(AIStatus:str):
     :rtype: [str]
     """
     req = speech.Recognizer()
-    request =""
-    with speech.Microphone() as microphoneSource:
+    request = ""
+    with speech.Microphone(device_index=3,sample_rate=48000) as microphoneSource:
         ## gathering the voice input
         AIStatus.value = "Pixel is listening..."
         req.pause_threshold = 1
@@ -189,7 +189,7 @@ def listen(AIStatus:str):
     try:
         ## translate the voice input into text
         AIStatus.value = "Pixel heard you..."
-        request = req.recognize_google(audio)
+        request = req.recognize_google(audio, language='en')
         print(request)
     except:
         ## if there was no voice input
@@ -197,9 +197,6 @@ def listen(AIStatus:str):
         speak("Say that again please")
         request = ""
         return request
-    #for i in actions:
-        #print("-------", i)
-        #print(actions)
     return request
 
 def playAudiofile():
