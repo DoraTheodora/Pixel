@@ -125,12 +125,29 @@
   <div class="section" id="module-helper">
 <span id="helper-module"></span><h1>helper module<a class="headerlink" href="#module-helper" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="helper.niceFormattedLongText">
-<code class="sig-prename descclassname">helper.</code><code class="sig-name descname">niceFormattedLongText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">longString</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.niceFormattedLongText" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method that formats a long string to multiple rows</p>
+<dt id="helper.get_request">
+<code class="sig-prename descclassname">helper.</code><code class="sig-name descname">get_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">link</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.get_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>longString</strong> – String received from the virtual_assistant class, that needs to be formatatted</p>
+<dd class="field-odd"><p><strong>link</strong> (<em>str</em>) – [link to get the response from]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[returns the response of the server in a json format]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[Json format]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="helper.niceFormattedLongText">
+<code class="sig-prename descclassname">helper.</code><code class="sig-name descname">niceFormattedLongText</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">longString</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.niceFormattedLongText" title="Permalink to this definition">¶</a></dt>
+<dd><p>[Method that formats a long string to multiple rows]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>longString</strong> (<em>str</em>) – [String received from the virtual_assistant class, that needs to be formatatted]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -138,10 +155,30 @@
 <dl class="py function">
 <dt id="helper.remove_polite_words">
 <code class="sig-prename descclassname">helper.</code><code class="sig-name descname">remove_polite_words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.remove_polite_words" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method removing the polite words from a string, as they are not used by the virtual_assistant to process a request</p>
+<dd><p>[Method removing the polite words from a string, as they are not used by the virtual_assistant to process a request]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>string</strong> – Initial string that neeeds polite words to be removed from it</p>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – [string that needs to cleaned from certain words]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="helper.remove_words">
+<code class="sig-prename descclassname">helper.</code><code class="sig-name descname">remove_words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">words</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.remove_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) – [String that neeeds to be cleaned]</p></li>
+<li><p><strong>words</strong> (<em>list</em>) – [The words that the string needs to be cleaned from]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[The cleaned string]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,12 +186,12 @@
 <dl class="py function">
 <dt id="helper.splitter">
 <code class="sig-prename descclassname">helper.</code><code class="sig-name descname">splitter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">numberOfWords</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">longString</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.splitter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method created as a helper for the “niceFormattedLongText(longString:str)”</p>
+<dd><p>[Method created as a helper for the “niceFormattedLongText(longString:str)” ]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>numberOfWords</strong> – Denotes how many words are allowed on a single row</p></li>
-<li><p><strong>longString</strong> – The initial string that needs to be parsed</p></li>
+<li><p><strong>numberOfWords</strong> (<em>int</em>) – [Denotes how many words are allowed on a single row]</p></li>
+<li><p><strong>longString</strong> (<em>str</em>) – [The initial string that needs to be parsed]</p></li>
 </ul>
 </dd>
 </dl>
@@ -163,12 +200,12 @@
 <dl class="py function">
 <dt id="helper.substring_after">
 <code class="sig-prename descclassname">helper.</code><code class="sig-name descname">substring_after</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">delimiter</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#helper.substring_after" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method returning the next 2 words after a key word</p>
+<dd><p>[Method returning the next 2 words after a key word ]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>string</strong> – The initial string that needs to be parsed</p></li>
-<li><p><strong>delimiter</strong> – The key word searched in the string</p></li>
+<li><p><strong>string</strong> (<em>str</em>) – [Initial string]</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em>) – [The key word searched in the string]</p></li>
 </ul>
 </dd>
 </dl>

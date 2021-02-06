@@ -41,6 +41,15 @@ def substring_after(string:str, delimiter:str):
     return answer
 
 def remove_words(string:str, words:list):
+    """[summary]
+
+    :param string: [String that neeeds to be cleaned]
+    :type string: str
+    :param words: [The words that the string needs to be cleaned from]
+    :type words: list
+    :return: [The cleaned string]
+    :rtype: str
+    """
     for word in words:
         string = string.replace(word, "")
     return string

@@ -61,7 +61,7 @@ def help(subject:str, user:str):
     :param user: [The user that asks for help]
     :type user: str
     :return: [String formatted minimalistic that will be showed on the screen]
-    :rtype: [str]
+    :rtype: str
     """
     help = ""
     if subject == "":
@@ -94,7 +94,7 @@ def errorUnderstanding(user:str):
     :param user: [The user interracting with the device]
     :type user: str
     :return: [String formatted simplistic with information]
-    :rtype: [str]
+    :rtype: str
     """
     answer = {"answer" : "Sorry I did not get that, please try again!"}
     answer["help"] = "\n\n{} you can always ask me for help if you need.\nTry 'Pixel I need help!'".format(user.value)
@@ -113,7 +113,7 @@ def weather(city:str):
 
         ["temperature"] = temperature in the specified location
         
-    :rtype: [dictionary]
+    :rtype: dictionary
     """
     with open('api_keys.json') as API:
         API = json.load(API)
@@ -133,11 +133,28 @@ def weather(city:str):
     print(answer)
     return answer
 
-def location_details(user:str, location:str):
+def location_details(location:str):
+    """[summary]
+
+    :param location: [Location that is searched for details]
+    :type location: str
+    :return: [A dictionary with all details of the location]
+
+        ['name'] = name of the location
+
+        ['open_now'] = open at the time of the request
+
+        ['address'] = location address
+
+        ['phone'] = location phone number
+
+        ['opening_hours'] = Monday to Sunday working schedule 
+
+    :rtype: dictionary
+    """
     with open('api_keys.json') as API:
         API = json.load(API)
         google_API = API['google']
-    
     
     base_url_get_place_id = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={}&inputtype=textquery&fields=place_id&key={}".format(location, google_API)
     response_ID = helper.get_request(base_url_get_place_id)
@@ -189,7 +206,7 @@ def wiki(request:str):
     :param request: [User's request]
     :type request: str
     :return: [Returns the definition of a specific word]
-    :rtype: [str]
+    :rtype: str
     """
     request = request.replace("pixel", "")
     request = request.replace("wikipedia", "")
@@ -206,7 +223,7 @@ def responseThankYou():
     """[Virtual assistant's response if the user says 'Thank you']
 
     :return: [Thank you message]
-    :rtype: [str]
+    :rtype: str
     """
     thankYouAnswers = []
     thankYouAnswers.append("Always a pleasure to help you")
@@ -221,7 +238,7 @@ def responseBye():
     """[summary]
 
     :return: [Virtual assistant's response for 'Good bye']
-    :rtype: [str]
+    :rtype: str
     """
     byeAnswers = []
     byeAnswers.append("Good bye!")
@@ -236,7 +253,7 @@ def time():
     """[Virtual Assistant's response when the user request's the time]
 
     :return: [A string containing the time]
-    :rtype: [str]
+    :rtype: str
     """
     timeNow = "The time is "
     timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M %p")
@@ -246,7 +263,7 @@ def date():
     """[Virtual Assistant's response when the user request's the date]
 
     :return: [A string containing the date]
-    :rtype: [str]
+    :rtype: str
     """
     dateNow = "Today's date is "
     dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
@@ -258,7 +275,7 @@ def greeting(user):
     :param user: [The user that is in front of the device]
     :type user: str
     :return: [A string, greeting the user]
-    :rtype: [str]
+    :rtype: str
     """
     hour = int(datetime.datetime.now().strftime("%H"))
     timeOfDay = ""

@@ -44,7 +44,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     request = helper.remove_polite_words(request)
                     request_words = ["open", "opening hour", "address", "where"]
                     request = helper.remove_words(request, request_words)
-                    answer = skills.location_details(user, request)
+                    answer = skills.location_details(request)
                     AIstatus.value = status["answer"]
                     print(answer)
                     response.value = answer["name"] + answer["open_now"] + answer["phone"] + answer["address"] + answer["opening_hours"]
