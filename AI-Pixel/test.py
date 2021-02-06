@@ -1,12 +1,17 @@
-from pprint import pprint
-from urllib.request import urlopen
-from googlesearch import search
-from bs4 import BeautifulSoup
-import requests
-import re
-from requests.api import request
+import speech_recognition as speech
 
-def location_details():
+def record():
+    re = speech.Recognizer()
+    with speech.Microphone(device_index=3, sample_rate=48000) as source:
+        print("Say something")
+        re.pause_threshold = 1
+        audio = re.listen(source, phrase_time_limit=3)
+        print("Time stopped")
+        try:
+            request = re.recognize_google(audio, language='en')
+            print(request)
+        except:
+            print("Did not work")
 
-        
-location_details()
+
+record()

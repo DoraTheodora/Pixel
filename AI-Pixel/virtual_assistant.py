@@ -34,11 +34,27 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
     speak(response.value)
 
     while True:
-        request = listen(AIstatus)
+        request = listening(AIstatus)
         request = request.lower()
         understanding.value = "Responding to: " + request
         
         if "pixel" in request:
+            if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
+                try:
+                    request = helper.remove_polite_words(request)
+                    request_words = ["open", "opening hour", "address", "where"]
+                    request = helper.remove_words(request, request_words)
+                    answer = skills.location_details(user, request)
+                    AIstatus.value = status["answer"]
+                    print(answer)
+                    response.value = answer["name"] + answer["open_now"] + answer["phone"] + answer["address"] + answer["opening_hours"]
+                    speak(answer["answer"])
+                except:
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
+                    print(response.value)
+                    AIstatus.value = status["answer"]
+                    speak(answer["answer"])
             if "help" in request:
                 try:
                     AIstatus.value = status["process"]
@@ -53,10 +69,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(response.value)
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
 
             if "time" in request:
                 AIstatus.value = status["process"]
@@ -83,10 +100,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(weatherDetails["answer"])
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
 
             if "covid" in request and "help" not in request:
                 AIstatus.value = status["process"]
@@ -101,10 +119,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(covidStats["answer"])
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
 
             if "thank you" in request:
                 AIstatus.value = status["process"]
@@ -123,10 +142,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
 
             if "definition" in request:
                 AIstatus.value = status["process"]
@@ -138,10 +158,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
             
             if "tell me about" in request:
                 AIstatus.value = status["process"]
@@ -153,10 +174,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                     AIstatus.value = status["answer"]
                     speak(answer[0])
                 except:
-                    response.value = skills.errorUnderstanding(user)
+                    answer = skills.errorUnderstanding(user)
+                    response.value = answer["answer"] + answer["help"]
                     print(response.value)
                     AIstatus.value = status["answer"]
-                    speak(response.value)
+                    speak(answer["answer"])
 
             if "see you" in request:
                 AIstatus.value = status["process"]
@@ -171,10 +193,10 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
                 speak(response.value)
 
 
-def listen(AIStatus:str):
-    """[The method listents to the user's voice input (using voice recognition) and transforms it into text]
+def listening(AIStatus:str):
+    """[The method listens to the user's voice input (using voice recognition) and transforms it into text]
 
-    :param AIStatus: [The virtual assistant's status: e.g.: processing, listening, etc]
+    :param AIStatus: [The virtual assistant's status: e.g.: processing, listeninging, etc]
     :type AIStatus: str
     :return: [The virtual assistant's response to the user's request]
     :rtype: [str]
@@ -184,19 +206,20 @@ def listen(AIStatus:str):
     with speech.Microphone(device_index=3,sample_rate=48000) as microphoneSource:
         ## gathering the voice input
         AIStatus.value = "Pixel is listening..."
-        req.pause_threshold = 1
-        audio = req.listen(microphoneSource)
-    try:
-        ## translate the voice input into text
-        AIStatus.value = "Pixel heard you..."
-        request = req.recognize_google(audio, language='en')
-        print(request)
-    except:
-        ## if there was no voice input
-        AIStatus.value = "Pixel cannot hear you..."
-        speak("Say that again please")
-        request = ""
-        return request
+        req.pause_threshold = 0.5
+        # TODO: ! phrase_time_limit needs to be removed!!!
+        audio = req.listen(microphoneSource, phrase_time_limit=10)
+        try:
+            ## translate the voice input into text
+            AIStatus.value = "Pixel heard you..."
+            request = req.recognize_google(audio, language='en')
+            print(request)
+        except:
+            ## if there was no voice input
+            AIStatus.value = "Pixel cannot hear you..."
+            speak("Say that again please")
+            request = ""
+            return request
     return request
 
 def playAudiofile():

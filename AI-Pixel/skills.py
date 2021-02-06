@@ -96,9 +96,8 @@ def errorUnderstanding(user:str):
     :return: [String formatted simplistic with information]
     :rtype: [str]
     """
-    answer = "Sorry I did not get that, please try again!"
-    answer = answer + "\n\n{} you can always ask me for help if you need.".format(user.value)
-    answer = answer + "\nTry 'Pixel I need help!'"
+    answer = {"answer" : "Sorry I did not get that, please try again!"}
+    answer["help"] = "\n\n{} you can always ask me for help if you need.\nTry 'Pixel I need help!'".format(user.value)
     return answer
 
 def weather(city:str):
@@ -121,8 +120,7 @@ def weather(city:str):
         key = API['weather']
     base_url = "http://api.openweathermap.org/data/2.5/weather?q="
     complete_url = base_url + city + "&appid=" + key + "&units=metric"
-    response = requests.get(complete_url)
-    response = response.json()
+    response = helper.get_request(complete_url)
     desc = str(response['weather'][0]['description'])
     temp = str(response['main']['temp'])
     #print(response)
@@ -135,6 +133,50 @@ def weather(city:str):
     print(answer)
     return answer
 
+def location_details(user:str, location:str):
+    with open('api_keys.json') as API:
+        API = json.load(API)
+        google_API = API['google']
+    
+    
+    base_url_get_place_id = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={}&inputtype=textquery&fields=place_id&key={}".format(location, google_API)
+    response_ID = helper.get_request(base_url_get_place_id)
+
+    place_ID = str(response_ID['candidates'][0]['place_id'])
+    base_url_get_location_details = "https://maps.googleapis.com/maps/api/place/details/json?place_id={}&fields=opening_hours,name,rating,formatted_address,formatted_phone_number&key={}".format(place_ID, google_API)
+    print(base_url_get_location_details)
+
+    response_details = helper.get_request(base_url_get_location_details)
+    isOpen = ""
+    try:
+        if response_details['result']['opening_hours']['open_now'] == True:
+            isOpen = "Open at the moment. "
+        else:
+            isOpen = "Not open at the moment."
+        response = {"answer" : "{} is {} {} phone number is {}".format(response_details['result']['name'], isOpen, response_details['result']['name'], response_details['result']['formatted_phone_number'])}
+    except:
+        response = {"answer" : "{} phone number is {}".format(response_details['result']['name'], response_details['result']['formatted_phone_number'])}
+    response['name'] = "Name: " + response_details['result']['name'] + " is " 
+    try:
+        response['open_now'] = isOpen.lower() + "\n\n"
+    except:
+        response['open_now'] = ""
+    response['address'] = helper.niceFormattedLongText("Address: " + response_details['result']['formatted_address'] + "\n\n")
+    response['phone'] = "Phone number: " + response_details['result']['formatted_phone_number'] + "\n\n"
+    
+    try:
+        opening_hours = str(response_details['result']['opening_hours']['weekday_text']).replace('\u2013', '-')
+        opening_hours = opening_hours.replace(',','\n')
+        opening_hours = opening_hours.replace("'", "\t")
+        opening_hours = opening_hours.replace("[", "\n")
+        opening_hours = opening_hours.replace("]", "")
+        response['opening_hours'] = "Opening hours: " + opening_hours
+    except:
+        response['opening_hours'] = "Opening hours: " + "-"
+
+    print(response)
+
+    return response
 
 def restartDevice():
     os.system("shutdown -l")
