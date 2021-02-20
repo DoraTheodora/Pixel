@@ -1,11 +1,22 @@
 
 def takePictures():
+    """[This method takes pictures of the user in front of the mirror for 10 seconds]
+    """
     import cv2
     import os
     import time
+    import os.path
 
-    name = input("Your name: ");
-    path = "photos/"+name
+    from os import path
+
+    name = input("Your name: ")
+    folder_exists = True
+    while folder_exists:
+        if path.exists("Photos/"+name):
+            name = input("The name is areleady used. Please insert another name: ")
+        else:
+            folder_exists = False
+    path = "Photos/"+name
     os.mkdir(path)
     camera = cv2.VideoCapture(0);
     end = time.time() + 10 
@@ -15,19 +26,19 @@ def takePictures():
     while(time.time() < end):
             ret, image = camera.read()
             i+=1
-            cv2.imwrite('photos/'+name+'/'+str(i)+'.png', image)
+            cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
     del(camera)
     training(name)
 
 def  training(name:str):
     import cv2
     import pickle
-
-    from imutils import paths
     import face_recognition
 
+    from imutils import paths
+
     print("[INFO] Starting training...")
-    path = "photos/"
+    path = "Photos/"
     encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
     imagePaths = list(paths.list_images(path))
@@ -35,7 +46,7 @@ def  training(name:str):
     knownNames = []
 
     for (i, imagePath) in enumerate(imagePaths):
-        print("[INFO] processing images: " + imagePath)
+        print("[INFO] Processing images: " + imagePath)
         image = cv2.imread(imagePath)
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         boxes = face_recognition.face_locations(rgb, model="hog")
@@ -44,16 +55,15 @@ def  training(name:str):
         for encoding in encodings:
             knownFaces.append(encoding)
             knownNames.append(name)
-    print("[INFO] save encodings...")
+    print("[INFO] Save encodings...")
     data = {"encodings": knownFaces, "names": knownNames}
     file = open("Cascades/encodings.pickle", "wb")
     file.write(pickle.dumps(data))
     file.close()
 
-    #TODO: try with MIKE
 
-   
-    
+
+
 
           
 
