@@ -12,8 +12,19 @@ import os
 import pickle
 import requests, json
 import multiprocessing
+import cv2
+import time
+import os.path
+import pickle
+import face_recognition
 
+from imutils import paths
+from os import path
 from covid import Covid
+
+def register(name:str):
+    helper.take_pictures(name)
+    helper.training(name)
 
 def covidStatus(country:str):
     """[This skill provides the user, with covid-19 statistics from www.worldometers.info]

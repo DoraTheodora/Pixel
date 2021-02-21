@@ -129,27 +129,37 @@ def start():
         faceFound = manager.Value('b', False)
         capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
         capture.start()
+        cameraStopped = False
 
         ## variables shares between the display and the virtual_assistance
         answer = manager.Value('s','')
         virtualAssistantStatus = manager.Value('s','')
         understanding = manager.Value('s',' ')
+        cameraRunning = manager.Value('b', True)
         display = Display(user, answer, virtualAssistantStatus, understanding)
         root = display.root
 
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding))
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
         root.attributes("-fullscreen", True)
         root.configure(background='black')
         while True:
+            if cameraRunning == False:
+                capture.terminate()
+                capture.join()
+                cameraStopped = True
+            if cameraRunning == True and cameraStopped == True:
+                capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
+                capture.start()
+                cameraStopped = False
             if faceFound.value and not AIStarted and initiatedOnce:
                 assistant.start()
                 AIStarted = True  
                 initiatedOnce = False     
             if faceFound.value and not AIStarted and not initiatedOnce:
-                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding))
+                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
                 assistant.start()
                 AIStarted = True 
             if delay.value > 20 and AIStarted:

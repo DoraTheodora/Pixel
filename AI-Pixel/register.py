@@ -1,4 +1,4 @@
-
+ single 
 def takePictures():
     """[This method takes pictures of the user in front of the mirror for 10 seconds]
     """
@@ -19,7 +19,7 @@ def takePictures():
     path = "Photos/"+name
     os.mkdir(path)
     camera = cv2.VideoCapture(0);
-    end = time.time() + 10 
+    end = time.time() + 5 
     i = 0
 
     print("[INFO] Taking pictures")
@@ -30,7 +30,7 @@ def takePictures():
     del(camera)
     training(name)
 
-def  training(name:str):
+def training(name:str):
     import cv2
     import pickle
     import face_recognition
@@ -38,7 +38,7 @@ def  training(name:str):
     from imutils import paths
 
     print("[INFO] Starting training...")
-    path = "Photos/"
+    path = "Photos/"+name
     encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
     imagePaths = list(paths.list_images(path))

@@ -17,7 +17,7 @@ status = {
     "start" : "Pixel is starting...",
     "answer" : "Pixel has an answer...",}
 
-def start(user:str, response:str, AIstatus:str, understanding:str): 
+def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning:bool): 
     """[This method starts the virtual assistant, that will processes the user's request and delivers a meaningful answer]
 
     :param user: [The user using the device]
@@ -39,6 +39,34 @@ def start(user:str, response:str, AIstatus:str, understanding:str):
         understanding.value = "Responding to: " + request
         
         if "pixel" in request:
+            if "register" in request or "sign up" in request and not "help" in request:
+                username_exists = True
+                name = "stranger"
+                response.value = "To register I need your name. Please tell me your name."
+                speak("To register I need your name. Please tell me your name")
+                while username_exists:
+                    name = listen_for_name(AIstatus)
+                    understanding.value = "Responding to: " + name
+                    name = helper.get_last_word(name)
+                    username_exists = helper.folder_exists(name)
+                    if(username_exists):
+                        response.value = "The name " + name + " is already used. Please try again"
+                        speak("The name " + name + " is already used. Please try again")
+                    else:
+                        response.value = "You said " + name + " right?\nPlease answer YES or NO"
+                        speak("You said " + name + " right? Please answer YES or NO")
+                        confirm = listen_for_name(AIstatus)
+                        understanding.value = "Responding to: " + confirm
+                        if "yes" in confirm:
+                            cameraRunning.value = False
+                            skills.register(name)
+                            cameraRunning.value = True
+                            
+                        else:
+                            response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register if you change your mind'"
+                            speak("I understand you don't want to register. Please say I want to register if you change your mind")
+                            
+
             if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
                 try:
                     request = helper.remove_polite_words(request)
@@ -201,6 +229,28 @@ def listening(AIStatus:str):
     :return: [The virtual assistant's response to the user's request]
     :rtype: [str]
     """
+    req = speech.Recognizer()
+    request = ""
+    with speech.Microphone(device_index=3,sample_rate=48000) as microphoneSource:
+        ## gathering the voice input
+        AIStatus.value = "Pixel is listening..."
+        req.pause_threshold = 0.5
+        # TODO: ! phrase_time_limit needs to be removed!!!
+        audio = req.listen(microphoneSource, phrase_time_limit=10)
+        try:
+            ## translate the voice input into text
+            AIStatus.value = "Pixel heard you..."
+            request = req.recognize_google(audio, language='en')
+            print(request)
+        except:
+            ## if there was no voice input
+            AIStatus.value = "Pixel cannot hear you..."
+            speak("Say that again please")
+            request = ""
+            return request
+    return request
+
+def listen_for_name(AIStatus:str):
     req = speech.Recognizer()
     request = ""
     with speech.Microphone(device_index=3,sample_rate=48000) as microphoneSource:
