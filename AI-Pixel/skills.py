@@ -17,19 +17,73 @@ import time
 import os.path
 import pickle
 import face_recognition
+import time as t
+import virtual_assistant
 
 from imutils import paths
 from os import path
 from covid import Covid
 
-def register(name:str, cameraRunning:bool):
-    trying_camera = True
-    while trying_camera:
-        if cameraRunning.value == False:
-            trying_camera = False
-    if cameraRunning == False:
-        helper.take_pictures(name)
-        helper.training(name)
+def take_pictures(name:str, response:str):
+    """[The method takes pictures of the user in front of the camera for 5 seconds, and instructs the user what to do to register successfully]
+
+    :param name: [Name of the user registering]
+    :type name: str
+    :param response: [Virtual assistant's displayed answer]
+    :type response: str
+    """
+    response.value = "For the next 5 seconds please look into the mirror " + name + "\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards."
+    virtual_assistant.speak("For the next 5 seconds please look into the mirror " + name + "\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards.")
+    path = "Photos/"+name
+    os.mkdir(path)
+    print("[INFO] Folder created")
+    capture = cv2.VideoCapture(0);
+    print("[INFO] Camera started to take pictures")
+
+    print("[INFO] Taking pictures")
+    now = t.time() + 5
+    i = 0
+    while(t.time() < now):
+        ret, image = capture.read()
+        i+=1
+        cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
+    del(capture)
+
+def train(name:str, response:str):
+    """[The method trains the model to recognize a new face, from a data set of images]
+
+    :param name: [Name of the user registering]
+    :type name: str
+    :param response: [Virtual assistant's displayed answer]
+    :type response: str
+    """
+    print("[INFO] Starting training...")
+    response.value = "Now I will register you " + name +", this will take about 1 minute..."
+    virtual_assistant.speak("Now I will register you " + name +", this will take about 1 minute...")
+    path = "Photos/"+name
+    encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
+
+    imagePaths = list(paths.list_images(path))
+    knownFaces = []
+    knownNames = []
+
+    for (i, imagePath) in enumerate(imagePaths):
+        print("[INFO] Processing images: " + imagePath)
+        image = cv2.imread(imagePath)
+        rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        boxes = face_recognition.face_locations(rgb, model="hog")
+        encodings = face_recognition.face_encodings(rgb, boxes)
+
+        for encoding in encodings:
+            knownFaces.append(encoding)
+            knownNames.append(name)
+    print("[INFO] Save encodings...")
+    data = {"encodings": knownFaces, "names": knownNames}
+    file = open("Cascades/encodings.pickle", "wb")
+    file.write(pickle.dumps(data))
+    file.close()
+    response.value = "Done! Now we are friends " + name + " !"
+    virtual_assistant.speak("Done! Now we are friends " + name + " !")
 
 def covidStatus(country:str):
     """[This skill provides the user, with covid-19 statistics from www.worldometers.info]

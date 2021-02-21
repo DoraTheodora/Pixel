@@ -8,62 +8,34 @@ import cv2
 import os
 import time
 import os.path
-import cv2
-import pickle
-import face_recognition
+
 from os import path
 
 def folder_exists(folder:str):
+    """[The method checks is a certain path exists or not]
+
+    :param folder: [The path that needs to be checked if it exists]
+    :type folder: str
+    :return: [returns True if the path exists, return False if the path does not exist]
+    :rtype: str
+    """
     if path.exists("Photos/"+folder):
         return True
     else:
         return False
 
 def get_last_word(string:str):
+    """[The method returns the last word from a sentence]
+
+    :param string: [The sentence that needs to be parsed]
+    :type string: str
+    :return: [The last word of the sentence]
+    :rtype: str
+    """
     words = string.split(" ")
     last_word = words[-1]
     return last_word
-
-def take_pictures(name:str):
-    path = "Photos/"+name
-    os.mkdir(path)
-    print("[INFO] Folder created")
-    capture = cv2.VideoCapture(0);
-    print("[INFO] Camera started to take pictures")
-    end = time.time() + 5 
-    i = 0
-
-    print("[INFO] Taking pictures")
-    while(time.time() < end):
-        ret, image = capture.read()
-        i+=1
-        cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
-    del(capture)
     
-def training(name:str):
-    print("[INFO] Starting training...")
-    path = "Photos/"+name
-    encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
-
-    imagePaths = list(paths.list_images(path))
-    knownFaces = []
-    knownNames = []
-
-    for (i, imagePath) in enumerate(imagePaths):
-        print("[INFO] Processing images: " + imagePath)
-        image = cv2.imread(imagePath)
-        rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        boxes = face_recognition.face_locations(rgb, model="hog")
-        encodings = face_recognition.face_encodings(rgb, boxes)
-
-        for encoding in encodings:
-            knownFaces.append(encoding)
-            knownNames.append(name)
-    print("[INFO] Save encodings...")
-    data = {"encodings": knownFaces, "names": knownNames}
-    file = open("Cascades/encodings.pickle", "wb")
-    file.write(pickle.dumps(data))
-    file.close()
 
 def niceFormattedLongText(longString:str):
     """[Method that formats a long string to multiple rows]
