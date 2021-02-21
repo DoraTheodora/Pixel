@@ -17,7 +17,7 @@ status = {
     "start" : "Pixel is starting...",
     "answer" : "Pixel has an answer...",}
 
-def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning:bool): 
+def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning:bool, cameraStopped:bool): 
     """[This method starts the virtual assistant, that will processes the user's request and delivers a meaningful answer]
 
     :param user: [The user using the device]
@@ -59,8 +59,9 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                         understanding.value = "Responding to: " + confirm
                         if "yes" in confirm:
                             cameraRunning.value = False
-                            skills.register(name)
-                            cameraRunning.value = True
+                            if cameraStopped.value == False:
+                                skills.register(name)
+                                cameraRunning.value = True
                             
                         else:
                             response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register if you change your mind'"

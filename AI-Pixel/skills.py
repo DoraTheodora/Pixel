@@ -23,8 +23,12 @@ from os import path
 from covid import Covid
 
 def register(name:str):
-    helper.take_pictures(name)
-    helper.training(name)
+    try:
+        helper.take_pictures(name)
+        helper.training(name)
+    except:
+        print("[INFO] camera failed")
+
 
 def covidStatus(country:str):
     """[This skill provides the user, with covid-19 statistics from www.worldometers.info]

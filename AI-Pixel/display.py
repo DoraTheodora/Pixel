@@ -129,7 +129,7 @@ def start():
         faceFound = manager.Value('b', False)
         capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
         capture.start()
-        cameraStopped = False
+        cameraStopped = manager.Value('b', False)
 
         ## variables shares between the display and the virtual_assistance
         answer = manager.Value('s','')
@@ -142,24 +142,26 @@ def start():
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning, cameraStopped))
         root.attributes("-fullscreen", True)
         root.configure(background='black')
+        
         while True:
-            if cameraRunning == False:
+            if cameraRunning.value == False and cameraStopped.value == False:
+                print("[INFO] Main camera stopped")
                 capture.terminate()
                 capture.join()
-                cameraStopped = True
+                cameraStopped.value = True
             if cameraRunning == True and cameraStopped == True:
                 capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
                 capture.start()
-                cameraStopped = False
+                cameraStopped.value = False
             if faceFound.value and not AIStarted and initiatedOnce:
                 assistant.start()
                 AIStarted = True  
                 initiatedOnce = False     
             if faceFound.value and not AIStarted and not initiatedOnce:
-                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
+                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning, cameraStopped))
                 assistant.start()
                 AIStarted = True 
             if delay.value > 20 and AIStarted:

@@ -11,7 +11,6 @@ import os.path
 import cv2
 import pickle
 import face_recognition
-import camera
 from os import path
 
 def folder_exists(folder:str):
@@ -26,25 +25,20 @@ def get_last_word(string:str):
     return last_word
 
 def take_pictures(name:str):
-    folder_exists = True
-    while folder_exists:
-        if os.path.exists("Photos/"+name):
-            name = input("The name is areleady used. Please insert another name: ")
-        else:
-            folder_exists = False
     path = "Photos/"+name
     os.mkdir(path)
-    camera = cv2.VideoCapture(0);
+    print("[INFO] Folder created")
+    capture = cv2.VideoCapture(0);
+    print("[INFO] Camera started to take pictures")
     end = time.time() + 5 
     i = 0
 
     print("[INFO] Taking pictures")
     while(time.time() < end):
-            ret, image = camera.read()
-            i+=1
-            cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
-    del(camera)
-    camera.start("stranger", True, 0.0, 0.0, True)
+        ret, image = capture.read()
+        i+=1
+        cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
+    del(capture)
     
 def training(name:str):
     print("[INFO] Starting training...")
