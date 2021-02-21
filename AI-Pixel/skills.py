@@ -22,13 +22,14 @@ from imutils import paths
 from os import path
 from covid import Covid
 
-def register(name:str):
-    try:
+def register(name:str, cameraRunning:bool):
+    trying_camera = True
+    while trying_camera:
+        if cameraRunning.value == False:
+            trying_camera = False
+    if cameraRunning == False:
         helper.take_pictures(name)
         helper.training(name)
-    except:
-        print("[INFO] camera failed")
-
 
 def covidStatus(country:str):
     """[This skill provides the user, with covid-19 statistics from www.worldometers.info]

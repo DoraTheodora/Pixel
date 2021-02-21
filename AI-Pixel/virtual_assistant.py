@@ -53,15 +53,14 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                         response.value = "The name " + name + " is already used. Please try again"
                         speak("The name " + name + " is already used. Please try again")
                     else:
-                        response.value = "You said " + name + " right?\nPlease answer YES or NO"
+                        response.value = "You said " + name + " right?"
                         speak("You said " + name + " right? Please answer YES or NO")
                         confirm = listen_for_name(AIstatus)
                         understanding.value = "Responding to: " + confirm
                         if "yes" in confirm:
                             cameraRunning.value = False
-                            if cameraStopped.value == False:
-                                skills.register(name)
-                                cameraRunning.value = True
+                            skills.register(name, cameraRunning)
+                            cameraRunning.value = True
                             
                         else:
                             response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register if you change your mind'"
