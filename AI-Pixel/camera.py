@@ -21,18 +21,8 @@ import pickle
 import time
 import cv2
 
-# load the known faces and embeddings along with OpenCV's Haar
-# cascade for face detection
-print("[INFO] loading encodings + face detector...")
-detector = cv2.CascadeClassifier("Cascades/haarcascade_frontalface_default.xml")
-data = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
-# initialize the video stream and allow the camera sensor to warm up
-print("[INFO] starting video stream...")
-capture = cv2.VideoCapture(0)
-
-
-def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
+def start(user:str, faceFound:bool, timeFaceFound:float, delay:float, runCamera:bool):
     """[summary]
     :param user: [description]
     :type user: str
@@ -43,10 +33,19 @@ def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
     :param delay: [description]
     :type delay: float
     """
-    while True:
+    # load the known faces and embeddings along with OpenCV's Haar
+    # cascade for face detection
+    print("[INFO] loading encodings + face detector...")
+    detector = cv2.CascadeClassifier("Cascades/haarcascade_frontalface_default.xml")
+    data = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
+
+    # initialize the video stream and allow the camera sensor to warm up
+    print("[INFO] starting video stream...")
+    cam = cv2.VideoCapture(0)
+    while runCamera:
         # grab the frame from the threaded video stream and resize it
 	    # to 500px (to speedup processing)
-        ret, frame = capture.read()
+        ret, frame = cam.read()
         #frame = imutils.resize(frame, width=300)
         # convert the input frame from (1) BGR to grayscale (for face
 	    # detection) and (2) from BGR to RGB (for face recognition)
@@ -118,9 +117,11 @@ def start(user:str, faceFound:bool, timeFaceFound:float, delay:float):
         # display the image to our screen
         cv2.imshow("Frame", frame)
 
-    # do a bit of cleanup
-    capture.release()
-    cv2.destroyAllWindows()
+    if(runCamera.value == False):
+        cam.release()
+        cv2.destroyAllWindows()
+        print("[INFO] Main camera stopped")
+
 
 def idle(timeFaceFound):
     idleTime = time.time() - timeFaceFound

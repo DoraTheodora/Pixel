@@ -20,7 +20,7 @@ from multiprocessing import Manager
 from PIL import Image, ImageTk
 
 class Display:
-    """[summary]
+    """[This class is the interface of the system, and the main process of the system]
     """
     root = Tk() 
     ## Dividing the screen in 1 column and 5 rows
@@ -28,6 +28,17 @@ class Display:
     root.grid_columnconfigure(1, weight=1)
     
     def __init__(self, user:str, response:str, virtualAssistantStatus:str, understanding:str):
+        """[summary]
+
+        :param user: [The user in front of the camera]
+        :type user: str
+        :param response: [The text displayed on the mirror-surface]
+        :type response: str
+        :param virtualAssistantStatus: [The status of the virtual assistant: processing, listening, answering, etc]
+        :type virtualAssistantStatus: str
+        :param understanding: [What is the understanding of the sytem, of what the user said]
+        :type understanding: str
+        """
         self.response = response
         self.virtualAssistantStatus = virtualAssistantStatus
         self.understanding = understanding
@@ -127,7 +138,8 @@ def start():
         delay = manager.Value('f', 0)
         timeFaceFound = manager.Value('f', time.time())
         faceFound = manager.Value('b', False)
-        capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
+        runCamera = manager.Value('b', True)
+        capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay, runCamera))
         capture.start()
         cameraStopped = manager.Value('b', False)
 
@@ -148,12 +160,13 @@ def start():
         
         while True:
             if cameraRunning.value == False and cameraStopped.value == False:
-                print("[INFO] Main camera stopped")
+                runCamera.value = False
                 capture.terminate()
                 capture.join()
                 cameraStopped.value = True
-            if cameraRunning == True and cameraStopped == True:
-                capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay))
+            if cameraRunning.value == True and cameraStopped.value == True:
+                runCamera.value = True
+                capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay, runCamera))
                 capture.start()
                 cameraStopped.value = False
             if faceFound.value and not AIStarted and initiatedOnce:
