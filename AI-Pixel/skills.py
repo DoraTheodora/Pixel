@@ -32,8 +32,8 @@ def take_pictures(name:str, response:str):
     :param response: [Virtual assistant's displayed answer]
     :type response: str
     """
-    response.value = "For the next 5 seconds please look into the mirror " + name + "\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards."
-    virtual_assistant.speak("For the next 5 seconds please look into the mirror " + name + "\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards.")
+    response.value = "For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards."
+    virtual_assistant.speak("For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards.")
     path = "Photos/"+name
     os.mkdir(path)
     print("[INFO] Folder created")
@@ -58,8 +58,8 @@ def train(name:str, response:str):
     :type response: str
     """
     print("[INFO] Starting training...")
-    response.value = "Now I will register you " + name +", this will take about 1 minute..."
-    virtual_assistant.speak("Now I will register you " + name +", this will take about 1 minute...")
+    response.value = "Now I will register you " + name +", this will take a few minutes..."
+    virtual_assistant.speak("Now I will register you " + name +", this will take a few minutes...")
     path = "Photos/"+name
     encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
@@ -82,6 +82,7 @@ def train(name:str, response:str):
     file = open("Cascades/encodings.pickle", "wb")
     file.write(pickle.dumps(data))
     file.close()
+    #TODO: delete the pictures but not the folders!
     response.value = "Done! Now we are friends " + name + " !"
     virtual_assistant.speak("Done! Now we are friends " + name + " !")
 
