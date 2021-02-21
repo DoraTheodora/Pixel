@@ -10,4 +10,3 @@ AI-Pixel
    main
    skills
    virtual_assistant
-   register

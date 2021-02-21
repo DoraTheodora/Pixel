@@ -78,30 +78,40 @@ class Display:
 
     ## update time on GUI
     def updateTime(self):
+        """[The method updates the time on the display]
+        """
         self.time2 = datetime.datetime.now().strftime("%I:%M:%S %p")
         self.clock_label.configure(text=self.time2)
         self.clock_label.after(200, self.updateTime)
 
     ## update virtual assistant's reponse on GUI
     def displayResponse(self):
+        """[The method displays on the screen the virtual assistant's response]
+        """
         self.answer = self.response.value
         self.AI_Message_label.configure(text=self.answer)
         self.AI_Message_label.after(200, self.displayResponse)
 
     ## update virtual assistant's status on GUI
     def displayVirtualAssistantStatus(self):
+        """[The method displays on the screen the virtual assistant's status: listening, answering, etc]
+        """
         self.virtualAssistantStatus_message = self.virtualAssistantStatus.value
         self.AI_processing_label.configure(text=self.virtualAssistantStatus_message)
         self.AI_processing_label.after(200, self.displayVirtualAssistantStatus)
 
     ## update virtual assistant's understanding
     def displayVirtualAssistantUnderstanding(self):
+        """[The method displays on the screen what the virtual assistant understood from what the user said]
+        """
         self.understanding_text = self.understanding.value
         self.understanding_label.configure(text=self.understanding_text)
         self.understanding_label.after(200, self.displayVirtualAssistantUnderstanding)
         
 
     def close(self):
+        """[The method closes the interface]
+        """
         self.root.destroy()
     '''
     def updatedCameraFrame(self):
@@ -154,7 +164,7 @@ def start():
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning, cameraStopped))
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
         root.attributes("-fullscreen", True)
         root.configure(background='black')
         
@@ -174,7 +184,7 @@ def start():
                 AIStarted = True  
                 initiatedOnce = False     
             if faceFound.value and not AIStarted and not initiatedOnce:
-                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning, cameraStopped))
+                assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
                 assistant.start()
                 AIStarted = True 
             if delay.value > 20 and AIStarted:

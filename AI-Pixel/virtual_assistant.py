@@ -17,7 +17,7 @@ status = {
     "start" : "Pixel is starting...",
     "answer" : "Pixel has an answer...",}
 
-def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning:bool, cameraStopped:bool): 
+def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning:bool): 
     """[This method starts the virtual assistant, that will processes the user's request and delivers a meaningful answer]
 
     :param user: [The user using the device]
@@ -28,6 +28,8 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
     :type AIstatus: str
     :param understanding: [The user's voice input]
     :type understanding: str
+    :param cameraRunning: [Main camera frame status]
+    :type cameraRunning: bool
     """
     response.value = skills.greeting(user.value)
     AIstatus.value = status["start"]
@@ -221,6 +223,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                 response.value = skills.responseBye()
                 AIstatus.value = status["answer"]
                 speak(response.value)
+        #TODO: what if the user does not say pixel?
 
 
 def listening(AIStatus:str):
