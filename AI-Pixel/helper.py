@@ -8,8 +8,13 @@ import cv2
 import os
 import time
 import os.path
+import shutil
 
 from os import path
+
+def delete_pictures(name:str):
+    shutil.rmtree("Photos/"+name)
+    os.mkdir("Photos/"+name)
 
 def folder_exists(folder:str):
     """[The method checks is a certain path exists or not]

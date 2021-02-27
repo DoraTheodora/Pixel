@@ -65,6 +65,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                             skills.take_pictures(name, response)
                             skills.train(name, response)
                             cameraRunning.value = True
+                            helper.delete_pictures(name)
                         else:
                             #TODO: when user says no!!!
                             response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register' if you change your mind"
