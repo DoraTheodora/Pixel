@@ -67,22 +67,9 @@ def train(name:str, response:str):
     knownFaces = []
     knownNames = []
 
-    first_quarter = len(imagePaths)/4
-    second_quarter = first_quarter + first_quarter
-    third_quarter = second_quarter + first_quarter
-
     for (i, imagePath) in enumerate(imagePaths):
-        if i == first_quarter:
-            response.value = "Looking good "  + name + " !\nI am starting to know you!"
-            virtual_assistant.speak("Looking good " + name + " ! I am starting to know you!")
-        elif i == second_quarter:
-            response.value = "You have very interesting features "  + name + " !\nWe are half way done."
-            virtual_assistant.speak("You have very interesting features"  + name + " ! We are half way done.")
-        elif i == third_quarter:
-            response.value = name + " we are almost done! \nDo not go anywhere!"
-            virtual_assistant.speak(name + " ! we are almost done! \nDo not go anywhere!")
-        
         print("[INFO] Processing images: " + imagePath)
+        helper.registration_diaglog(i, name, len(imagePaths), response)
         image = cv2.imread(imagePath)
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         boxes = face_recognition.face_locations(rgb, model="hog")

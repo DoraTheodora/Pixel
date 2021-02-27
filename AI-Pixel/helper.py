@@ -9,12 +9,27 @@ import os
 import time
 import os.path
 import shutil
+import virtual_assistant
 
 from os import path
 
 def delete_pictures(name:str):
     shutil.rmtree("Photos/"+name)
     os.mkdir("Photos/"+name)
+
+def registration_diaglog(picture_number:int, name:str, len_images:int, response, ):
+    first_quarter = len_images/4
+    second_quarter = first_quarter + first_quarter
+    third_quarter = second_quarter + first_quarter
+    if picture_number == first_quarter:
+        response.value = "Looking good "  + name + "!\nI am starting to know you!"
+        virtual_assistant.speak("Looking good " + name + " ! I am starting to know you!")
+    elif picture_number == second_quarter:
+        response.value = "You have very interesting features "  + name + "!\nWe are half way done."
+        virtual_assistant.speak("You have very interesting features"  + name + "! We are half way done.")
+    elif picture_number == third_quarter:
+        response.value = name + " we are almost done! \nDo not go anywhere!"
+        virtual_assistant.speak(name + " ! we are almost done! \nDo not go anywhere!")
 
 def folder_exists(folder:str):
     """[The method checks is a certain path exists or not]

@@ -225,6 +225,12 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                 AIstatus.value = status["answer"]
                 speak(response.value)
         #TODO: what if the user does not say pixel?
+        else:
+            AIstatus.value = status["answer"]
+            response.value = "Hmmm...I am not sure if you are speaking to me.\nPlease use the word PIXEL in your sentence\nso I know that you are speaking to me"
+            speak("Hmmm.. I am not sure if you are speaking to me. Please use the word PIXEL in your sentence so I know that you are speaking to me")
+
+
 
 
 def listening(AIStatus:str):
