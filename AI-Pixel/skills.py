@@ -24,6 +24,15 @@ from imutils import paths
 from os import path
 from covid import Covid
 
+def create_list():
+    pass
+
+def edit_list():
+    pass
+
+def delete_list():
+    pass
+
 def take_pictures(name:str, response:str):
     """[The method takes pictures of the user in front of the camera for 5 seconds, and instructs the user what to do to register successfully]
 
@@ -269,7 +278,7 @@ def location_details(location:str):
 
 def restartDevice():
     os.system("shutdown -l")
-    ## more work here, to make the device restart
+    #TODO: more work here, to make the device restart
 
 
 def wiki(request:str):

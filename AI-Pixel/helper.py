@@ -10,8 +10,27 @@ import time
 import os.path
 import shutil
 import virtual_assistant
+import pickle
 
 from os import path
+
+def create_a_pickle_files(name:str):
+    """[After registration this method creates two pickle files where the user's lists and settings will be stored]
+
+    :param name: [name of the user and name of the folder where the pickle files are created]
+    :type name: str
+    """
+    os.chdir("User/"+name)
+    dictionaries = {}
+    file_name = "user_lists"
+    outfile = open(file_name, 'wb')
+    pickle.dump(dictionaries, outfile)
+    outfile.close()
+    file_name = "user_settings"
+    outfile = open(file_name, 'wb')
+    pickle.dump(dictionaries, outfile)
+    outfile.close()
+
 
 def delete_pictures(name:str):
     """[Method that removes the pictures after registration, but keeps the folder for the user's personal settings and lists]

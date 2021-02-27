@@ -4,4 +4,5 @@
 ## 5 February 2021
 import display
 
-display.start()
+if __name__ == "__main__":
+    display.start()

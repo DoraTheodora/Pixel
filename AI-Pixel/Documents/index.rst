@@ -6,16 +6,17 @@
 Welcome to Pixel's documentation!
 =================================
 .. code-block:: python
-   :emphasize-lines: 3,8
+   :emphasize-lines: 3,8, 9
 
    def about_the_project():
       """ About the team """
       developer = "Theodora Litean-Tataru"
       email = "tataru.theodora@yahoo.com"
-      date = 2021
+      date = 2020-2021
       institute = "Institute of Technology Carlow"
       course = "Software Development"
       tutor = "Joseph Kehoe"
+      return "Smart speaker with face recognition for elderlies and people with hearing deficiency"
    
 
 Info

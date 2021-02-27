@@ -68,13 +68,14 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                                 skills.train(name, response)
                                 cameraRunning.value = True
                                 helper.delete_pictures(name)
+                                helper.create_a_pickle_files(name)
                             else:
                                 #TODO: when user says no!!!
                                 response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register' if you change your mind"
                                 speak("I understand you don't want to register. Please say I want to register if you change your mind")
                 else:
-                    response.value = "Hmm... " + user.value + " you are already registered.\nAre you trying to confuse me?" 
-                    speak("Hmm... " + user.value + " you are already registered.\nAre you trying to confuse me?" )
+                    response.value = "Ummm... " + user.value + " you are already registered.\nAre you trying to confuse me?" 
+                    speak("Ummm... " + user.value + " you are already registered.\nAre you trying to confuse me?" )
 
 
             if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
@@ -232,8 +233,8 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
         #TODO: what if the user does not say pixel?
         else:
             AIstatus.value = status["answer"]
-            response.value = "Hmmm...I am not sure if you are speaking to me.\nPlease use the word PIXEL in your sentence\nso I know that you are speaking to me"
-            speak("Hmmm.. I am not sure if you are speaking to me. Please use the word PIXEL in your sentence so I know that you are speaking to me")
+            response.value = "Hmmm...I am not sure if you are speaking to me.\nPlease use the word PIXEL in your sentence\nso I know that you are addressing to me"
+            speak("Hmmm.. I am not sure if you are speaking to me. Please use the word PIXEL in your sentence so I know that you are addressing to me")
 
 def listening(AIStatus:str):
     """[The method listens to the user's voice input (using voice recognition) and transforms it into text]
