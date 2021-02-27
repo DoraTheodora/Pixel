@@ -34,7 +34,7 @@ def take_pictures(name:str, response:str):
     """
     response.value = "For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards."
     virtual_assistant.speak("For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards.")
-    path = "Photos/"+name
+    path = "User/"+name
     os.mkdir(path)
     print("[INFO] Folder created")
     capture = cv2.VideoCapture(0);
@@ -46,7 +46,7 @@ def take_pictures(name:str, response:str):
     while(t.time() < now):
         ret, image = capture.read()
         i+=1
-        cv2.imwrite('Photos/'+name+'/'+str(i)+'.png', image)
+        cv2.imwrite('User/'+name+'/'+str(i)+'.png', image)
     del(capture)
 
 def train(name:str, response:str):
@@ -58,9 +58,9 @@ def train(name:str, response:str):
     :type response: str
     """
     print("[INFO] Starting training...")
-    response.value = "Now I will learn you face features " + name +", this will take a few minutes..."
-    virtual_assistant.speak("Now I will learn you face features " + name +", this will take a few minutes...")
-    path = "Photos/"+name
+    response.value = "Now I will learn your face features " + name +", this will take a few minutes..."
+    virtual_assistant.speak("Now I will learn your face features " + name +", this will take a few minutes...")
+    path = "User/"+name
     encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
 
     imagePaths = list(paths.list_images(path))

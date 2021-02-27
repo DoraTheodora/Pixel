@@ -14,11 +14,27 @@ import virtual_assistant
 from os import path
 
 def delete_pictures(name:str):
-    shutil.rmtree("Photos/"+name)
-    os.mkdir("Photos/"+name)
+    """[Method that removes the pictures after registration, but keeps the folder for the user's personal settings and lists]
 
-def registration_diaglog(picture_number:int, name:str, len_images:int, response, ):
-    first_quarter = len_images/4
+    :param name: [Name of the folder and name of the user]
+    :type name: str
+    """
+    shutil.rmtree("User/"+name)
+    os.mkdir("User/"+name)
+
+def registration_diaglog(picture_number:int, name:str, len_images:int, response):
+    """[Method that makes the registration interractive, by communicating with the user during the process]
+
+    :param picture_number: [the number of picture that the process of training is at]
+    :type picture_number: int
+    :param name: [name of the user and name of the folder where the pictures are]
+    :type name: str
+    :param len_images: [the total number of pictures used for the registration process]
+    :type len_images: int
+    :param response: [response that is displayed on the screen to inform the user what the virtual assistant is saying]
+    :type response: [type]
+    """
+    first_quarter = len_images//4
     second_quarter = first_quarter + first_quarter
     third_quarter = second_quarter + first_quarter
     if picture_number == first_quarter:
@@ -39,7 +55,7 @@ def folder_exists(folder:str):
     :return: [returns True if the path exists, return False if the path does not exist]
     :rtype: str
     """
-    if path.exists("Photos/"+folder):
+    if path.exists("User/"+folder):
         return True
     else:
         return False

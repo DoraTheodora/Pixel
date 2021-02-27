@@ -42,35 +42,40 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
         
         if "pixel" in request:
             if "register" in request or "sign up" in request and not "help" in request:
-                username_exists = True
-                name = "stranger"
-                response.value = "To register I need your name. Please tell me your name."
-                speak("To register I need your name. Please tell me your name")
-                while username_exists:
-                    name = listen_for_name(AIstatus)
-                    understanding.value = "Responding to: " + name
-                    name = helper.get_last_word(name)
-                    username_exists = helper.folder_exists(name)
-                    if(username_exists):
-                        response.value = "The name " + name + " is already used. Please try again"
-                        speak("The name " + name + " is already used. Please try again")
-                    else:
-                        response.value = "You said " + name + ", right?"
-                        speak("You said " + name + " right? Please answer YES or NO")
-                        confirm = listen_for_name(AIstatus)
-                        understanding.value = "Responding to: " + confirm
-                        if "yes" in confirm:
-                            AIstatus.value = status["process"]
-                            cameraRunning.value = False
-                            skills.take_pictures(name, response)
-                            skills.train(name, response)
-                            cameraRunning.value = True
-                            helper.delete_pictures(name)
+                if user.value == "stranger" or user.value == "":
+                    print("[INFO] user asking to register " + user.value)
+                    username_exists = True
+                    name = "stranger"
+                    response.value = "To register I need your name. Please tell me your name."
+                    speak("To register I need your name. Please tell me your name")
+                    while username_exists:
+                        name = listen_for_name(AIstatus)
+                        understanding.value = "Responding to: " + name
+                        name = helper.get_last_word(name)
+                        username_exists = helper.folder_exists(name)
+                        if(username_exists):
+                            response.value = "The name " + name + " is already used. Please try again"
+                            speak("The name " + name + " is already used. Please try again")
                         else:
-                            #TODO: when user says no!!!
-                            response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register' if you change your mind"
-                            speak("I understand you don't want to register. Please say I want to register if you change your mind")
-                            
+                            response.value = "You said " + name + ", right?"
+                            speak("You said " + name + " right? Please answer YES or NO")
+                            confirm = listen_for_name(AIstatus)
+                            understanding.value = "Responding to: " + confirm
+                            if "yes" in confirm:
+                                AIstatus.value = status["process"]
+                                cameraRunning.value = False
+                                skills.take_pictures(name, response)
+                                skills.train(name, response)
+                                cameraRunning.value = True
+                                helper.delete_pictures(name)
+                            else:
+                                #TODO: when user says no!!!
+                                response.value = "I understand you don't want to register.\nPlease say 'Pixel, I want to register' if you change your mind"
+                                speak("I understand you don't want to register. Please say I want to register if you change your mind")
+                else:
+                    response.value = "Hmm... " + user.value + " you are already registered.\nAre you trying to confuse me?" 
+                    speak("Hmm... " + user.value + " you are already registered.\nAre you trying to confuse me?" )
+
 
             if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
                 try:
@@ -229,9 +234,6 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
             AIstatus.value = status["answer"]
             response.value = "Hmmm...I am not sure if you are speaking to me.\nPlease use the word PIXEL in your sentence\nso I know that you are speaking to me"
             speak("Hmmm.. I am not sure if you are speaking to me. Please use the word PIXEL in your sentence so I know that you are speaking to me")
-
-
-
 
 def listening(AIStatus:str):
     """[The method listens to the user's voice input (using voice recognition) and transforms it into text]
