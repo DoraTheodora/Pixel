@@ -79,21 +79,10 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
 
 
             if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
-                try:
-                    request = helper.remove_polite_words(request)
-                    request_words = ["open", "opening hour", "address", "where"]
-                    request = helper.remove_words(request, request_words)
-                    answer = skills.location_details(request)
-                    AIstatus.value = status["answer"]
-                    print(answer)
-                    response.value = answer["name"] + answer["open_now"] + answer["phone"] + answer["address"] + answer["opening_hours"]
-                    speak(answer["answer"])
-                except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
+                location_details = skill.Location()
+                request = location_details.prepare(request)
+                location_details.run(AIstatus, request, response, status)
+
             if "help" in request:
                 help = skill.Help()
                 help_for = help.prepare(AIstatus, status, request)
@@ -117,21 +106,13 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                 speak(response.value)
             
             if "weather" in request and "help" not in request:
-                AIstatus.value = status["process"]
+                #TODO: put forecast and temperature here
+                weather = skill.Weather()
+                city = weather.prepare(AIstatus, status, request)
                 try:
-                    request = helper.remove_polite_words(request)
-                    city = helper.substring_after(request, "in")
-                    weatherDetails = skills.weather(city)
-                    response.value = weatherDetails["location"]+ weatherDetails["descrition"]+ weatherDetails["temperature"]
-                    print(weatherDetails["answer"])
-                    AIstatus.value = status["answer"]
-                    speak(weatherDetails["answer"])
+                    weather.run(city, AIstatus, response, status)
                 except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
+                    weather.error(user, response, AIstatus, status, city) 
 
             if "covid" in request and "help" not in request:
                 covid = skill.Covid19()
@@ -154,17 +135,11 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                 except:
                     definition.error(user, word, response, AIstatus, status)
 
-            if "see you" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.responseBye()
-                AIstatus.value = status["answer"]
-                speak(response.value)
-
-            if "bye" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.responseBye()
-                AIstatus.value = status["answer"]
-                speak(response.value)
+            if "bye" in request or "see you" in request:
+                #TODO: verify if this works
+                bye = skill.Good_bye()
+                answer = bye.prepare()
+                bye.run(AIstatus, response, answer, status)
         
 
 def listening(AIStatus:str):

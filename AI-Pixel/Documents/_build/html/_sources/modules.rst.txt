@@ -8,5 +8,5 @@ AI-Pixel
    display
    helper
    main
-   skills
+   skill
    virtual_assistant

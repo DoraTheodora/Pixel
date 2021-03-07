@@ -1,10 +1,25 @@
 from abc import ABC
 import helper
-import virtual_assistant
 
+import datetime
 import random
 import wikipedia
+import webbrowser
+import os
+import pickle
+import requests, json
+import multiprocessing
+import cv2
+import time
+import os.path
+import pickle
+import face_recognition
+import virtual_assistant
+import time as t
+import virtual_assistant
 
+from imutils import paths
+from os import path
 from covid import Covid
 
 class Skill(ABC):
@@ -291,3 +306,179 @@ class Help(Skill):
         """
         subject = ""
         self.run(subject, AIstatus, status, response, user)
+
+
+class Location(Skill):
+    """[summary]
+
+    :param Skill: [description]
+    :type Skill: [type]
+    """
+    def prepare(self, request:str):
+        """[summary]
+
+        :param request: [description]
+        :type request: str
+        :return: [description]
+        :rtype: [type]
+        """
+        request = helper.remove_polite_words(request)
+        request_words = ["open", "opening hour", "address", "where"]
+        request = helper.remove_words(request, request_words)
+        return request
+    
+    def run(self, AIstatus:str, location:str, response:str, status:list):
+        """[summary]
+
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param location: [description]
+        :type location: str
+        :param response: [description]
+        :type response: str
+        :param status: [description]
+        :type status: list
+        """
+        with open('api_keys.json') as API:
+            API = json.load(API)
+            google_API = API['google']
+        
+        base_url_get_place_id = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={}&inputtype=textquery&fields=place_id&key={}".format(location, google_API)
+        response_ID = helper.get_request(base_url_get_place_id)
+
+        place_ID = str(response_ID['candidates'][0]['place_id'])
+        base_url_get_location_details = "https://maps.googleapis.com/maps/api/place/details/json?place_id={}&fields=opening_hours,name,rating,formatted_address,formatted_phone_number&key={}".format(place_ID, google_API)
+        print(base_url_get_location_details)
+
+        response_details = helper.get_request(base_url_get_location_details)
+        isOpen = ""
+        try:
+            if response_details['result']['opening_hours']['open_now'] == True:
+                isOpen = "Open at the moment. "
+            else:
+                isOpen = "Not open at the moment."
+            location_details = {"answer" : "{} is {} {} phone number is {}".format(response_details['result']['name'], isOpen, response_details['result']['name'], response_details['result']['formatted_phone_number'])}
+        except:
+            location_details = {"answer" : "{} phone number is {}".format(response_details['result']['name'], response_details['result']['formatted_phone_number'])}
+        location_details['name'] = "Name: " + response_details['result']['name'] + " is " 
+        try:
+            location_details['open_now'] = isOpen.lower() + "\n\n"
+        except:
+            location_details['open_now'] = ""
+        location_details['address'] = helper.niceFormattedLongText("Address: " + response_details['result']['formatted_address'] + "\n\n")
+        location_details['phone'] = "Phone number: " + response_details['result']['formatted_phone_number'] + "\n\n"
+        
+        try:
+            opening_hours = str(response_details['result']['opening_hours']['weekday_text']).replace('\u2013', '-')
+            opening_hours = opening_hours.replace(',','\n')
+            opening_hours = opening_hours.replace("'", "\t")
+            opening_hours = opening_hours.replace("[", "\n")
+            opening_hours = opening_hours.replace("]", "")
+            location_details['opening_hours'] = "Opening hours: " + opening_hours
+        except:
+            location_details['opening_hours'] = "Opening hours: " + "-"
+
+        response.value = location_details["name"] + location_details["open_now"] + location_details["phone"] + location_details["address"] + location_details["opening_hours"]
+        print(response.value)
+        AIstatus.value = status["answer"]
+        virtual_assistant.speak(location_details["answer"])
+
+class Weather(Skill):
+    """[summary]
+
+    :param Skill: [description]
+    :type Skill: [type]
+    """
+    def prepare(self, AIstatus:str, status:list, request:str):
+        """[summary]
+
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param status: [description]
+        :type status: list
+        :param request: [description]
+        :type request: str
+        :return: [description]
+        :rtype: [type]
+        """
+        AIstatus.value = status["process"]
+        city = helper.remove_polite_words(request)
+        city = helper.substring_after(request, "in")
+        city = helper.substring_after(request, "for")
+        city = city.strip()
+        return city
+
+    def run(self, city:str, AIstatus:str, response:str, status:list):
+        """[summary]
+
+        :param city: [description]
+        :type city: str
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param response: [description]
+        :type response: str
+        :param status: [description]
+        :type status: list
+        """
+        with open('api_keys.json') as API:
+            API = json.load(API)
+            key = API['weather']
+        base_url = "http://api.openweathermap.org/data/2.5/weather?q="
+        complete_url = base_url + city + "&appid=" + key + "&units=metric"
+        details = helper.get_request(complete_url)
+        desc = str(details['weather'][0]['description'])
+        temp = str(details['main']['temp'])
+        #print(response)
+        weather_details = {"answer" : "The weather in {} is\n {} and with the temperature of {} Celsius".format(city, desc, temp)}
+        city = city.strip()
+        city = city.capitalize()
+        weather_details["location"] = "Location:\t" + city + "\n"
+        weather_details["descrition"] = "Weather:\t" + desc + "\n"
+        weather_details["temperature"] =  "Temperature: " + temp + "C \n"
+        response.value = weather_details["location"]+ weather_details["descrition"]+ weather_details["temperature"]
+        print(weather_details["answer"])
+        AIstatus.value = status["answer"]
+        virtual_assistant.speak(weather_details["answer"])
+
+    def error(self, user:str, response:str, AIstatus:str, status:list, city:str):
+        """[summary]
+
+        :param user: [description]
+        :type user: str
+        :param response: [description]
+        :type response: str
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param status: [description]
+        :type status: list
+        :param city: [description]
+        :type city: str
+        """
+        answer = {"answer" : "Hmmm {}..., I am not sure I can provide the forecast for {}.".format(user.value, city)}
+        answer["help"] = "\n\n{} you can always ask me for help if you need.\nTry 'Pixel I need help!'".format(user.value)
+        response.value = answer["answer"] + answer["help"]
+        print(response.value)
+        AIstatus.value = status["answer"]
+        virtual_assistant.speak(answer["answer"])
+
+
+class Good_bye(Skill):
+    def prepare(self):
+        byeAnswers = []
+        byeAnswers.append("Good bye!")
+        byeAnswers.append("See you soon")
+        byeAnswers.append("Was a pleasure, see you soon")
+        byeAnswers.append("See you later, aligator")
+        byeAnswers.append("Bye bye")
+        byeAnswers.append("Can't wait to meet again")
+        return random.choice(byeAnswers)
+
+
+    def run(self, AIstatus:str, response:str, message:str, status:list):
+        AIstatus.value = status["process"]
+        response.value = message
+        AIstatus.value = status["answer"]
+        virtual_assistant.speak(response.value)
+
+
+
