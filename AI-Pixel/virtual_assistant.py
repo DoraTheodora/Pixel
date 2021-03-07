@@ -271,9 +271,10 @@ def listen_for_name(AIStatus:str):
     with speech.Microphone(device_index=3,sample_rate=48000) as microphoneSource:
         ## gathering the voice input
         AIStatus.value = "Pixel is listening..."
+        req.adjust_for_ambient_noise(microphoneSource)
         req.pause_threshold = 0.5
         # TODO: ! phrase_time_limit needs to be removed!!!
-        audio = req.listen(microphoneSource, phrase_time_limit=10)
+        audio = req.listen(microphoneSource)#, phrase_time_limit=10)
         try:
             ## translate the voice input into text
             AIStatus.value = "Pixel heard you..."

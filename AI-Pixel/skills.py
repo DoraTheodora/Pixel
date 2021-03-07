@@ -372,7 +372,5 @@ def greeting(user):
         timeOfDay = timeOfDay + "Good night"
     timeOfDay = timeOfDay + " " + user +  "! How Pixel can assist you?"
     return timeOfDay
-
-
-
+    
 
