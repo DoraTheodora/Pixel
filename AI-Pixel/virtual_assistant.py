@@ -6,7 +6,7 @@
 import skills
 import display
 import helper
-
+import skill
 
 from gtts import gTTS
 import os
@@ -95,24 +95,12 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     AIstatus.value = status["answer"]
                     speak(answer["answer"])
             if "help" in request:
+                help = skill.Help()
+                help_for = help.prepare(AIstatus, status, request)
                 try:
-                    AIstatus.value = status["process"]
-                    if "with" in request:
-                        request = helper.remove_polite_words(request)
-                        help_for = helper.substring_after(request, "with")
-                        print("[info help_for] ", help_for)
-                        response.value = skills.help(help_for, user)
-                    else:
-                        response.value = skills.help("", user.value)
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(response.value)
+                    help.run(help_for, AIstatus, status, response, user)
                 except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
+                    help.error(AIstatus, status, response, user)
 
             if "time" in request:
                 AIstatus.value = status["process"]
@@ -146,78 +134,25 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     speak(answer["answer"])
 
             if "covid" in request and "help" not in request:
-                AIstatus.value = status["process"]
+                covid = skill.Covid19()
+                country = covid.prepare(request, AIstatus, status)
                 try:
-                    request = helper.remove_polite_words(request)
-                    city = helper.substring_after(request, "in")
-                    city = city.strip()
-                    print("[info city] ", city)
-                    covidStats = skills.covidStatus(city)
-                    response.value = covidStats["country"] + covidStats["newCases"] + covidStats["newDeaths"] + covidStats["activeCases"] + covidStats["recovered"] + covidStats["totalDeaths"]
-                    print(covidStats["answer"])
-                    AIstatus.value = status["answer"]
-                    speak(covidStats["answer"])
+                    covid.run(country, response, status, AIstatus)
                 except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
+                    covid.error(user, country, response, AIstatus, status)
 
             if "thank you" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.responseThankYou()
-                print(response.value)
-                AIstatus.value = status["answer"]
-                speak(response.value)
+                thank_you_message = skill.Thank_you()
+                answer = thank_you_message.prepare(user, AIstatus, status)
+                thank_you_message.run(response, AIstatus, status, answer)
 
-            if "define" in request:
-                AIstatus.value = status["process"]
-                request = helper.remove_polite_words(request)
-                word = helper.substring_after(request, "define")
+            if "define" in request or "definition" in request or "tell me about" in request:
+                definition = skill.Definition()
+                word = definition.prepare(AIstatus, request, status)
                 try:
-                    answer = skills.wiki(word)
-                    response.value = answer[1]
-                    AIstatus.value = status["answer"]
-                    speak(answer[0])
+                    definition.run(response, AIstatus, word, status)
                 except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
-
-            if "definition" in request:
-                AIstatus.value = status["process"]
-                request = helper.remove_polite_words(request)
-                word = helper.substring_after(request, "definition")
-                try:
-                    answer = skills.wiki(word)
-                    response.value = answer[1]
-                    AIstatus.value = status["answer"]
-                    speak(answer[0])
-                except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
-            
-            if "tell me about" in request:
-                AIstatus.value = status["process"]
-                request = helper.remove_polite_words(request)
-                word = helper.substring_after(request, "tell me about")
-                try:
-                    answer = skills.wiki(word)
-                    response.value = answer[1]
-                    AIstatus.value = status["answer"]
-                    speak(answer[0])
-                except:
-                    answer = skills.errorUnderstanding(user)
-                    response.value = answer["answer"] + answer["help"]
-                    print(response.value)
-                    AIstatus.value = status["answer"]
-                    speak(answer["answer"])
+                    definition.error(user, word, response, AIstatus, status)
 
             if "see you" in request:
                 AIstatus.value = status["process"]
@@ -230,11 +165,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                 response.value = skills.responseBye()
                 AIstatus.value = status["answer"]
                 speak(response.value)
-        #TODO: what if the user does not say pixel?
-        else:
-            AIstatus.value = status["answer"]
-            response.value = "Hmmm...I am not sure if you are speaking to me.\nPlease use the word PIXEL in your sentence\nso I know that you are addressing to me"
-            speak("Hmmm.. I am not sure if you are speaking to me. Please use the word PIXEL in your sentence so I know that you are addressing to me")
+        
 
 def listening(AIStatus:str):
     """[The method listens to the user's voice input (using voice recognition) and transforms it into text]
