@@ -176,6 +176,7 @@ def start():
                 cameraStopped.value = True
             if cameraRunning.value == True and cameraStopped.value == True:
                 runCamera.value = True
+                delay.value = 1
                 capture = Process(target=camera.start,args=(user, faceFound, timeFaceFound, delay, runCamera))
                 capture.start()
                 cameraStopped.value = False

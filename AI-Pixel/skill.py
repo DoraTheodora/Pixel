@@ -546,7 +546,7 @@ class Date(Skill):
         dateNow = "Today's date is "
         dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
         return dateNow
-        
+
     def run(self, date_today:str, AIstatus:str, response:str, status:list):
         response.value = date_today
         AIstatus.value = status["answer"]
@@ -554,4 +554,102 @@ class Date(Skill):
         virtual_assistant.speak(response.value)
 
 
+class Register(Skill):
+    def take_pictures(self, name:str, response:str):
+        response.value = "For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards."
+        virtual_assistant.speak("For the next 5 seconds please look into the mirror " + name + ".\nI will start taking some pictures with you.\nDo not worry I will delete them afterwards.")
+        path = "User/"+name
+        os.mkdir(path)
+        print("[INFO] Folder created")
+        capture = cv2.VideoCapture(0);
+        print("[INFO] Camera started to take pictures")
+
+        print("[INFO] Taking pictures")
+        now = t.time() + 5
+        i = 0
+        while(t.time() < now):
+            ret, image = capture.read()
+            i+=1
+            cv2.imwrite('User/'+name+'/'+str(i)+'.png', image)
+        del(capture)
+
+    def train(self, name:str, response:str):
+        print("[INFO] Starting training...")
+        response.value = "Now I will learn your face features " + name +", this will take a few minutes..."
+        virtual_assistant.speak("Now I will learn your face features " + name +", this will take a few minutes...")
+        path = "User/"+name
+        encodings = pickle.loads(open("Cascades/encodings.pickle", "rb").read())
+
+        imagePaths = list(paths.list_images(path))
+        knownFaces = []
+        knownNames = []
+
+        for (i, imagePath) in enumerate(imagePaths):
+            print("[INFO] Processing images: " + imagePath)
+            helper.registration_diaglog(i, name, len(imagePaths), response)
+            image = cv2.imread(imagePath)
+            rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            boxes = face_recognition.face_locations(rgb, model="hog")
+            encodings = face_recognition.face_encodings(rgb, boxes)
+
+            for encoding in encodings:
+                knownFaces.append(encoding)
+                knownNames.append(name)
+        print("[INFO] Save encodings...")
+        data = {"encodings": knownFaces, "names": knownNames}
+        file = open("Cascades/encodings.pickle", "wb")
+        file.write(pickle.dumps(data))
+        file.close()
+        response.value = "Done! Now we are friends " + name + "!\n\nNow you have access to all my skills!\nTry to ask me for weather details, Covid19 stats and others!\nI can always guide you how to communicate with me, by asking:\n'PIXEL I NEED HELP'"
+        virtual_assistant.speak("Done! Now we are friends " + name + "!\n\nNow you have access to all my skills!\nTry to ask me for weather details, Covid19 stats and others!\nI can always guide you how to communicate with me, by asking:\n'PIXEL I NEED HELP'")
+
+    def user_exists(self, user:str, response:str):
+        if user.value == "stranger" or user.value == "":
+            return False
+        else:
+            response.value = "Ummm... " + user.value + " you are already registered.\nAre you trying to confuse me?" 
+            virtual_assistant.speak("Ummm... " + user.value + " you are already registered.\nAre you trying to confuse me?" )
+            return True
+
+    def get_name(self, AIstatus:str, response:str, understanding:str, user:str):
+        print("[INFO] user asking to register " + user.value)
+        username_exists = True
+        name = "stranger"
+        confirm = "no"
+        while username_exists or "yes" not in confirm or "yea" not in confirm or "right" not in confirm and "cancel" not in confirm:
+            response.value = "To register I need your name. Please tell me your name."
+            virtual_assistant.speak("To register I need your name. Please tell me your name")
+            name = virtual_assistant.listen_for_name(AIstatus)
+            understanding.value = "Responding to: " + name
+            name = helper.get_last_word(name)
+            username_exists = helper.folder_exists(name)
+            if(username_exists):
+                response.value = "The name " + name + " is already used. Please try again"
+                virtual_assistant.speak("The name " + name + " is already used. Please try again")
+                name = "stranger"
+            else:
+                response.value = "You said " + name + ", right?\nPlease answer YES THIS IS RIGHT or NO THIS IS NOT CORRECT. \nIf you do not want to register anymore say CANCEL REGISTRATION."
+                virtual_assistant.speak("You said " + name + " right? Please answer YES THIS IS RIGHT or NO THIS IS NOT CORRECT. If you do not want to register anymore say CANCEL REGISTRATION.")
+                confirm = virtual_assistant.listen_for_name(AIstatus)
+                understanding.value = "Responding to: " + confirm
+                if "yes" in confirm or "yea" in confirm or "right" in confirm and "not" not in confirm:
+                    return name
+                if "cancel" in confirm:
+                    return "stranger"
+        return name
+
+    def prepare(self, name:str):
+        if name != "stranger" and name != "":
+            return True
+        else:
+            return False      
+
+    def run(self, AIstatus:str, cameraRunning:bool, name:str, response:str, status:list):
+        AIstatus.value = status["process"]
+        cameraRunning.value = False
+        self.take_pictures(name, response)
+        self.train(name, response)
+        cameraRunning.value = True
+        helper.delete_pictures(name)
+        helper.create_a_pickle_files(name)
 

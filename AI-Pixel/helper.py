@@ -30,6 +30,10 @@ def create_a_pickle_files(name:str):
     outfile = open(file_name, 'wb')
     pickle.dump(dictionaries, outfile)
     outfile.close()
+    file_name = "SOS_contact"
+    outfile = open(file_name, 'wb')
+    pickle.dump(dictionaries, outfile)
+    outfile.close()
 
 
 def delete_pictures(name:str):
