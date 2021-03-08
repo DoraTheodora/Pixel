@@ -463,7 +463,17 @@ class Weather(Skill):
 
 
 class Good_bye(Skill):
+    """[summary]
+
+    :param Skill: [description]
+    :type Skill: [type]
+    """
     def prepare(self):
+        """[summary]
+
+        :return: [description]
+        :rtype: [type]
+        """
         byeAnswers = []
         byeAnswers.append("Good bye!")
         byeAnswers.append("See you soon")
@@ -475,9 +485,72 @@ class Good_bye(Skill):
 
 
     def run(self, AIstatus:str, response:str, message:str, status:list):
+        """[summary]
+
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param response: [description]
+        :type response: str
+        :param message: [description]
+        :type message: str
+        :param status: [description]
+        :type status: list
+        """
         AIstatus.value = status["process"]
         response.value = message
         AIstatus.value = status["answer"]
+        virtual_assistant.speak(response.value)
+
+
+class Time(Skill):
+    """[summary]
+
+    :param Skill: [description]
+    :type Skill: [type]
+    """
+    def prepare(self, AIstatus:str, status:list):
+        """[summary]
+
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param status: [description]
+        :type status: list
+        :return: [description]
+        :rtype: [type]
+        """
+        AIstatus.value = status["process"]
+        timeNow = "The time is "
+        timeNow = timeNow +  datetime.datetime.now().strftime("%I:%M %p")
+        return timeNow
+
+    def run(self, now:str, AIstatus:str, response:str, status:list):
+        """[summary]
+
+        :param now: [description]
+        :type now: str
+        :param AIstatus: [description]
+        :type AIstatus: str
+        :param response: [description]
+        :type response: str
+        :param status: [description]
+        :type status: list
+        """
+        AIstatus.value = status["answer"]
+        response.value = now
+        print(response.value)
+        virtual_assistant.speak(response.value)
+
+class Date(Skill):
+    def prepare(self, AIstatus:str, status:list):
+        AIstatus.value = status["process"]
+        dateNow = "Today's date is "
+        dateNow = dateNow + datetime.datetime.now().strftime("%A %d %B %Y")
+        return dateNow
+        
+    def run(self, date_today:str, AIstatus:str, response:str, status:list):
+        response.value = date_today
+        AIstatus.value = status["answer"]
+        print(response.value)
         virtual_assistant.speak(response.value)
 
 

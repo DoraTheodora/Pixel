@@ -92,18 +92,14 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     help.error(AIstatus, status, response, user)
 
             if "time" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.time()
-                AIstatus.value = status["answer"]
-                print(response.value)
-                speak(response.value)
+                time_now = skill.Time()
+                now = time_now.prepare(AIstatus, status)
+                time_now.run(now, AIstatus, response, status)
                 
             if "date" in request:
-                AIstatus.value = status["process"]
-                response.value = skills.date()
-                AIstatus.value = status["answer"]
-                print(response.value)
-                speak(response.value)
+                date_today = skill.Date()
+                date = date_today.prepare(AIstatus, status)
+                date_today.run(date, AIstatus, response, status)
             
             if "weather" in request and "help" not in request:
                 #TODO: put forecast and temperature here
