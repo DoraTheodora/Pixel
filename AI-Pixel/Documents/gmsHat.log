@@ -1,0 +1,50 @@
+2021-03-09 19:30:00,374 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 19:30:00,375 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 19:30:00,377 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 19:30:00,544 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 19:30:00,565 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:00,571 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 19:30:00,586 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 19:30:00,760 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 19:30:00,832 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 19:30:00,837 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:00,838 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 19:30:01,045 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 19:30:01,167 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 19:30:01,168 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:01,168 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 19:30:01,168 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 19:30:01,385 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 19:30:01,580 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 19:30:01,584 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:01,584 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 19:30:01,985 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 19:30:02,091 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 19:30:02,149 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 0,,,,,,,,,,,,,,,,,,,,
+2021-03-09 19:30:02,150 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 19:30:02,151 - gsmHat.gsmHat - DEBUG - Fix_status: Could not convert  to int.
+2021-03-09 19:30:02,180 - gsmHat.gsmHat - DEBUG - UTC: Could not convert  to int.
+2021-03-09 19:30:02,182 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 19:30:02,182 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 19:30:02,183 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 19:30:02,183 - gsmHat.gsmHat - DEBUG - Speed: Could not convert  to float.
+2021-03-09 19:30:02,183 - gsmHat.gsmHat - DEBUG - Course: Could not convert  to float.
+2021-03-09 19:30:02,183 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 19:30:02,184 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 19:30:02,184 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 19:30:02,184 - gsmHat.gsmHat - DEBUG - GPS_satellites: Could not convert  to int.
+2021-03-09 19:30:02,184 - gsmHat.gsmHat - DEBUG - GNSS_satellites: Could not convert  to int.
+2021-03-09 19:30:02,185 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 19:30:02,194 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:02,195 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 19:30:02,405 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 19:30:02,511 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 19:30:02,530 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 19:30:02,543 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 19:30:02,544 - gsmHat.gsmHat - DEBUG - Lock Off

@@ -169,27 +169,87 @@
 <dl class="py function">
 <dt id="display.start">
 <code class="sig-prename descclassname">display.</code><code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#display.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>The provisional main of the program</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dd><blockquote>
+<div><p>The following variables are shared between the 3 main processes of the system:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>camera process</p></li>
+<li><p>interface process</p></li>
+<li><p>the virtual assistant process</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>Camera: </dt><dd><p>The camera starts when the system starts, and its purpose is to detect if a person comes in front of the camera, and to calculate the time between the last moment when a face was detected and the current moment in time</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param user</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delay</strong> – is a shared variable between the camera process and interface 
-- this variable describes the amount of time since the camera did not detect a face</p></li>
-<li><p><strong>timeFaceFound</strong> – shared variable between the camera process and the interface
-- this variable marks the time when a face was detected the last time</p></li>
-<li><p><strong>faceFound</strong> – shared boolean variable between the camera process and the interface
-- the variable is true when a face is detected by the camera, and is false if there is no face detected by the camera</p></li>
-<li><p><strong>camera</strong> – camera class instantiated as a process</p></li>
-<li><p><strong>answer</strong> – shared variable between the virtual assistant and the interface
-- contains the response provided by the virtual assistant to the user’s request</p></li>
-<li><p><strong>virtualAssistantStatus</strong> – variable shared between the virtual assistant and the interface
-- contains the virtual assistant status: processing, listening or having an answer</p></li>
-<li><p><strong>root</strong> – GUI class instantiated as the main process</p></li>
-<li><p><strong>AIStarted</strong> – boolean variable that reflects the virtual_assistant status
+<li><p>this variable contains the name of the user, if its registered, or contains the string ‘stranger’ if the user standing in front of the camera is not registered</p></li>
+</ul>
+</dd>
+<dt class="field-even">param delay</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>this variable describes the amount of time since the camera did not detect a face</p></li>
+</ul>
+</dd>
+<dt class="field-odd">param timeFaceFound</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>this variable marks the time when a face was detected the last time</p></li>
+</ul>
+</dd>
+<dt class="field-even">param faceFound</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>the variable is true when a face is detected by the camera, and is false if there is no face detected by the camera</p></li>
+</ul>
+</dd>
+<dt class="field-odd">param runCamera</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>the variable is True if the camera is running from the Camera process, and false if the camera is not running from this particular process</p></li>
+</ul>
+</dd>
+<dt class="field-even">param cameraStopped</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>the variable is used as double check, for the “runCamera” variable, that ensures that the camera is running or is stopped in the Camera process</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>Virtual Assistant: </dt><dd><p>The virtual assistant process stops and starts, depending on the idle time calculated by the camera. The idle time represents the time difference in seconds, since the camera lastly detected a face. If the idle time is greater than 20 seconds, the virtual assistant process is destroyed, and if the idle time is less then 20, the virtual assistant process is created (If the virtual assistant process is running, and the idle time is constantly less than 20 seconds, the virtual assistant process runs until the idle time is greater than 20 seconds).</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param answer</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>contains the response provided by the virtual assistant to the user’s request</p></li>
+</ul>
+</dd>
+<dt class="field-even">param virtualAssistantStatus</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>contains the virtual assistant status: processing, listening or having an answer</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:param understanding :</dt><dd><ul class="simple">
+<li><p>contains a string that is displayed on the interface, that represents the request that was understood by the system</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">param root</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>GUI class instantiated as the main process</p></li>
+</ul>
+</dd>
+<dt class="field-even">param AIStarted</dt>
+<dd class="field-even"><p>boolean variable that reflects the virtual_assistant status
 - true if the virtual assistant status is running
 - false if the virtual assistant is not running
-- used like a semaphore, not allowing the instantiation of the virtual_assistant multiple times if the virtual assistant runs already</p></li>
-</ul>
+- used like a semaphore, not allowing the instantiation of the virtual_assistant multiple times if the virtual assistant runs already</p>
+</dd>
+</dl>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>
@@ -217,7 +277,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">display module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="helper.html">helper module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skills.html">skills module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skill.html">skill module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtual_assistant.html">virtual_assistant module</a></li>
 </ul>
 </li>

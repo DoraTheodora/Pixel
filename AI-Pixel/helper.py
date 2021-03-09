@@ -155,7 +155,7 @@ def remove_polite_words(string:str):
     string = string.replace("thank you", "")
     string = string.replace("hello", "")
     string = string.replace("the ", "")
-    string = string.replace("for", "")
+    #string = string.replace("for", "")
     string = string.replace("of", "")
     return string
 

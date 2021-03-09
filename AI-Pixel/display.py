@@ -5,8 +5,8 @@
 
 import virtual_assistant
 import camera
+import skill
 
-import skills
 import datetime
 import tkinter as tk
 import os
@@ -65,7 +65,7 @@ class Display:
         self.displayVirtualAssistantUnderstanding()    
 
         ## Virtual Assistant Response Displayed
-        self.greeting_text = skills.greeting(user.value)
+        self.greeting_text = ""
         self.AI_Message_label = Label(self.root, justify=LEFT, text=self.greeting_text, font=('System', 20), bg='black', fg='white')
         self.AI_Message_label.grid(row=4, column=0, padx=1, pady=30, sticky=W)
         self.displayResponse()
@@ -84,7 +84,7 @@ class Display:
         self.clock_label.configure(text=self.time2)
         self.clock_label.after(200, self.updateTime)
 
-    ## update virtual assistant's reponse on GUI
+    ## update virtual assistant's response on GUI
     def displayResponse(self):
         """[The method displays on the screen the virtual assistant's response]
         """
@@ -123,20 +123,43 @@ class Display:
 
 def start():
     """ 
-        The provisional main of the program
+        The following variables are shared between the 3 main processes of the system:
 
-        :param delay: is a shared variable between the camera process and interface 
+            1. camera process
+
+            2. interface process
+
+            3. the virtual assistant process
+        
+
+Camera: 
+    The camera starts when the system starts, and its purpose is to detect if a person comes in front of the camera, and to calculate the time between the last moment when a face was detected and the current moment in time
+        
+        :param user: 
+            - this variable contains the name of the user, if its registered, or contains the string 'stranger' if the user standing in front of the camera is not registered
+        :param delay: 
             - this variable describes the amount of time since the camera did not detect a face
-        :param timeFaceFound: shared variable between the camera process and the interface
+        :param timeFaceFound: 
             - this variable marks the time when a face was detected the last time
-        :param faceFound: shared boolean variable between the camera process and the interface
+        :param faceFound: 
             - the variable is true when a face is detected by the camera, and is false if there is no face detected by the camera
-        :param camera: camera class instantiated as a process
-        :param answer: shared variable between the virtual assistant and the interface
+        :param runCamera: 
+            - the variable is True if the camera is running from the Camera process, and false if the camera is not running from this particular process
+        :param cameraStopped: 
+            - the variable is used as double check, for the "runCamera" variable, that ensures that the camera is running or is stopped in the Camera process
+
+
+Virtual Assistant: 
+    The virtual assistant process stops and starts, depending on the idle time calculated by the camera. The idle time represents the time difference in seconds, since the camera lastly detected a face. If the idle time is greater than 20 seconds, the virtual assistant process is destroyed, and if the idle time is less then 20, the virtual assistant process is created (If the virtual assistant process is running, and the idle time is constantly less than 20 seconds, the virtual assistant process runs until the idle time is greater than 20 seconds).
+        
+        :param answer: 
             - contains the response provided by the virtual assistant to the user's request
-        :param virtualAssistantStatus: variable shared between the virtual assistant and the interface
+        :param virtualAssistantStatus: 
             - contains the virtual assistant status: processing, listening or having an answer
-        :param root: GUI class instantiated as the main process
+        :param understanding :
+            - contains a string that is displayed on the interface, that represents the request that was understood by the system
+        :param root: 
+            - GUI class instantiated as the main process
         :param AIStarted: boolean variable that reflects the virtual_assistant status
             - true if the virtual assistant status is running
             - false if the virtual assistant is not running
@@ -158,13 +181,13 @@ def start():
         virtualAssistantStatus = manager.Value('s','')
         understanding = manager.Value('s',' ')
         cameraRunning = manager.Value('b', True)
-        display = Display(user, answer, virtualAssistantStatus, understanding)
-        root = display.root
+        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
 
         ## starting the GUI
         AIStarted = False
         initiatedOnce = True
-        assistant = Process(target=virtual_assistant.start, args=(user, answer,virtualAssistantStatus, understanding, cameraRunning))
+        display = Display(user, answer, virtualAssistantStatus, understanding)
+        root = display.root
         root.attributes("-fullscreen", True)
         root.configure(background='black')
         

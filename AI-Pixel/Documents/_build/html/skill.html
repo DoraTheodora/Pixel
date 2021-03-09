@@ -128,24 +128,24 @@
 <dt id="skill.Covid19">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Covid19</code><a class="headerlink" href="#skill.Covid19" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
-<p>[summary]</p>
+<p>[This skill provides the user, with covid-19 statistics from www.worldometers.info]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="skill.Covid19.error">
 <code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">country</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Covid19.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method announces the user that the Covid19 stats for that particular location could not be retrieved]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>country</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [The name of the user using the device]</p></li>
+<li><p><strong>country</strong> (<em>str</em>) – [The country for which the Covid19 stats were requested]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
 </ul>
 </dd>
 </dl>
@@ -154,11 +154,59 @@
 <dl class="py method">
 <dt id="skill.Covid19.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Covid19.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>[The method processes the user’s request, to obtain the country for Covid19 stats]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>str</em>) – [User’s request in raw form]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[The contry for Covid19 stats]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Covid19.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">country</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Covid19.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>[The method gets and provides all the Covid19 details requested by the user]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – [Covid19 details about this particular contry]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>status</strong> (<em>List</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skill.Date">
+<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Date</code><a class="headerlink" href="#skill.Date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
+<p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skill.Date.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Date.prepare" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>request</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
 </ul>
@@ -173,16 +221,16 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="skill.Covid19.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">country</span></em>, <em class="sig-param"><span class="n">response</span></em>, <em class="sig-param"><span class="n">status</span></em>, <em class="sig-param"><span class="n">AIstatus</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Covid19.run" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Date.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date_today</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Date.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>country</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>date_today</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
 </ul>
 </dd>
 </dl>
@@ -194,24 +242,24 @@
 <dt id="skill.Definition">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Definition</code><a class="headerlink" href="#skill.Definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
-<p>[summary]</p>
+<p>[This skill provides the user a definition for a certain word from wikipedia]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="skill.Definition.error">
 <code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">word</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Definition.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method announces the user that the definition for the requested word can not be provided</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>word</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [The user using the device]</p></li>
+<li><p><strong>word</strong> (<em>str</em>) – [The word the definition is requested for]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
 </ul>
 </dd>
 </dl>
@@ -220,20 +268,20 @@
 <dl class="py method">
 <dt id="skill.Definition.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Definition.prepare" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[The method processes the user’s request, to obtain the word for which a definition is required]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>request</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>request</strong> (<em>str</em>) – [User’s raw request provided to the virtual assistant]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[description]</p>
+<dd class="field-even"><p>[The word for which the definition is required]</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>[type]</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -241,14 +289,14 @@
 <dl class="py method">
 <dt id="skill.Definition.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">word</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Definition.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method provides the user with an answer for definition requested]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>word</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>word</strong> (<em>str</em>) – [The word the definition was requested for]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
 </ul>
 </dd>
 </dl>
@@ -260,23 +308,47 @@
 <dt id="skill.Good_bye">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Good_bye</code><a class="headerlink" href="#skill.Good_bye" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
+<p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="skill.Good_bye.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skill.Good_bye.prepare" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>[description]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[type]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="skill.Good_bye.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Good_bye.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="skill.Help">
-<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Help</code><a class="headerlink" href="#skill.Help" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Greeting">
+<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Greeting</code><a class="headerlink" href="#skill.Greeting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
 <p>[summary]</p>
 <dl class="field-list simple">
@@ -285,16 +357,59 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="skill.Help.error">
-<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Help.error" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Greeting.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Greeting.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user</strong> (<em>str</em>) – [description]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Greeting.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">greeting</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Greeting.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>greeting</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skill.Help">
+<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Help</code><a class="headerlink" href="#skill.Help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
+<p>[This skill provides the user some guidance on how to use the device]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skill.Help.error">
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Help.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>[This method provides general help to guide the user, if the virtual assistant is confused about the subject the user needs help with]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [The user using the device]</p></li>
 </ul>
 </dd>
 </dl>
@@ -303,21 +418,36 @@
 <dl class="py method">
 <dt id="skill.Help.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Help.prepare" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method returns a string that represents what the user requested help for]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>request</strong> (<em>str</em>) – [User’s raw request provided to the virtual assistant]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[What the user needs help for]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="skill.Help.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Help.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method provides the user with the help requested]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subject</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – [The subject on which the user needs help with]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [The user using the device]</p></li>
 </ul>
 </dd>
 </dl>
@@ -329,6 +459,51 @@
 <dt id="skill.Location">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Location</code><a class="headerlink" href="#skill.Location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
+<p>[This skill provides the user with details about a specific location, using Google Location API]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skill.Location.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Location.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>[This method returns a string that represents the location the user requested details about]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>str</em>) – [User’s raw request]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[User’s request after being cleaned from unnecessary words]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Location.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">location</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Location.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>[This method provides the user the details about the requested location]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – [The location the user requested details about]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skill.Register">
+<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Register</code><a class="headerlink" href="#skill.Register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
 <p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -336,12 +511,17 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="skill.Location.prepare">
-<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Location.prepare" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Register.get_name">
+<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">understanding</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>request</strong> (<em>str</em>) – [description]</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>understanding</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[description]</p>
@@ -353,17 +533,83 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="skill.Location.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">location</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Location.run" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Register.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – [description]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Register.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cameraRunning</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>location</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>cameraRunning</strong> (<em>bool</em>) – [description]</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Register.take_pictures">
+<code class="sig-name descname">take_pictures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.take_pictures" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Register.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Register.user_exists">
+<code class="sig-name descname">user_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Register.user_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[type]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -374,28 +620,23 @@
 <dt id="skill.Skill">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Skill</code><a class="headerlink" href="#skill.Skill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>[summary]</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ABC</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
-</dd>
-</dl>
+<p>[This class is an abstract class that describes the child Skill class]</p>
 <dl class="py method">
 <dt id="skill.Skill.error">
 <code class="sig-name descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skill.Skill.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[Method that runs, if the run() method fails]</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="skill.Skill.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skill.Skill.prepare" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[Method that prepares all the necessary resources to run the skill]</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="skill.Skill.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skill.Skill.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[Method that runs the skill and provides the information back to the user]</p>
 </dd></dl>
 
 </dd></dl>
@@ -404,6 +645,55 @@
 <dt id="skill.Thank_you">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Thank_you</code><a class="headerlink" href="#skill.Thank_you" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
+<p>[This skill provides the user with a response for ‘Thank you’]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skill.Thank_you.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Thank_you.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>[This method prepares the Virtual Assistant answer]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user</strong> (<em>str</em>) – [The user using the device]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>[The thank you response]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skill.Thank_you.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">answer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Thank_you.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>[This method provides the user with an answer for the Thank you request]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>answer</strong> (<em>str</em>) – [The virtual assistant’s answer to the user request]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skill.Time">
+<em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Time</code><a class="headerlink" href="#skill.Time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
 <p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -411,13 +701,12 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="skill.Thank_you.prepare">
-<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Thank_you.prepare" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Time.prepare">
+<code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Time.prepare" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
 </ul>
@@ -432,16 +721,16 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="skill.Thank_you.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">answer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Thank_you.run" title="Permalink to this definition">¶</a></dt>
+<dt id="skill.Time.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">now</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Time.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>[summary]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>now</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
 <li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
-<li><p><strong>answer</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
 </ul>
 </dd>
 </dl>
@@ -453,24 +742,24 @@
 <dt id="skill.Weather">
 <em class="property">class </em><code class="sig-prename descclassname">skill.</code><code class="sig-name descname">Weather</code><a class="headerlink" href="#skill.Weather" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#skill.Skill" title="skill.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">skill.Skill</span></code></a></p>
-<p>[summary]</p>
+<p>[This skill provides weather details to particular locations]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+<dd class="field-odd"><p><strong>Skill</strong> (<em>[</em><em>abstract class</em><em>]</em>) – [Skill - is the parent abstract class]</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="skill.Weather.error">
 <code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">city</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Weather.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method announces the user that the weather forecast for the requested location can not be provided</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>user</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
-<li><p><strong>city</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>user</strong> (<em>str</em>) – [The user using the device]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>city</strong> (<em>str</em>) – [The city for which the weather forecast was requested]</p></li>
 </ul>
 </dd>
 </dl>
@@ -479,20 +768,20 @@
 <dl class="py method">
 <dt id="skill.Weather.prepare">
 <code class="sig-name descname">prepare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">request</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Weather.prepare" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method returns a string that represents the location for which the weather is requested]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
-<li><p><strong>request</strong> (<em>str</em>) – [description]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
+<li><p><strong>request</strong> (<em>str</em>) – [user’s raw request]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[description]</p>
+<dd class="field-even"><p>[The location requested for weather forecast]</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>[type]</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -500,14 +789,14 @@
 <dl class="py method">
 <dt id="skill.Weather.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">city</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">AIstatus</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#skill.Weather.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
+<dd><p>[This method provides the user with the weather forecast for the requested location]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>city</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>AIstatus</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>response</strong> (<em>str</em>) – [description]</p></li>
-<li><p><strong>status</strong> (<em>list</em>) – [description]</p></li>
+<li><p><strong>city</strong> (<em>str</em>) – [The city for which weather forecast is provided]</p></li>
+<li><p><strong>AIstatus</strong> (<em>str</em>) – [The virtual assistant current status: processing, listening, etc]</p></li>
+<li><p><strong>response</strong> (<em>str</em>) – [The message that is displayed on the screen]</p></li>
+<li><p><strong>status</strong> (<em>list</em>) – [The lists that constains all virtual assistant states]</p></li>
 </ul>
 </dd>
 </dl>

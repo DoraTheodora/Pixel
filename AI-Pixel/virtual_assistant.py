@@ -3,7 +3,6 @@
 ## Pixel Virtual Assistant
 ## 21 November 2020
 
-import skills
 import display
 import helper
 import skill
@@ -31,9 +30,12 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
     :param cameraRunning: [Main camera frame status]
     :type cameraRunning: bool
     """
-    response.value = skills.greeting(user.value)
+    
     AIstatus.value = status["start"]
-    speak(response.value)
+    greet = skill.Greeting()
+    greeting = greet.prepare(user)
+    greet.run(greeting, response)
+    del greet
 
     while True:
         request = listening(AIstatus)
@@ -158,7 +160,7 @@ def listen_for_name(AIStatus:str):
         except:
             ## if there was no voice input
             AIStatus.value = "Pixel cannot hear you..."
-            speak("Say that again please")
+            #speak("Say that again please")
             request = ""
             return request
     return request
