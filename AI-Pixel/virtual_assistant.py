@@ -43,74 +43,79 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
         understanding.value = "Responding to: " + request
         
         if "pixel" in request:
-            if "register" in request or "sign up" in request and not "help" in request:
-                register = skill.Register()
-                exists = register.user_exists(user, response)
-                if exists == False:
-                    name = register.get_name(AIstatus, response, understanding, user)
-                    confirm = register.prepare(name)
-                    if confirm == True:
-                        register.run(AIstatus, cameraRunning, name, response, status)
+            if not "help" in request and not "how do i" in request:
+                if "register" in request or "sign up" in request:
+                    register = skill.Register()
+                    exists = register.user_exists(user, response)
+                    if exists == False:
+                        name = register.get_name(AIstatus, response, understanding, user)
+                        confirm = register.prepare(name)
+                        if confirm == True:
+                            register.run(AIstatus, cameraRunning, name, response, status)
 
 
-            if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
-                location_details = skill.Location()
-                request = location_details.prepare(request)
-                location_details.run(AIstatus, request, response, status)
+                if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
+                    location_details = skill.Location()
+                    request = location_details.prepare(request)
+                    location_details.run(AIstatus, request, response, status)
 
-            if "help" in request:
+                if "time" in request:
+                    time_now = skill.Time()
+                    now = time_now.prepare(AIstatus, status)
+                    time_now.run(now, AIstatus, response, status)
+                
+                if "date" in request:
+                    date_today = skill.Date()
+                    date = date_today.prepare(AIstatus, status)
+                    date_today.run(date, AIstatus, response, status)
+            
+                if "weather" in request:
+                    #TODO: put forecast and temperature here
+                    weather = skill.Weather()
+                    city = weather.prepare(AIstatus, status, request)
+                    try:
+                        weather.run(city, AIstatus, response, status)
+                    except:
+                        weather.error(user, response, AIstatus, status, city) 
+
+                if "covid" in request:
+                    covid = skill.Covid19()
+                    country = covid.prepare(request, AIstatus, status)
+                    try:
+                        covid.run(country, response, status, AIstatus)
+                    except:
+                        covid.error(user, country, response, AIstatus, status)
+
+                if "thank you" in request:
+                    thank_you_message = skill.Thank_you()
+                    answer = thank_you_message.prepare(user, AIstatus, status)
+                    thank_you_message.run(response, AIstatus, status, answer)
+
+                if "define" in request or "definition" in request or "tell me about" in request:
+                    definition = skill.Definition()
+                    word = definition.prepare(AIstatus, request, status)
+                    try:
+                        definition.run(response, AIstatus, word, status)
+                    except:
+                        definition.error(user, word, response, AIstatus, status)
+
+                if "bye" in request or "see you" in request:
+                    #TODO: verify if this works
+                    bye = skill.Good_bye()
+                    answer = bye.prepare()
+                    bye.run(AIstatus, response, answer, status)
+
+                else:
+                    no_skill_request = skill.not_understanding()
+                    no_skill_request.run(response)
+
+            elif "help" in request or "how do i" in request:
                 help = skill.Help()
                 help_for = help.prepare(AIstatus, status, request)
                 try:
                     help.run(help_for, AIstatus, status, response, user)
                 except:
                     help.error(AIstatus, status, response, user)
-
-            if "time" in request:
-                time_now = skill.Time()
-                now = time_now.prepare(AIstatus, status)
-                time_now.run(now, AIstatus, response, status)
-                
-            if "date" in request:
-                date_today = skill.Date()
-                date = date_today.prepare(AIstatus, status)
-                date_today.run(date, AIstatus, response, status)
-            
-            if "weather" in request and "help" not in request:
-                #TODO: put forecast and temperature here
-                weather = skill.Weather()
-                city = weather.prepare(AIstatus, status, request)
-                try:
-                    weather.run(city, AIstatus, response, status)
-                except:
-                    weather.error(user, response, AIstatus, status, city) 
-
-            if "covid" in request and "help" not in request:
-                covid = skill.Covid19()
-                country = covid.prepare(request, AIstatus, status)
-                try:
-                    covid.run(country, response, status, AIstatus)
-                except:
-                    covid.error(user, country, response, AIstatus, status)
-
-            if "thank you" in request:
-                thank_you_message = skill.Thank_you()
-                answer = thank_you_message.prepare(user, AIstatus, status)
-                thank_you_message.run(response, AIstatus, status, answer)
-
-            if "define" in request or "definition" in request or "tell me about" in request:
-                definition = skill.Definition()
-                word = definition.prepare(AIstatus, request, status)
-                try:
-                    definition.run(response, AIstatus, word, status)
-                except:
-                    definition.error(user, word, response, AIstatus, status)
-
-            if "bye" in request or "see you" in request:
-                #TODO: verify if this works
-                bye = skill.Good_bye()
-                answer = bye.prepare()
-                bye.run(AIstatus, response, answer, status)
         
 
 def listening(AIStatus:str):

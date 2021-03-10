@@ -9,7 +9,7 @@ def send_SMS(sender:str, receiver:str, message:str):
     Number = receiver
     Message = sender + " sent you the following message:\n\n" + message
     gsm.SMS_write(Number, Message)
-    time.sleep(5)
+    time.sleep(10)
 
 def check_received_SMS():
     gsm = GSMHat('/dev/ttyUSB0', 115200)
@@ -45,7 +45,7 @@ def get_location():
     print('GNSS_satellites: %s' % str(GPSObj.GNSS_satellites))
     print('Signal: %s' % str(GPSObj.Signal))
 
-#send_SMS("Dora", "+353858174706", "Ti-am trimis mesajul asta de pe pixel, dar mai mult nu pot sa fac :))")
+#send_SMS("Dora", "+353861645641", "See you later aligator!")
 #check_received_SMS()
 get_location() 
 

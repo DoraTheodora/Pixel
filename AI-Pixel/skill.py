@@ -256,6 +256,9 @@ class Help(Skill):
             request = helper.remove_polite_words(request)
             help_for = helper.substring_after(request, "with")
             print("[info help_for] ", help_for)
+        elif "how do i" in request:
+            request = helper.remove_polite_words(request)
+            help_for = helper.substring_after(request, "how do i")
         else:
             help_for = ""
         return help_for
@@ -276,30 +279,63 @@ class Help(Skill):
         """
         help = ""
         if subject == "":
-            help = "{}, I see you need some help! \nHere is how to interract with me:".format(user.value)
-            help = help + "\n\n   1. Pixel what is the time/date"
-            help = help + "\n   2. Pixel covid-19 stats in Ireland"
-            help = help + "\n   3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
-            help = help + "\n   4. Pixel tell me the weather in Dublin"
-            help = help + "\n   5. To stop the conversation, step away from the mirror"
-            help = help + "\n\n! Remember that every command needs to start with PIXEL !"
-        if "weather" in subject:
-            help = "{}, I see you need some help! \nHere is how to ask for weather forecast:".format(user.value)
-            help = help + "\n\n    1. Pixel tell me the weather in Dublin"
-            help = help + "\n    2. Pixel how is the weather in Dublin?"
-            help = help + "\n    3. Pixel weather in Dublin"
-            help = help + "\n    4. Keep in mind you can use any city"
-            help = help + "\n\n! Remember that every command needs to start with PIXEL !"
-        if "covid" in subject:
-            help = "{}, I see you need some help! \nHere is how to ask for Covid-19 statistics:".format(user.value)
-            help = help + "\n\n    1. Pixel tell me covid stats in Ireland"
-            help = help + "\n    2. Pixel how is covid situation in Ireland?"
-            help = help + "\n    3. Pixel how is the covid situation in Ireland?"
-            help = help + "\n    4. Keep in mind you can use any country"
-            help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+            help = self.general_help(user)
+        elif "weather" in subject:
+            help = self.weather_help(user)
+        elif "covid" in subject:
+            help = self.covid_help(user)
+        elif "register" in subject or "sign up" in subject:
+            help = self.register_help(user)
+        elif "location" in subject or "address" in subject:
+            help = self.location_help(user)
+            
         response.value = help
         AIstatus.value = status["answer"]
         virtual_assistant.speak(response.value)
+
+    def general_help(self, user:str):
+        help = "{}, I see you need some help! \nHere is how to interract with me:".format(user.value)
+        help = help + "\n\n   1. Pixel what is the time/date"
+        help = help + "\n   2. Pixel covid-19 stats in Ireland"
+        help = help + "\n   3. To define a word: \n \t - Pixel tell me about dinosaurs \n \t - Pixel define dinosaur"
+        help = help + "\n   4. Pixel tell me the weather in Dublin"
+        help = help + "\n   5. To stop the conversation, step away from the mirror"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+        return help
+
+    def register_help(self, user:str):
+        help = "{}, I see you need some help! \nHere is how to ask to register:".format(user.value)
+        help = help + "\n\n   1. Pixel I want to register"
+        help = help + "\n   2. Pixel I want to sign up"
+        help = help + "\n   3. I will provide further guidance when we begin the registration process"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+        return help
+
+    def location_help(self, user:str):
+        help = "{}, I see you need some help! \nHere is how to ask for location details:".format(user.value)
+        help = help + "\n\n   1. Pixel where is IT Carlow"
+        help = help + "\n   2. Pixel where is the cinema in Kilkenny?"
+        help = help + "\n   3. Pixel si Supervalue open?"
+        help = help + "\n   4. Pixel give me the address for Lidl Kilkenny"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+        return help
+
+    def weather_help(self, user:str):
+        help = "{}, I see you need some help! \nHere is how to ask for weather forecast:".format(user.value)
+        help = help + "\n\n    1. Pixel tell me the weather in Dublin"
+        help = help + "\n    2. Pixel how is the weather in Dublin?"
+        help = help + "\n    3. Pixel weather in Dublin"
+        help = help + "\n    4. Keep in mind you can use any city"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+        return help
+
+    def covid_help(self, user:str):
+        help = "{}, I see you need some help! \nHere is how to ask for Covid-19 statistics:".format(user.value)
+        help = help + "\n\n    1. Pixel tell me covid stats in Ireland"
+        help = help + "\n    2. Pixel how is covid situation in Ireland?"
+        help = help + "\n    3. Keep in mind you can use any country"
+        help = help + "\n\n! Remember that every command needs to start with PIXEL !"
+        return help
 
     def error(self, AIstatus:str, status:list, response:str, user:str):
         """[This method provides general help to guide the user, if the virtual assistant is confused about the subject the user needs help with]
@@ -788,4 +824,10 @@ class Greeting(Skill):
         """
         response.value = greeting
         virtual_assistant.speak(greeting)
+
+class not_understanding(Skill):
+    def run(self, response:str):
+        response.value = "Hmmm, I do not know this one..."
+        virtual_assistant.speak(response.value)
+
 

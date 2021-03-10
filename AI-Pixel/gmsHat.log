@@ -11568,3 +11568,1425 @@ Ti-am trimis mesajul asta de pe pixel, dar mai mult nu pot sa fac :))
 2021-03-09 18:53:30,722 - gsmHat.gsmHat - INFO - Worker started
 2021-03-09 18:53:30,722 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
 
+2021-03-09 20:05:51,662 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:05:51,666 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:05:51,667 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:05:51,768 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:05:51,769 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:51,769 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:51,769 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:05:51,870 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:05:51,872 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:05:51,873 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:51,873 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:52,074 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:05:52,175 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:05:52,175 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:52,176 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:52,176 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:05:52,377 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:05:52,479 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:05:52,480 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:52,480 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:52,782 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:05:52,883 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:05:52,886 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003531.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:05:52,886 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:05:52,902 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:05:52,903 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:05:52,903 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:05:52,903 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:05:52,904 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:05:52,904 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:05:52,905 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:05:52,906 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:52,906 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:53,108 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:05:53,210 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:05:53,212 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:05:53,213 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:53,213 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:53,415 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:05:53,516 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:05:53,517 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:05:53,518 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:53,518 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:54,822 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:05:54,923 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:05:54,929 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003533.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:05:54,930 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:05:54,930 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:05:54,931 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:05:54,931 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:05:54,931 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:05:54,932 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:05:54,932 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:05:54,932 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:05:54,933 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:54,933 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:05:55,636 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:05:55,738 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:05:55,741 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:05:55,742 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:05:55,742 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:01,170 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:06:01,172 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:06:01,172 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:06:01,273 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:06:01,274 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:01,274 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:01,274 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:01,375 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:01,377 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:01,378 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:01,378 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:01,579 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:06:01,680 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:06:01,681 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:01,681 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:01,681 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:06:01,882 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:06:01,984 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:06:01,985 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:01,985 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:02,287 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:06:02,389 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:06:02,394 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003541.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:06:02,395 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:06:02,414 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:06:02,415 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:06:02,415 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:06:02,415 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:06:02,416 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:06:02,416 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:06:02,416 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:06:02,417 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:02,417 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:02,619 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:02,720 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:02,723 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:02,724 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:02,724 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:02,925 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:06:03,027 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:06:03,031 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:06:03,032 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:03,032 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:04,336 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:06:04,438 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:06:04,445 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003543.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:06:04,446 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:06:04,447 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:06:04,447 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:06:04,448 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:06:04,448 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:06:04,448 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:06:04,449 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:06:04,449 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:06:04,451 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:04,451 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:05,154 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:05,261 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:05,264 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:05,265 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:05,265 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:13,031 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:06:13,034 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:06:13,035 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:06:13,136 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:06:13,136 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:13,137 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:13,137 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:13,238 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:13,240 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:13,242 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:13,242 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:13,243 - gsmHat.gsmHat - DEBUG - Received Data: +CMTI: "SM",1
+2021-03-09 20:06:13,244 - gsmHat.gsmHat - INFO - Received new SMS
+2021-03-09 20:06:13,244 - gsmHat.gsmHat - DEBUG - New SMS in memory "SM" at position 1
+2021-03-09 20:06:13,445 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-09 20:06:13,546 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-09 20:06:13,549 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:06:09+00"
+2021-03-09 20:06:13,560 - gsmHat.gsmHat - DEBUG - Received Raw Data: Hello and thanks for today! 
+
+2021-03-09 20:06:13,562 - gsmHat.gsmHat - DEBUG - Received Raw Data: See you tomorrow I hope 
+
+2021-03-09 20:06:13,563 - gsmHat.gsmHat - DEBUG - Received Raw Data: for more! 
+
+2021-03-09 20:06:13,563 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:06:13,564 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:06:13,564 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:06:13,564 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-09 20:06:13,665 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-09 20:06:13,666 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:13,666 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:13,867 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-09 20:06:13,969 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-09 20:06:13,970 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:13,970 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:13,971 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-09 20:06:14,072 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-09 20:06:14,073 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:14,073 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:14,274 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-09 20:06:14,376 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-09 20:06:14,377 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:14,377 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:14,378 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-09 20:06:14,479 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-09 20:06:14,480 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:14,480 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:14,681 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-09 20:06:14,783 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-09 20:06:14,784 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:14,785 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:14,785 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-09 20:06:14,887 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-09 20:06:14,888 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:14,888 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:15,089 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-09 20:06:15,191 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-09 20:06:15,192 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:15,192 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:15,193 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-09 20:06:15,294 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-09 20:06:15,295 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:15,296 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:15,497 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-09 20:06:15,598 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-09 20:06:15,599 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:15,600 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:15,600 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-09 20:06:15,702 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-09 20:06:15,703 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:15,703 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:15,904 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-09 20:06:16,006 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-09 20:06:16,006 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,007 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:16,007 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-09 20:06:16,109 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-09 20:06:16,110 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,110 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:16,311 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-09 20:06:16,413 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-09 20:06:16,414 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,414 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:16,415 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-09 20:06:16,516 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-09 20:06:16,517 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,517 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:16,718 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-09 20:06:16,820 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-09 20:06:16,821 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,824 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:16,824 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-09 20:06:16,926 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-09 20:06:16,927 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:16,927 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:17,128 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-09 20:06:17,230 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-09 20:06:17,231 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:17,231 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:17,232 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-09 20:06:17,333 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-09 20:06:17,334 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:17,334 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:17,535 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-09 20:06:17,637 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-09 20:06:17,638 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:17,638 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:17,639 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-09 20:06:17,740 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-09 20:06:17,741 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:17,742 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:17,943 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-09 20:06:45,750 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:06:45,751 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:06:45,752 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:06:45,853 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:06:45,854 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:45,854 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:45,855 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:45,956 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:45,957 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:45,958 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:45,959 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:46,160 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGS="+353858174706"
+Dora sent you the following message:
+
+See you later aligator
+
+2021-03-09 20:06:46,267 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGS="+353858174706"Dora sent you the following message:See you later aligator
+2021-03-09 20:06:49,175 - gsmHat.gsmHat - DEBUG - Received Data: > 
+2021-03-09 20:06:49,177 - gsmHat.gsmHat - DEBUG - Received Data: +CMGS: 15
+2021-03-09 20:06:49,178 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:49,178 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:49,179 - gsmHat.gsmHat - INFO - Message to +353858174706 successfully sent
+2021-03-09 20:06:49,380 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:06:49,482 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:06:49,482 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:49,483 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:49,483 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:06:49,684 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:06:49,786 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:06:49,786 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:49,786 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:50,088 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:06:50,190 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:06:50,196 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003629.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:06:50,197 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:06:50,216 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:06:50,217 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:06:50,217 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:06:50,217 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:06:50,218 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:06:50,218 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:06:50,218 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:06:50,219 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:50,220 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:50,421 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:06:50,523 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:06:50,525 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:06:50,526 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:06:50,527 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:06:50,728 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:07:15,941 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:07:15,942 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:07:15,943 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:07:16,044 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:07:16,045 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:16,045 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:16,045 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:16,146 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:16,148 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:16,149 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:16,149 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:16,350 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGS="+353858174706"
+Dora sent you the following message:
+
+See you later aligator
+
+2021-03-09 20:07:16,454 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGS="+353858174706"Dora sent you the following message:See you later aligator
+2021-03-09 20:07:19,362 - gsmHat.gsmHat - DEBUG - Received Data: > 
+2021-03-09 20:07:19,364 - gsmHat.gsmHat - DEBUG - Received Data: +CMGS: 16
+2021-03-09 20:07:19,365 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:19,365 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:19,366 - gsmHat.gsmHat - INFO - Message to +353858174706 successfully sent
+2021-03-09 20:07:19,567 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:07:19,669 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:07:19,670 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:19,671 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:19,671 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:07:19,872 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:07:19,974 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:07:19,975 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:19,975 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:20,277 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:20,379 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:20,384 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003659.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:20,385 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:20,405 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:20,405 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:20,405 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:20,406 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:20,406 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:20,406 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:20,407 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:20,407 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:20,408 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:20,609 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:20,711 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:20,713 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:20,714 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:20,715 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:20,916 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:07:21,018 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:07:21,021 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:07:21,022 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:21,023 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:22,328 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:22,430 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:22,436 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003701.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:22,436 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:22,437 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:22,437 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:22,438 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:22,438 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:22,438 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:22,438 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:22,439 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:22,440 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:22,440 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:23,142 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:23,245 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:23,247 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:23,248 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:23,249 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:24,352 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:24,458 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:24,464 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003703.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:24,464 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:24,465 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:24,465 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:24,466 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:24,466 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:24,466 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:24,467 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:24,467 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:24,468 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:24,468 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:25,672 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:25,774 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:25,776 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:25,777 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:25,778 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:49,631 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:07:49,632 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:07:49,632 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:07:49,733 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:07:49,734 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:49,734 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:49,734 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:49,835 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:49,837 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:49,838 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:49,838 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:50,039 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGS="+353858174706"
+Dora sent you the following message:
+
+See you later aligator
+
+2021-03-09 20:07:50,143 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGS="+353858174706"Dora sent you the following message:See you later aligator
+2021-03-09 20:07:52,950 - gsmHat.gsmHat - DEBUG - Received Data: > 
+2021-03-09 20:07:52,952 - gsmHat.gsmHat - DEBUG - Received Data: +CMGS: 17
+2021-03-09 20:07:52,955 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:52,956 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:52,956 - gsmHat.gsmHat - INFO - Message to +353858174706 successfully sent
+2021-03-09 20:07:53,157 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:07:53,260 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:07:53,260 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:53,261 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:53,261 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:07:53,462 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:07:53,564 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:07:53,565 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:53,566 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:53,867 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:53,969 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:53,975 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003732.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:53,976 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:53,995 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:53,995 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:53,996 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:53,996 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:53,996 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:53,997 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:53,997 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:53,998 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:53,998 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:54,199 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:54,301 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:54,304 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:54,305 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:54,306 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:54,507 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:07:54,609 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:07:54,611 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:07:54,612 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:54,613 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:55,916 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:56,018 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:56,023 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003734.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:56,023 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:56,024 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:56,024 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:56,024 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:56,025 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:56,025 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:56,025 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:56,025 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:56,026 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:56,027 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:56,729 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:56,831 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:56,833 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:56,834 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:56,834 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:57,937 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:07:58,039 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:07:58,045 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003736.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:07:58,046 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:07:58,046 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:07:58,047 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:07:58,047 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:07:58,047 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:07:58,047 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:07:58,048 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:07:58,048 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:07:58,049 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:58,049 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:59,253 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:07:59,355 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:07:59,358 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:07:59,359 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:07:59,360 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:07:59,561 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:08:16,620 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:08:16,620 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:08:16,621 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:08:16,722 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:08:16,723 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:16,723 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:16,723 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:16,824 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:16,826 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:16,827 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:16,828 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:17,028 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGS="+353861645641"
+Dora sent you the following message:
+
+See you later aligator
+
+2021-03-09 20:08:17,132 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGS="+353861645641"Dora sent you the following message:See you later aligator
+2021-03-09 20:08:20,040 - gsmHat.gsmHat - DEBUG - Received Data: > 
+2021-03-09 20:08:20,042 - gsmHat.gsmHat - DEBUG - Received Data: +CMGS: 18
+2021-03-09 20:08:20,043 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:20,043 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:20,044 - gsmHat.gsmHat - INFO - Message to +353861645641 successfully sent
+2021-03-09 20:08:20,245 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:08:20,347 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:08:20,348 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:20,348 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:20,348 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:08:20,550 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:08:20,652 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:08:20,653 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:20,653 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:20,955 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:08:21,057 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:08:21,062 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003759.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:08:21,063 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:08:21,082 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:08:21,083 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:08:21,083 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:08:21,083 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:08:21,084 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:08:21,084 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:08:21,084 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:08:21,085 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:21,085 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:21,287 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:21,389 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:21,391 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:21,392 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:21,393 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:21,594 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:08:21,696 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:08:21,699 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:08:21,700 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:21,701 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:23,004 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:08:23,106 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:08:23,112 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003802.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:08:23,113 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:08:23,113 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:08:23,114 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:08:23,114 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:08:23,114 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:08:23,115 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:08:23,115 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:08:23,115 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:08:23,116 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:23,116 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:23,819 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:23,921 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:23,924 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:23,925 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:23,926 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:25,029 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:08:25,131 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:08:25,137 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003804.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:08:25,137 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:08:25,138 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:08:25,138 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:08:25,139 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:08:25,139 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:08:25,139 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:08:25,139 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:08:25,140 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:08:25,140 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:25,141 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:26,344 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:26,446 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:26,449 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:26,452 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:26,452 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:55,300 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:08:55,301 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:08:55,302 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:08:55,403 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:08:55,403 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:55,404 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:55,404 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:55,506 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:55,508 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:55,510 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:55,510 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:55,711 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGS="+353861645641"
+Dora sent you the following message:
+
+See you later aligator!
+
+2021-03-09 20:08:55,815 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGS="+353861645641"Dora sent you the following message:See you later aligator!
+2021-03-09 20:08:58,422 - gsmHat.gsmHat - DEBUG - Received Data: > 
+2021-03-09 20:08:58,424 - gsmHat.gsmHat - DEBUG - Received Data: +CMGS: 19
+2021-03-09 20:08:58,425 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:58,425 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:58,426 - gsmHat.gsmHat - INFO - Message to +353861645641 successfully sent
+2021-03-09 20:08:58,627 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSPWR=1
+
+2021-03-09 20:08:58,729 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSPWR=1
+2021-03-09 20:08:58,730 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:58,731 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:58,731 - gsmHat.gsmHat - DEBUG - GPS powered on
+2021-03-09 20:08:58,932 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSTST=0
+
+2021-03-09 20:08:59,034 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSTST=0
+2021-03-09 20:08:59,035 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:59,035 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:59,337 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CGNSINF
+
+2021-03-09 20:08:59,438 - gsmHat.gsmHat - DEBUG - Received Data: AT+CGNSINF
+2021-03-09 20:08:59,444 - gsmHat.gsmHat - DEBUG - Received Data: +CGNSINF: 1,0,19800106003838.000,,,,0.00,0.0,0,,,,,,0,0,,,,,
+2021-03-09 20:08:59,445 - gsmHat.gsmHat - DEBUG - New GPS Data:
+2021-03-09 20:08:59,464 - gsmHat.gsmHat - DEBUG - Latitude: Could not convert  to float.
+2021-03-09 20:08:59,464 - gsmHat.gsmHat - DEBUG - Longitude: Could not convert  to float.
+2021-03-09 20:08:59,465 - gsmHat.gsmHat - DEBUG - Altitude: Could not convert  to float.
+2021-03-09 20:08:59,465 - gsmHat.gsmHat - DEBUG - HDOP: Could not convert  to float.
+2021-03-09 20:08:59,465 - gsmHat.gsmHat - DEBUG - PDOP: Could not convert  to float.
+2021-03-09 20:08:59,466 - gsmHat.gsmHat - DEBUG - VDOP: Could not convert  to float.
+2021-03-09 20:08:59,466 - gsmHat.gsmHat - DEBUG - Signal: Could not convert  to float.
+2021-03-09 20:08:59,467 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:59,468 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:59,669 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:08:59,771 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:08:59,774 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 0,20,0,20,0,20
+2021-03-09 20:08:59,775 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:08:59,776 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:08:59,977 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+SAPBR=2,1
+
+2021-03-09 20:09:00,079 - gsmHat.gsmHat - DEBUG - Received Data: AT+SAPBR=2,1
+2021-03-09 20:09:00,082 - gsmHat.gsmHat - DEBUG - Received Data: +SAPBR: 1,3,"0.0.0.0"
+2021-03-09 20:09:00,083 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:00,084 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:25,605 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:09:25,606 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:09:25,607 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:09:25,708 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:09:25,709 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:25,709 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:25,710 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:09:25,811 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:09:25,812 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 1,20,1,20,1,20
+2021-03-09 20:09:25,814 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:25,814 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:26,015 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-09 20:09:26,116 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-09 20:09:26,119 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:09:18+00"
+2021-03-09 20:09:26,133 - gsmHat.gsmHat - DEBUG - Received Raw Data: 004F006B007900200064006F006B0079002C0020006E00690067006800740020006E00690067006800740020D83CDF19
+
+2021-03-09 20:09:26,133 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:09:26,134 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:09:26,135 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:09:26,135 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-09 20:09:26,236 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-09 20:09:26,237 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:26,238 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:26,439 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-09 20:09:26,541 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-09 20:09:26,543 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:26,546 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:26,547 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-09 20:09:26,649 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-09 20:09:26,649 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:26,650 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:26,851 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-09 20:09:26,953 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-09 20:09:26,955 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:26,955 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:26,956 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-09 20:09:27,057 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-09 20:09:27,058 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:27,059 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:27,260 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-09 20:09:27,362 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-09 20:09:27,364 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:27,364 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:27,365 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-09 20:09:27,467 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-09 20:09:27,468 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:27,468 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:27,670 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-09 20:09:27,772 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-09 20:09:27,773 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:27,773 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:27,774 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-09 20:09:27,875 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-09 20:09:27,876 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:27,877 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,078 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-09 20:09:28,180 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-09 20:09:28,181 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:28,181 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,182 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-09 20:09:28,283 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-09 20:09:28,284 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:28,285 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,486 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-09 20:09:28,588 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-09 20:09:28,588 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:28,589 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,589 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-09 20:09:28,691 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-09 20:09:28,692 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:28,692 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,893 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-09 20:09:28,995 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-09 20:09:28,996 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:28,996 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:28,997 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-09 20:09:29,098 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-09 20:09:29,099 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:29,100 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:29,301 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-09 20:09:29,403 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-09 20:09:29,404 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:29,404 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:29,405 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-09 20:09:29,506 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-09 20:09:29,507 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:29,508 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:29,709 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-09 20:09:29,810 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-09 20:09:29,810 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:29,810 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:29,811 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-09 20:09:29,912 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-09 20:09:29,912 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:29,913 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:30,113 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-09 20:09:30,214 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-09 20:09:30,215 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:30,215 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:30,216 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-09 20:09:30,317 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-09 20:09:30,317 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:30,317 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:30,518 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-09 20:09:57,362 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:09:57,363 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:09:57,364 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:09:57,465 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:09:57,465 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:57,466 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:57,466 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:09:57,567 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:09:57,568 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 1,20,1,20,1,20
+2021-03-09 20:09:57,570 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:57,570 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:57,771 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-09 20:09:57,872 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-09 20:09:57,875 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:09:49+00"
+2021-03-09 20:09:57,886 - gsmHat.gsmHat - DEBUG - Received Raw Data: Oky doky, night night
+
+2021-03-09 20:09:57,886 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:09:57,887 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:09:57,887 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:09:57,887 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-09 20:09:57,988 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-09 20:09:57,989 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:57,989 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:58,190 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-09 20:09:58,291 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-09 20:09:58,291 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:58,292 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:58,292 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-09 20:09:58,393 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-09 20:09:58,393 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:58,394 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:58,594 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-09 20:09:58,695 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-09 20:09:58,696 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:58,696 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:58,696 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-09 20:09:58,797 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-09 20:09:58,798 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:58,798 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:58,999 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-09 20:09:59,100 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-09 20:09:59,101 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:59,102 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:59,102 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-09 20:09:59,204 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-09 20:09:59,205 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:59,205 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:59,406 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-09 20:09:59,508 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-09 20:09:59,508 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:59,509 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:59,509 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-09 20:09:59,611 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-09 20:09:59,612 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:59,612 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:59,813 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-09 20:09:59,915 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-09 20:09:59,915 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:09:59,916 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:09:59,916 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-09 20:10:00,018 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-09 20:10:00,019 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:00,019 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:00,220 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-09 20:10:00,322 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-09 20:10:00,323 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:00,323 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:00,323 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-09 20:10:00,425 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-09 20:10:00,426 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:00,426 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:00,627 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-09 20:10:00,729 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-09 20:10:00,730 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:00,730 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:00,731 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-09 20:10:00,832 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-09 20:10:00,833 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:00,834 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,035 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-09 20:10:01,136 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-09 20:10:01,137 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:01,137 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,138 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-09 20:10:01,239 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-09 20:10:01,240 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:01,241 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,442 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-09 20:10:01,544 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-09 20:10:01,545 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:01,545 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,546 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-09 20:10:01,648 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-09 20:10:01,649 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:01,649 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,851 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-09 20:10:01,952 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-09 20:10:01,953 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:01,954 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:01,955 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-09 20:10:02,056 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-09 20:10:02,057 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:02,058 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:02,259 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-09 20:10:02,361 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=12
+2021-03-09 20:10:02,362 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:10:02,363 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:10:02,363 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=12
+
+2021-03-09 20:11:22,190 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:11:22,191 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:11:22,192 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:11:22,293 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:11:22,293 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:22,293 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:22,294 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:11:22,395 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:11:22,396 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 3,20,3,20,3,20
+2021-03-09 20:11:22,397 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:22,398 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:22,598 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-09 20:11:22,699 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-09 20:11:22,702 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:10:40+00"
+2021-03-09 20:11:22,714 - gsmHat.gsmHat - DEBUG - Received Raw Data: So I received an SMS from the Raspberry Pi
+
+2021-03-09 20:11:22,714 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:11:22,715 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:11:22,715 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:11:22,715 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-09 20:11:22,816 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-09 20:11:22,817 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:22,817 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:23,018 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-09 20:11:23,120 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-09 20:11:23,127 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:10:57+00"
+2021-03-09 20:11:23,132 - gsmHat.gsmHat - DEBUG - Received Raw Data: I can also send a message to the pi 
+
+2021-03-09 20:11:23,132 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:11:23,133 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:11:23,134 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:11:23,134 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-09 20:11:23,236 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-09 20:11:23,237 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:23,237 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:23,438 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-09 20:11:23,540 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-09 20:11:23,546 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:11:11+00"
+2021-03-09 20:11:23,550 - gsmHat.gsmHat - DEBUG - Received Raw Data: But I cannot make the GPS work 
+
+2021-03-09 20:11:23,550 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:11:23,551 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:11:23,552 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:11:23,552 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-09 20:11:23,653 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-09 20:11:23,654 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:23,655 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:23,856 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-09 20:11:23,958 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-09 20:11:23,959 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:23,960 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:23,960 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-09 20:11:24,062 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-09 20:11:24,063 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:24,063 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:24,264 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-09 20:11:24,366 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-09 20:11:24,367 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:24,368 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:24,369 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-09 20:11:24,470 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-09 20:11:24,471 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:24,471 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:24,672 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-09 20:11:24,774 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-09 20:11:24,775 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:24,776 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:24,777 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-09 20:11:24,878 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-09 20:11:24,879 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:24,879 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:25,080 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-09 20:11:25,182 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-09 20:11:25,184 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:25,184 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:25,185 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-09 20:11:25,286 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-09 20:11:25,287 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:25,287 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:25,488 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-09 20:11:25,590 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-09 20:11:25,591 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:25,592 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:25,592 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-09 20:11:25,694 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-09 20:11:25,695 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:25,695 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:25,896 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-09 20:11:25,998 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-09 20:11:25,999 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,000 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:26,000 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-09 20:11:26,102 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-09 20:11:26,103 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,103 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:26,305 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-09 20:11:26,406 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-09 20:11:26,407 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,408 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:26,409 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-09 20:11:26,510 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-09 20:11:26,511 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,511 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:26,712 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-09 20:11:26,814 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-09 20:11:26,815 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,815 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:26,816 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-09 20:11:26,918 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-09 20:11:26,919 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:26,919 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:27,120 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-09 20:11:59,010 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:11:59,011 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:11:59,012 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:11:59,113 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-09 20:11:59,113 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:59,114 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:59,114 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-09 20:11:59,215 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-09 20:11:59,216 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 1,20,1,20,1,20
+2021-03-09 20:11:59,218 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:59,218 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:59,419 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-09 20:11:59,520 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-09 20:11:59,522 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/09,20:11:52+00"
+2021-03-09 20:11:59,534 - gsmHat.gsmHat - DEBUG - Received Raw Data: Theodora Tataru makes Pixel very happy 
+
+2021-03-09 20:11:59,534 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-09 20:11:59,535 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-09 20:11:59,535 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-09 20:11:59,535 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-09 20:11:59,636 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-09 20:11:59,637 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:59,637 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:59,838 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-09 20:11:59,940 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-09 20:11:59,941 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:11:59,942 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:11:59,942 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-09 20:12:00,044 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-09 20:12:00,045 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:00,045 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:00,246 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-09 20:12:00,348 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-09 20:12:00,349 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:00,350 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:00,350 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-09 20:12:00,452 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-09 20:12:00,453 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:00,453 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:00,654 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-09 20:12:00,756 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-09 20:12:00,757 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:00,758 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:00,758 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-09 20:12:00,860 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-09 20:12:00,861 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:00,861 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,062 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-09 20:12:01,164 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-09 20:12:01,165 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:01,165 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,166 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-09 20:12:01,267 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-09 20:12:01,268 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:01,268 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,469 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-09 20:12:01,571 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-09 20:12:01,572 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:01,572 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,573 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-09 20:12:01,674 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-09 20:12:01,675 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:01,675 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,876 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-09 20:12:01,978 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-09 20:12:01,979 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:01,979 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:01,980 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-09 20:12:02,081 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-09 20:12:02,082 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:02,082 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:02,283 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-09 20:12:02,385 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-09 20:12:02,386 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:02,386 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:02,387 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-09 20:12:02,488 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-09 20:12:02,489 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:02,489 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:02,690 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-09 20:12:02,792 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-09 20:12:02,793 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:02,793 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:02,793 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-09 20:12:02,895 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-09 20:12:02,896 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:02,896 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:03,097 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-09 20:12:03,199 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-09 20:12:03,200 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:03,200 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:03,201 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-09 20:12:03,302 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-09 20:12:03,303 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:03,304 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:03,505 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-09 20:12:03,607 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-09 20:12:03,608 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:03,608 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:03,608 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-09 20:12:03,710 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-09 20:12:03,711 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-09 20:12:03,711 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-09 20:12:03,913 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-09 20:33:23,334 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:33:23,335 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:33:23,336 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:33:38,034 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:33:38,035 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:33:38,036 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:33:39,751 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:33:39,753 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:33:39,754 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:34:06,446 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:34:06,452 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:34:06,453 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:34:20,569 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:34:20,571 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:34:20,572 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:35:06,319 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:35:06,320 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:35:06,321 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:35:30,036 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-09 20:35:30,038 - gsmHat.gsmHat - INFO - Worker started
+2021-03-09 20:35:30,038 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-09 20:35:35,552 - gsmHat.gsmHat - ERROR - Timeout during data reception
+2021-03-09 20:35:35,552 - gsmHat.gsmHat - INFO - Command sent: AT+CMGF=1
+2021-03-09 20:35:35,553 - gsmHat.gsmHat - INFO - Actual state of programme: 2
+2021-03-09 20:35:35,553 - gsmHat.gsmHat - ERROR - Try to restart gsm module
+2021-03-10 10:57:24,867 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-10 10:57:24,868 - gsmHat.gsmHat - INFO - Worker started
+2021-03-10 10:57:24,868 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-10 10:57:24,969 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGF=1
+2021-03-10 10:57:24,970 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:24,970 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:24,970 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CPMS="SM"
+
+2021-03-10 10:57:25,071 - gsmHat.gsmHat - DEBUG - Received Data: AT+CPMS="SM"
+2021-03-10 10:57:25,073 - gsmHat.gsmHat - DEBUG - Received Data: +CPMS: 1,20,1,20,1,20
+2021-03-10 10:57:25,074 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:25,075 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:25,276 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=1
+
+2021-03-10 10:57:25,377 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=1
+2021-03-10 10:57:25,380 - gsmHat.gsmHat - DEBUG - Received Data: +CMGR: "REC UNREAD","+353861645641","","21/03/10,10:57:18+00"
+2021-03-10 10:57:25,400 - gsmHat.gsmHat - DEBUG - Received Raw Data: Neatza buna!
+
+2021-03-10 10:57:25,401 - gsmHat.gsmHat - DEBUG - Received Raw Data: 
+
+2021-03-10 10:57:25,401 - gsmHat.gsmHat - DEBUG - Received Raw Data: OK
+
+2021-03-10 10:57:25,401 - gsmHat.gsmHat - INFO - New Message from +353861645641 was received
+2021-03-10 10:57:25,402 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=1
+
+2021-03-10 10:57:25,503 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=1
+2021-03-10 10:57:25,503 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:25,504 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:25,705 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=2
+
+2021-03-10 10:57:25,806 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=2
+2021-03-10 10:57:25,806 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:25,806 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:25,807 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=2
+
+2021-03-10 10:57:25,908 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=2
+2021-03-10 10:57:25,908 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:25,908 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:26,109 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=3
+
+2021-03-10 10:57:26,210 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=3
+2021-03-10 10:57:26,211 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:26,211 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:26,212 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=3
+
+2021-03-10 10:57:26,313 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=3
+2021-03-10 10:57:26,313 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:26,314 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:26,514 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=4
+
+2021-03-10 10:57:26,615 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=4
+2021-03-10 10:57:26,616 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:26,616 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:26,616 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=4
+
+2021-03-10 10:57:26,717 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=4
+2021-03-10 10:57:26,718 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:26,718 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:26,919 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=5
+
+2021-03-10 10:57:27,020 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=5
+2021-03-10 10:57:27,020 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,021 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:27,021 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=5
+
+2021-03-10 10:57:27,122 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=5
+2021-03-10 10:57:27,123 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,123 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:27,324 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=6
+
+2021-03-10 10:57:27,425 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=6
+2021-03-10 10:57:27,425 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,426 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:27,426 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=6
+
+2021-03-10 10:57:27,527 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=6
+2021-03-10 10:57:27,528 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,528 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:27,729 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=7
+
+2021-03-10 10:57:27,830 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=7
+2021-03-10 10:57:27,831 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,831 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:27,831 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=7
+
+2021-03-10 10:57:27,932 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=7
+2021-03-10 10:57:27,933 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:27,934 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:28,135 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=8
+
+2021-03-10 10:57:28,236 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=8
+2021-03-10 10:57:28,236 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:28,237 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:28,237 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=8
+
+2021-03-10 10:57:28,338 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=8
+2021-03-10 10:57:28,339 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:28,339 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:28,540 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=9
+
+2021-03-10 10:57:28,641 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=9
+2021-03-10 10:57:28,642 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:28,642 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:28,642 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=9
+
+2021-03-10 10:57:28,743 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=9
+2021-03-10 10:57:28,744 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:28,744 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:28,945 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=10
+
+2021-03-10 10:57:29,046 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=10
+2021-03-10 10:57:29,047 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:29,047 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:29,048 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=10
+
+2021-03-10 10:57:29,149 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=10
+2021-03-10 10:57:29,150 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:29,150 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:29,351 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=11
+
+2021-03-10 10:57:29,452 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=11
+2021-03-10 10:57:29,452 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:29,453 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:29,453 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=11
+
+2021-03-10 10:57:29,554 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGD=11
+2021-03-10 10:57:29,555 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:29,555 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:29,756 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGR=12
+
+2021-03-10 10:57:29,857 - gsmHat.gsmHat - DEBUG - Received Data: AT+CMGR=12
+2021-03-10 10:57:29,858 - gsmHat.gsmHat - DEBUG - Received Data: OK
+2021-03-10 10:57:29,858 - gsmHat.gsmHat - DEBUG - Lock Off
+2021-03-10 10:57:29,858 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGD=12
+
+2021-03-10 10:57:50,036 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-10 10:57:50,037 - gsmHat.gsmHat - INFO - Worker started
+2021-03-10 10:57:50,038 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-10 10:58:37,425 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-10 10:58:37,426 - gsmHat.gsmHat - INFO - Worker started
+2021-03-10 10:58:37,427 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
+2021-03-10 10:58:41,287 - gsmHat.gsmHat - INFO - Serial connection to /dev/ttyUSB0 established
+2021-03-10 10:58:41,288 - gsmHat.gsmHat - INFO - Worker started
+2021-03-10 10:58:41,289 - gsmHat.gsmHat - DEBUG - Sent to hat: AT+CMGF=1
+
