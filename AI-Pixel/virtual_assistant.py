@@ -6,6 +6,7 @@
 import display
 import helper
 import skill
+import gc
 
 from gtts import gTTS
 import os
@@ -54,22 +55,22 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                             register.run(AIstatus, cameraRunning, name, response, status)
 
 
-                if "open" in request or "opening hour" in request or "address"  in request or "where" in request:
+                elif "open" in request or "opening hour" in request or "address"  in request or "where" in request:
                     location_details = skill.Location()
                     request = location_details.prepare(request)
                     location_details.run(AIstatus, request, response, status)
 
-                if "time" in request:
+                elif "time" in request:
                     time_now = skill.Time()
                     now = time_now.prepare(AIstatus, status)
                     time_now.run(now, AIstatus, response, status)
                 
-                if "date" in request:
+                elif "date" in request:
                     date_today = skill.Date()
                     date = date_today.prepare(AIstatus, status)
                     date_today.run(date, AIstatus, response, status)
             
-                if "weather" in request:
+                elif "weather" in request:
                     #TODO: put forecast and temperature here
                     weather = skill.Weather()
                     city = weather.prepare(AIstatus, status, request)
@@ -78,7 +79,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     except:
                         weather.error(user, response, AIstatus, status, city) 
 
-                if "covid" in request:
+                elif "covid" in request:
                     covid = skill.Covid19()
                     country = covid.prepare(request, AIstatus, status)
                     try:
@@ -86,12 +87,12 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     except:
                         covid.error(user, country, response, AIstatus, status)
 
-                if "thank you" in request:
+                elif "thank you" in request:
                     thank_you_message = skill.Thank_you()
                     answer = thank_you_message.prepare(user, AIstatus, status)
                     thank_you_message.run(response, AIstatus, status, answer)
 
-                if "define" in request or "definition" in request or "tell me about" in request:
+                elif "define" in request or "definition" in request or "tell me about" in request:
                     definition = skill.Definition()
                     word = definition.prepare(AIstatus, request, status)
                     try:
@@ -99,7 +100,7 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     except:
                         definition.error(user, word, response, AIstatus, status)
 
-                if "bye" in request or "see you" in request:
+                elif "bye" in request or "see you" in request:
                     #TODO: verify if this works
                     bye = skill.Good_bye()
                     answer = bye.prepare()
@@ -116,6 +117,9 @@ def start(user:str, response:str, AIstatus:str, understanding:str, cameraRunning
                     help.run(help_for, AIstatus, status, response, user)
                 except:
                     help.error(AIstatus, status, response, user)
+
+            # Forcing the Garbage Collector to clean the memory
+            gc.collect()
         
 
 def listening(AIStatus:str):

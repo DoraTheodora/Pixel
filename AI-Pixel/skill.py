@@ -746,6 +746,8 @@ class Register(Skill):
                 if "yes" in confirm or "yea" in confirm or "right" in confirm and "not" not in confirm:
                     return name
                 if "cancel" in confirm:
+                    response.value = "You cancelled the registration.\nWell, maybe next time!\n\nI am ready to answer other questions now."
+                    virtual_assistant.speak("You cancelled the registration.\nWell, maybe next time!\n\nI am ready to answer other questions now.")
                     return "stranger"
         return name
 
